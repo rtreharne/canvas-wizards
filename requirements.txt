@@ -4,3 +4,5 @@ numpy
 plotly
 pandas
 textblob
+openpyxl
+nltk
