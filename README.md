@@ -1,1 +1,2 @@
-# jupyter-book-template
+# Canvas LMS for Admin Wizards
+
