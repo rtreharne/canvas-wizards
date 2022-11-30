@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Sentiment analysis of Speedgrader submission comments &#8212; My sample book</title>
+    <title>Sentiment analysis of feedback &#8212; Canvas LMS for Admin Wizards</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
+    <link rel="prev" title="Getting Started" href="markdown.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -96,7 +96,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">Canvas LMS for Admin Wizards</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -108,29 +108,31 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Welcome to Canvas LMS for Admin Wizards
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Workshop
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="markdown.html">
-   Markdown Files
+   Getting Started
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks.html">
-   Content with notebooks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="markdown-notebooks.html">
-   Notebooks with MyST Markdown
-  </a>
- </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Sentiment analysis of Speedgrader submission comments
+   Sentiment analysis of feedback
   </a>
  </li>
 </ul>
@@ -341,7 +343,7 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Sentiment analysis of Speedgrader submission comments
+   Sentiment analysis of feedback
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
@@ -390,7 +392,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Sentiment analysis of Speedgrader submission comments</h1>
+                <h1>Sentiment analysis of feedback</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -402,7 +404,7 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Sentiment analysis of Speedgrader submission comments
+   Sentiment analysis of feedback
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
@@ -452,8 +454,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="sentiment-analysis-of-speedgrader-submission-comments">
-<h1>Sentiment analysis of Speedgrader submission comments<a class="headerlink" href="#sentiment-analysis-of-speedgrader-submission-comments" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="sentiment-analysis-of-feedback">
+<h1>Sentiment analysis of feedback<a class="headerlink" href="#sentiment-analysis-of-feedback" title="Permalink to this headline">#</a></h1>
 <section id="authors">
 <h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">#</a></h2>
 <p><em>J. Foster, R. Treharne</em></p>
@@ -478,15 +480,8 @@ title="Print to PDF"
 <h1>Step 1. Install canvasapi and configure Canvas API session<a class="headerlink" href="#step-1-install-canvasapi-and-configure-canvas-api-session" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell to install canvasapi and textblob Python modules. This takes about 1 min. Be patient.</span>
-<span class="c1">#!pip install canvasapi &amp;&amp; pip install textblob &amp;&amp; python -m textblob.download_corpora</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell to import the necessary modules from canvasapi and other Python modules</span>
+
 <span class="kn">from</span> <span class="nn">canvasapi</span> <span class="kn">import</span> <span class="n">Canvas</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -494,13 +489,21 @@ title="Print to PDF"
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span><span class="p">,</span> <span class="n">timezone</span>
 <span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
 <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
  
 <span class="n">API_URL</span> <span class="o">=</span> <span class="s2">&quot;https://canvas.liverpool.ac.uk/&quot;</span>
  
-<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;&lt;INPUT YOUR KEY HERE&gt;&quot;</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;&lt;INPUT YOUR KEY HERE&gt;&quot;</span> <span class="c1"># Replace everything inside the quotation marks with your API KEY/TOKEN</span>
 
 <span class="c1"># Where do I get my Canvas API Key from? </span>
 <span class="c1"># https://community.canvaslms.com/t5/Admin-Guide/How-do-I-manage-API-access-tokens-as-an-admin/ta-p/89</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /home/treharne/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
 </pre></div>
 </div>
 </div>
@@ -645,6 +648,9 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://liverpool.instructure.com/courses/58609/assignments/218636&quot;</span> <span class="c1"># LIFE223_1 as an example</span>
+
+<span class="c1"># Uncomment the following line to run:</span>
+
 <span class="c1"># result = SpeedgraderAnalysis(url) #!important</span>
 </pre></div>
 </div>
@@ -653,6 +659,9 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Once you&#39;re run the cell above you can look at the extracted sentiment data as follows:</span>
+
+<span class="c1"># Uncomment the following line to run:</span>
+
 <span class="c1"># result.submissions_comments</span>
 </pre></div>
 </div>
@@ -660,7 +669,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can save this data as an Excel spreadsheet as follows:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can save this data as an Excel spreadsheet as follows (uncomment to run):</span>
+
 <span class="c1"># result.submissions_comments.to_excel(&quot;sentiment_analysis.xlsx&quot;, index=False)</span>
 </pre></div>
 </div>
@@ -669,6 +679,9 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot your sentiment analysis</span>
+
+<span class="c1"># Uncomment the following line to run:</span>
+
 <span class="c1"># result.plot()</span>
 </pre></div>
 </div>
@@ -676,8 +689,9 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can highlight the comments of any marker (or multiple markers) as follows:</span>
-<span class="c1">#result.plot(marker=[&quot;Treharne&quot;, &quot;Mitchell&quot;], title=&quot;Sentiment analysis of feedback comments for LIFE223-202223 Essay Assignment&quot;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can highlight the comments of any marker (or multiple markers) as follows (uncomment to run):</span>
+
+<span class="c1"># result.plot(marker=[&quot;Treharne&quot;, &quot;Mitchell&quot;], title=&quot;Sentiment analysis of feedback comments for LIFE223-202223 Essay Assignment&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -685,7 +699,10 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># One last thing: You can plot a bar chart showing the top 20 markers (or bottom 20) listed according to comment length.</span>
-<span class="c1"># result.comment_length_bar(ascending=False) # change to ascending=False if you want to see the bottom 20</span>
+
+<span class="c1"># Uncomment the following line to run:</span>
+
+<span class="c1"># result.comment_length_bar(ascending=True) # change to ascending=False if you want to see the bottom 20</span>
 </pre></div>
 </div>
 </div>
@@ -719,11 +736,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="markdown-notebooks.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="markdown.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Notebooks with MyST Markdown</p>
+            <p class="prev-next-title">Getting Started</p>
         </div>
     </a>
 </div>
@@ -733,7 +750,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By The Jupyter Book Community<br/>
+    By R. E. Treharne<br/>
   
       &copy; Copyright 2022.<br/>
 </p>
