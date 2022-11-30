@@ -3,8 +3,7 @@
 
 # # Content with notebooks
 # 
-# You can also create content with Jupyter Notebooks. This means that you can include
-# code blocks and their outputs in your book.
+# This is code that I edited.
 # 
 # ## Markdown + notebooks
 # 
@@ -49,7 +48,7 @@ import numpy as np
 plt.ion()
 
 
-# In[ ]:
+# In[2]:
 
 
 # Fixing random state for reproducibility
@@ -74,3 +73,27 @@ ax.legend(custom_lines, ['Cold', 'Medium', 'Hot']);
 
 # There is a lot more that you can do with outputs (such as including interactive outputs)
 # with your book. For more information about this, see [the Jupyter Book documentation](https://jupyterbook.org)
+
+# In[7]:
+
+
+fig, ax = plt.subplots()
+
+x = np.linspace(-10*np.pi, 10*np.pi, 1000)
+y = np.sin(x)
+
+ax.plot(x, y, label="sin")
+ax.legend()
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
