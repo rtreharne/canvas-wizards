@@ -398,8 +398,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="content-with-notebooks">
 <h1>Content with notebooks<a class="headerlink" href="#content-with-notebooks" title="Permalink to this headline">#</a></h1>
-<p>You can also create content with Jupyter Notebooks. This means that you can include
-code blocks and their outputs in your book.</p>
+<p>This is code that I edited.</p>
 <section id="markdown-notebooks">
 <h2>Markdown + notebooks<a class="headerlink" href="#markdown-notebooks" title="Permalink to this headline">#</a></h2>
 <p>As it is markdown, you can embed images, HTML, etc into your posts!</p>
@@ -474,9 +473,31 @@ ax.legend(custom_lines, [&#39;Cold&#39;, &#39;Medium&#39;, &#39;Hot&#39;]);
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/notebooks_2_0.png" src="_images/notebooks_2_0.png" />
+</div>
 </div>
 <p>There is a lot more that you can do with outputs (such as including interactive outputs)
 with your book. For more information about this, see <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots()
+
+x = np.linspace(-10*np.pi, 10*np.pi, 1000)
+y = np.sin(x)
+
+ax.plot(x, y, label=&quot;sin&quot;)
+ax.legend()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f85461790&gt;
+</pre></div>
+</div>
+<img alt="_images/notebooks_4_1.png" src="_images/notebooks_4_1.png" />
+</div>
+</div>
 </section>
 </section>
 
