@@ -3,8 +3,10 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
-- file: sentiment_analysis
+parts:
+  - caption: Workshop
+    chapters:
+    - file: markdown
+  - caption: Tools
+    chapters:
+    - file: sentiment_analysis
