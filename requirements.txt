@@ -1,0 +1,4 @@
+matplotlib
+canvasapi
+numpy
+plotly
