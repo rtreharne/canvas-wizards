@@ -2,3 +2,5 @@ matplotlib
 canvasapi
 numpy
 plotly
+pandas
+textblob
