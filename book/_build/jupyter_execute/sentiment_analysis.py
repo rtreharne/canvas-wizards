@@ -29,7 +29,7 @@
 
 # # Step 1. Install canvasapi and configure Canvas API session
 
-# In[1]:
+# In[5]:
 
 
 # Run this cell to import the necessary modules from canvasapi and other Python modules
@@ -52,7 +52,7 @@ API_KEY = "<INPUT YOUR KEY HERE>" # Replace everything inside the quotation mark
 # https://community.canvaslms.com/t5/Admin-Guide/How-do-I-manage-API-access-tokens-as-an-admin/ta-p/89
 
 
-# In[2]:
+# In[6]:
 
 
 # Uncomment and run the line below to create a Canvas session
@@ -64,7 +64,7 @@ API_KEY = "<INPUT YOUR KEY HERE>" # Replace everything inside the quotation mark
 # 
 # This cell contains all the code needed to perform the analysis. You need to run this cell, but once you've done this you can ignore the code.
 
-# In[3]:
+# In[7]:
 
 
 import matplotlib.pyplot as plt
@@ -192,7 +192,7 @@ class SpeedgraderAnalysis():
 # ```
 # 
 
-# In[4]:
+# In[8]:
 
 
 url = "https://liverpool.instructure.com/courses/58609/assignments/218636" # LIFE223_1 as an example
@@ -202,7 +202,7 @@ url = "https://liverpool.instructure.com/courses/58609/assignments/218636" # LIF
 # result = SpeedgraderAnalysis(url) #!important
 
 
-# In[5]:
+# In[9]:
 
 
 # Once you're run the cell above you can look at the extracted sentiment data as follows:
@@ -212,7 +212,7 @@ url = "https://liverpool.instructure.com/courses/58609/assignments/218636" # LIF
 # result.submissions_comments
 
 
-# In[6]:
+# In[10]:
 
 
 # You can save this data as an Excel spreadsheet as follows (uncomment to run):
@@ -220,7 +220,7 @@ url = "https://liverpool.instructure.com/courses/58609/assignments/218636" # LIF
 # result.submissions_comments.to_excel("sentiment_analysis.xlsx", index=False)
 
 
-# In[7]:
+# In[11]:
 
 
 # Plot your sentiment analysis
@@ -230,7 +230,7 @@ url = "https://liverpool.instructure.com/courses/58609/assignments/218636" # LIF
 # result.plot()
 
 
-# In[8]:
+# In[12]:
 
 
 # You can highlight the comments of any marker (or multiple markers) as follows (uncomment to run):
@@ -238,7 +238,7 @@ url = "https://liverpool.instructure.com/courses/58609/assignments/218636" # LIF
 # result.plot(marker=["Treharne", "Mitchell"], title="Sentiment analysis of feedback comments for LIFE223-202223 Essay Assignment")
 
 
-# In[9]:
+# In[14]:
 
 
 # One last thing: You can plot a bar chart showing the top 20 markers (or bottom 20) listed according to comment length.
