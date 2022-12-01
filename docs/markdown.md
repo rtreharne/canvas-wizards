@@ -1,8 +1,10 @@
+# What is an API?
+
+An **application programming interface** (API) is a set of stored functions or procedures that allow you get, create or edit data from an application without having to use a graphical interface (e.g. a website). The Canvas API will allow you to almost anything that you currently do using the standard user interface. "So what?" - I hear you say. Well, the power of the API lies with the ability to prepare snippets of code (we're going to use **Python** here) to make use of the API's functions in order to automate repetitive tasks and cut your workload dramatically.
+
+"OMG, I have to write code?". Well, yes. Get over it. It's really not that bad and this book is going to guide you all the way. Deep breath now, let's dive in.
+
 # Getting Started
-
-Rob needs to write more stuff here.
-
-## What is MyST?
 
 MyST stands for "Markedly Structured Text". It
 is a slight variation on a flavor of markdown called "CommonMark" markdown,
