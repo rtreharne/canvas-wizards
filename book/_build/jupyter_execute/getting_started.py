@@ -7,7 +7,7 @@
 # 
 # An **application programming interface** (API) is a set of stored functions or procedures that allow you get, create or edit data from an application without having to use a graphical interface (e.g. a website). The Canvas API will allow you to do almost anything that you currently do using the standard user interface. 
 # 
-# The Canvas API is extremely well documented and, while the documentation may seem somewhat impenetrable at first, reading the docs can solve most problems. Check it out at <a href="https://canvas.instructure.com/doc/api/" target="_blank">https://canvas.instructure.com/doc/api/</a>.
+# The Canvas API is extremely well documented and, while the documentation may seem impenetrable at first, reading the docs can solve most problems. Check it out at <a href="https://canvas.instructure.com/doc/api/" target="_blank">https://canvas.instructure.com/doc/api/</a>.
 # 
 # *"So what?"* - I hear you say. Well, the power of the API lies with the ability to prepare snippets of code (we're going to use **Python** here) to make use of the API's functions in order to automate repetitive tasks and cut your workload dramatically.
 # 
