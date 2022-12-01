@@ -19,6 +19,12 @@ latex:
 bibtex_bibfiles:
   - references.bib
 
+# Launch button settings
+launch_buttons:
+  notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
+  colab_url                 : "https://colab.research.google.com/rtreharne/canvas-wizards"
+
 # Information about where the book exists on the web
 repository:
   url: https://github.com/rtreharne/canvas-wizards  # Online location of your book
