@@ -38,20 +38,28 @@ from canvasapi import Canvas
 
 
 # ```{note}
-# If you're using Colab of Jupyter Notebook you'll need to install the canvasapi first using the command `!pip install 
-# ```
-# ```{code}
-# !pip install canvasapi
-# ```
+# If you're using Colab or Jupyter Notebook you'll need to install the canvasapi first using the following command: **!pip install canvasapi**
 
-# In[ ]:
+# Now create an `API_URL` variable and set it to the URL of your institutions Canvas homepage, e.g. "https://canvas.liverpool.ac.uk". Make sure that the URL has quotation marks either side of it (i.e. define it as a string variable!).
+
+# In[2]:
 
 
+API_URL = "<YOUR CANVAS URL>"
 
 
+# You now need to define an `API_KEY` variable. Your API Key (or token as their called in canvas). To get your API key follow <a href="https://community.canvaslms.com/t5/Admin-Guide/How-do-I-manage-API-access-tokens-as-an-admin/ta-p/89" target="_blank">this guide</a>.
 
-# In[ ]:
+# In[3]:
 
 
+API_KEY = "<YOUR API KEY>"
 
+
+# Lastly, you need to create a Canvas session and store it in a variable:
+
+# In[4]:
+
+
+# Uncomment the following line (remove the # symbol at the start of the line) to create you Canvas 
 
