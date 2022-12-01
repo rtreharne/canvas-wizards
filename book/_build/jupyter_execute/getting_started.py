@@ -38,10 +38,8 @@ from canvasapi import Canvas
 
 
 # ```{note}
-# 
-# If you're using Colab of Jupyter Notebook you'll need to install the canvasapi first using the following command:
+# If you're using Colab of Jupyter Notebook you'll need to install the canvasapi first using the command `!pip install 
 # ```
-# 
 # ```{code}
 # !pip install canvasapi
 # ```
