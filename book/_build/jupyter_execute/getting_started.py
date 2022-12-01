@@ -61,27 +61,19 @@ API_KEY = "<YOUR API KEY>"
 # In[4]:
 
 
-import warnings
-warnings.filterwarnings('ignore')
+canvas = Canvas(API_URL, API_KEY)
 
-try:
-    canvas = Canvas(API_URL, API_KEY)
-except Exception as e:
-    print(str(e))
-    
 
+# OK. Done! Now to get a list of all the courses that you're currently enrolled run the following lines ...
 
 # In[5]:
 
 
-try:
-    canvas.get_user(101)
-except Exception as e:
-    print
+user = canvas.get_user(101) # Replace the value 101 with you own use ID
 
+courses = user.get_courses() # Get the user's courses
 
-# In[ ]:
-
-
-
+# Print out all the courses
+for course in course:
+    print(course.name)
 
