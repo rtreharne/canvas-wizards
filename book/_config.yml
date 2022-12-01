@@ -23,7 +23,7 @@ bibtex_bibfiles:
 launch_buttons:
   notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
   binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
-  colab_url                 : "https://colab.research.google.com/rtreharne/canvas-wizards"
+  colab_url                 : "https://colab.research.google.com"
 
 # Information about where the book exists on the web
 repository:
