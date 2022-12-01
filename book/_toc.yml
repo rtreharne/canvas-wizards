@@ -6,7 +6,7 @@ root: intro
 parts:
   - caption: Workshop
     chapters:
-    - file: markdown
+    - file: getting_started
   - caption: Tools
     chapters:
     - file: sentiment_analysis
