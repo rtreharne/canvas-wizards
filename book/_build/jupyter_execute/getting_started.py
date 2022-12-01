@@ -31,7 +31,7 @@
 # 
 # First, ensure that you've imported the canvasapi module for Python by running the following cell:
 
-# In[1]:
+# In[ ]:
 
 
 from canvasapi import Canvas
@@ -42,7 +42,7 @@ from canvasapi import Canvas
 
 # Now create an `API_URL` variable and set it to the URL of your institutions Canvas homepage, e.g. "https://canvas.liverpool.ac.uk". Make sure that the URL has quotation marks either side of it (i.e. define it as a string variable!).
 
-# In[2]:
+# In[ ]:
 
 
 API_URL = "<YOUR CANVAS URL>"
@@ -50,7 +50,7 @@ API_URL = "<YOUR CANVAS URL>"
 
 # You now need to define an `API_KEY` variable. Your API Key (or token as their called in canvas). To get your API key follow <a href="https://community.canvaslms.com/t5/Admin-Guide/How-do-I-manage-API-access-tokens-as-an-admin/ta-p/89" target="_blank">this guide</a>.
 
-# In[3]:
+# In[ ]:
 
 
 API_KEY = "<YOUR API KEY>"
@@ -58,7 +58,7 @@ API_KEY = "<YOUR API KEY>"
 
 # Lastly, you need to create a Canvas session and store it in a variable:
 
-# In[4]:
+# In[ ]:
 
 
 canvas = Canvas(API_URL, API_KEY)
@@ -66,7 +66,7 @@ canvas = Canvas(API_URL, API_KEY)
 
 # OK. Done! Now to get a list of all the courses that you're currently enrolled run the following lines ...
 
-# In[5]:
+# In[ ]:
 
 
 user = canvas.get_user(101) # Replace the value 101 with you own use ID

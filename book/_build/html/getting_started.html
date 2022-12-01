@@ -476,12 +476,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/treharne/.local/lib/python3.10/site-packages/canvasapi/canvas.py:52: UserWarning: An invalid `base_url` for the Canvas API Instance was used. Please provide a valid HTTP or HTTPS URL if possible.
-  warnings.warn(
-</pre></div>
-</div>
-</div>
 </div>
 <p>OK. Done! Now to get a list of all the courses that you’re currently enrolled run the following lines …</p>
 <div class="cell docutils container">
@@ -493,106 +487,6 @@ title="Print to PDF"
 <span class="c1"># Print out all the courses</span>
 <span class="k">for</span> <span class="n">course</span> <span class="ow">in</span> <span class="n">course</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">course</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">MissingSchema</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">user</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">get_user</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span> <span class="c1"># Replace the value 101 with you own use ID</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">courses</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">get_courses</span><span class="p">()</span> <span class="c1"># Get the user&#39;s courses</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Print out all the courses</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/canvasapi/canvas.py:1246,</span> in <span class="ni">Canvas.get_user</span><span class="nt">(self, user, id_type, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1243</span>     <span class="n">user_id</span> <span class="o">=</span> <span class="n">obj_or_id</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">User</span><span class="p">,))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1244</span>     <span class="n">uri</span> <span class="o">=</span> <span class="s2">&quot;users/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1246</span> <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__requester</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1247</span>     <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">uri</span><span class="p">,</span> <span class="n">_kwargs</span><span class="o">=</span><span class="n">combine_kwargs</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1248</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1249</span> <span class="k">return</span> <span class="n">User</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__requester</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/canvasapi/requester.py:208,</span> in <span class="ni">Requester.request</span><span class="nt">(self, method, endpoint, headers, use_auth, _url, _kwargs, json, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">205</span> <span class="k">if</span> <span class="n">_kwargs</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">206</span>     <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Data: </span><span class="si">{data}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">pformat</span><span class="p">(</span><span class="n">_kwargs</span><span class="p">)))</span>
-<span class="ne">--&gt; </span><span class="mi">208</span> <span class="n">response</span> <span class="o">=</span> <span class="n">req_method</span><span class="p">(</span><span class="n">full_url</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">_kwargs</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span> <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span>     <span class="s2">&quot;Response: </span><span class="si">{method}</span><span class="s2"> </span><span class="si">{url}</span><span class="s2"> </span><span class="si">{status}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">211</span>         <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">full_url</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">213</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">214</span> <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="s2">&quot;Headers: </span><span class="si">{headers}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span>         <span class="n">headers</span><span class="o">=</span><span class="n">pformat</span><span class="p">(</span><span class="n">clean_headers</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">217</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/canvasapi/requester.py:66,</span> in <span class="ni">Requester._get_request</span><span class="nt">(self, url, headers, params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">def</span> <span class="nf">_get_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span><span class="sd">     Issue a GET request to the specified endpoint with the data provided.</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">64</span><span class="sd">     :type params: dict</span>
-<span class="g g-Whitespace">     </span><span class="mi">65</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">66</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
-
-<span class="nn">File /usr/lib/python3/dist-packages/requests/sessions.py:555,</span> in <span class="ni">Session.get</span><span class="nt">(self, url, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">547</span> <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Sends a GET request. Returns :class:`Response` object.</span>
-<span class="g g-Whitespace">    </span><span class="mi">548</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">549</span><span class="sd"> :param url: URL for the new :class:`Request` object.</span>
-<span class="g g-Whitespace">    </span><span class="mi">550</span><span class="sd"> :param \*\*kwargs: Optional arguments that ``request`` takes.</span>
-<span class="g g-Whitespace">    </span><span class="mi">551</span><span class="sd"> :rtype: requests.Response</span>
-<span class="g g-Whitespace">    </span><span class="mi">552</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">554</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;allow_redirects&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">555</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /usr/lib/python3/dist-packages/requests/sessions.py:528,</span> in <span class="ni">Session.request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">515</span> <span class="c1"># Create the Request.</span>
-<span class="g g-Whitespace">    </span><span class="mi">516</span> <span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">517</span>     <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span>
-<span class="g g-Whitespace">    </span><span class="mi">518</span>     <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">526</span>     <span class="n">hooks</span><span class="o">=</span><span class="n">hooks</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">527</span> <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">528</span> <span class="n">prep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepare_request</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">530</span> <span class="n">proxies</span> <span class="o">=</span> <span class="n">proxies</span> <span class="ow">or</span> <span class="p">{}</span>
-<span class="g g-Whitespace">    </span><span class="mi">532</span> <span class="n">settings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">merge_environment_settings</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">533</span>     <span class="n">prep</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">proxies</span><span class="p">,</span> <span class="n">stream</span><span class="p">,</span> <span class="n">verify</span><span class="p">,</span> <span class="n">cert</span>
-<span class="g g-Whitespace">    </span><span class="mi">534</span> <span class="p">)</span>
-
-<span class="nn">File /usr/lib/python3/dist-packages/requests/sessions.py:456,</span> in <span class="ni">Session.prepare_request</span><span class="nt">(self, request)</span>
-<span class="g g-Whitespace">    </span><span class="mi">453</span>     <span class="n">auth</span> <span class="o">=</span> <span class="n">get_netrc_auth</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">455</span> <span class="n">p</span> <span class="o">=</span> <span class="n">PreparedRequest</span><span class="p">()</span>
-<span class="ne">--&gt; </span><span class="mi">456</span> <span class="n">p</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">457</span>     <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span>
-<span class="g g-Whitespace">    </span><span class="mi">458</span>     <span class="n">url</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">459</span>     <span class="n">files</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">460</span>     <span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">461</span>     <span class="n">json</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">462</span>     <span class="n">headers</span><span class="o">=</span><span class="n">merge_setting</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span> <span class="n">dict_class</span><span class="o">=</span><span class="n">CaseInsensitiveDict</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span>     <span class="n">params</span><span class="o">=</span><span class="n">merge_setting</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">464</span>     <span class="n">auth</span><span class="o">=</span><span class="n">merge_setting</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">465</span>     <span class="n">cookies</span><span class="o">=</span><span class="n">merged_cookies</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">466</span>     <span class="n">hooks</span><span class="o">=</span><span class="n">merge_hooks</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">hooks</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hooks</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">467</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">468</span> <span class="k">return</span> <span class="n">p</span>
-
-<span class="nn">File /usr/lib/python3/dist-packages/requests/models.py:316,</span> in <span class="ni">PreparedRequest.prepare</span><span class="nt">(self, method, url, headers, files, data, params, auth, cookies, hooks, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">313</span> <span class="sd">&quot;&quot;&quot;Prepares the entire request with the given parameters.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">315</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepare_method</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">316</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepare_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">317</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepare_headers</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepare_cookies</span><span class="p">(</span><span class="n">cookies</span><span class="p">)</span>
-
-<span class="nn">File /usr/lib/python3/dist-packages/requests/models.py:390,</span> in <span class="ni">PreparedRequest.prepare_url</span><span class="nt">(self, url, params)</span>
-<span class="g g-Whitespace">    </span><span class="mi">387</span>     <span class="n">error</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Invalid URL </span><span class="si">{0!r}</span><span class="s2">: No schema supplied. Perhaps you meant http://</span><span class="si">{0}</span><span class="s2">?&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">388</span>     <span class="n">error</span> <span class="o">=</span> <span class="n">error</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">to_native_string</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">))</span>
-<span class="ne">--&gt; </span><span class="mi">390</span>     <span class="k">raise</span> <span class="n">MissingSchema</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">392</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">host</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">393</span>     <span class="k">raise</span> <span class="n">InvalidURL</span><span class="p">(</span><span class="s2">&quot;Invalid URL </span><span class="si">%r</span><span class="s2">: No host supplied&quot;</span> <span class="o">%</span> <span class="n">url</span><span class="p">)</span>
-
-<span class="ne">MissingSchema</span>: Invalid URL &#39;&lt;YOUR CANVAS URL&gt;/api/v1/users/101&#39;: No schema supplied. Perhaps you meant http://&lt;YOUR CANVAS URL&gt;/api/v1/users/101?
 </pre></div>
 </div>
 </div>
