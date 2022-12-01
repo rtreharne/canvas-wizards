@@ -24,8 +24,33 @@
 # ```{note}
 # If you're new to all of this then the Binder option above is strongly recommended. 
 # ```
+
+# ## Ready for a Test Drive
 # 
+# OK. I think you're ready to try a few lines of code yourself. Let's start simple. How about trying to get a list of all the Canvas courses you're currently enrolled on? This is pretty easy.
 # 
+# First, ensure that you've imported the canvasapi module for Python by running the following cell:
+
+# In[1]:
+
+
+from canvasapi import Canvas
+
+
+# ```{note}
+# 
+# If you're using Colab of Jupyter Notebook you'll need to install the canvasapi first using the following command:
+# ```
+# 
+# ```{code}
+# !pip install canvasapi
+# ```
+
+# In[ ]:
+
+
+
+
 
 # In[ ]:
 
