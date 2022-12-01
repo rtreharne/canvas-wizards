@@ -451,10 +451,31 @@ title="Print to PDF"
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you’re using Colab of Jupyter Notebook you’ll need to install the canvasapi first using the command `!pip install</p>
+<p>If you’re using Colab or Jupyter Notebook you’ll need to install the canvasapi first using the following command: <strong>!pip install canvasapi</strong></p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install canvasapi
+<p>Now create an <code class="docutils literal notranslate"><span class="pre">API_URL</span></code> variable and set it to the URL of your institutions Canvas homepage, e.g. “<a class="reference external" href="https://canvas.liverpool.ac.uk">https://canvas.liverpool.ac.uk</a>”. Make sure that the URL has quotation marks either side of it (i.e. define it as a string variable!).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">API_URL</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR CANVAS URL&gt;&quot;</span>
 </pre></div>
+</div>
+</div>
+</div>
+<p>You now need to define an <code class="docutils literal notranslate"><span class="pre">API_KEY</span></code> variable. Your API Key (or token as their called in canvas). To get your API key follow <a href="https://community.canvaslms.com/t5/Admin-Guide/How-do-I-manage-API-access-tokens-as-an-admin/ta-p/89" target="_blank">this guide</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR API KEY&gt;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lastly, you need to create a Canvas session and store it in a variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uncomment the following line (remove the # symbol at the start of the line) to create you Canvas </span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
