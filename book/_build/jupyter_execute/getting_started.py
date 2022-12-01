@@ -61,5 +61,27 @@ API_KEY = "<YOUR API KEY>"
 # In[4]:
 
 
-# Uncomment the following line (remove the # symbol at the start of the line) to create you Canvas 
+import warnings
+warnings.filterwarnings('ignore')
+
+try:
+    canvas = Canvas(API_URL, API_KEY)
+except Exception as e:
+    print(str(e))
+    
+
+
+# In[5]:
+
+
+try:
+    canvas.get_user(101)
+except Exception as e:
+    print
+
+
+# In[ ]:
+
+
+
 
