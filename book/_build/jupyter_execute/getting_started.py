@@ -17,12 +17,12 @@
 # 
 # There are about a **zillion** different ways that you could create a coding environment in which you can begin your tranformation to Canvas wizard. The best way for you get started will be to click the little *rocket icon* at the top of this page and then click the *Binder* button. You might have to wait a couple of minutes while the environment is created but once it's ready you'll be good to go without having to download or install a single thing. Wizard!
 # 
-# Or, you can click the download button in the top-right and download the .ipynb for each section and run it on your local machine using **Jupyter Notebook**. For advice on how to install Jupyter Notebook checkout <a href="https://www.geeksforgeeks.org/how-to-install-jupyter-notebook-in-windows/" target="_blank">this article</a>.
+# Or, you can click the *Colab* button and open a notebook using the Google Colab platform for online notebooks. You will also need use the "Copy to Drive" button to run the code on the page - this will require you to login using a Google account.
 # 
-# Lastly, another way to get setup super quick the <a href="https://colab.research.google.com/github/rtreharne/canvas-wizards/blob/main/docs/getting_started.ipynb" target="_blank">Google Colab link</a> for each page. You will still need to install any external modules, including the canvasapi module for Python. You will also need use the "Copy to Drive" button to run the code on the page - this will require you to login using a Google account.
+# If you're hardcore you can click the download button in the top-right and download the .ipynb for each section and run it on your local machine using **Jupyter Notebook**. For advice on how to install Jupyter Notebook checkout <a href="https://www.geeksforgeeks.org/how-to-install-jupyter-notebook-in-windows/" target="_blank">this article</a>.
 # 
 # ```{note}
-# If you're new to all of this then the Binder option above is strongly recommended. Downloading and installing Jupyter Notebook and then making sure you've got the correct Python modules installed in order to run the Canvas API functions might cause you headaches.
+# If you're new to all of this then the Binder option above is strongly recommended. 
 # ```
 # 
 # 
