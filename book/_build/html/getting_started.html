@@ -451,12 +451,19 @@ title="Print to PDF"
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you’re using Colab or Jupyter Notebook you’ll need to install the canvasapi first using the following command: <strong>!pip install canvasapi</strong></p>
+<p>If you’re using Colab or Jupyter Notebook you’ll need to install the canvasapi first using the following command: ```</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install canvasapi
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now create an <code class="docutils literal notranslate"><span class="pre">API_URL</span></code> variable and set it to the URL of your institutions Canvas homepage, e.g. “<a class="reference external" href="https://canvas.liverpool.ac.uk">https://canvas.liverpool.ac.uk</a>”. Make sure that the URL has quotation marks either side of it (i.e. define it as a string variable!).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">API_URL</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR CANVAS URL&gt;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">API_URL</span> <span class="o">=</span> <span class="s2">&quot;https://canvas.liverpool.ac.uk&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -464,7 +471,7 @@ title="Print to PDF"
 <p>You now need to define an <code class="docutils literal notranslate"><span class="pre">API_KEY</span></code> variable. Your API Key (or token as their called in canvas). To get your API key follow <a href="https://community.canvaslms.com/t5/Admin-Guide/How-do-I-manage-API-access-tokens-as-an-admin/ta-p/89" target="_blank">this guide</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR API KEY&gt;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;15502~ly3QVBGlcM0eOVgPAaYzPL3nYp6vRNOvEju5F6ZaPPA6J1zzR1e7L2LKP7k92rP0&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -485,8 +492,338 @@ title="Print to PDF"
 <span class="n">courses</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">get_courses</span><span class="p">()</span> <span class="c1"># Get the user&#39;s courses</span>
 
 <span class="c1"># Print out all the courses</span>
-<span class="k">for</span> <span class="n">course</span> <span class="ow">in</span> <span class="n">course</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">course</span> <span class="ow">in</span> <span class="n">courses</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">course</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(VITAL) - 202021-LIFE101 - MOLECULES AND CELLS
+(VITAL) - 202021-LIFE103 - EVOLUTION
+(VITAL) - 202021-LIFE105 - GRAND CHALLENGES IN BIOLOGY
+(VITAL) - 202021-LIFE107 - EXPERIMENTAL SKILLS IN CURRENT BIOLOGY
+(VITAL) - 202021-LIFE111 - CORE CONCEPTS OF ANATOMY
+(VITAL) - 202021-LIFE113 - Quantitative Skills for the Life Sciences
+(VITAL) - 202021-LIFE130 - Communication and Study Skills for the Life Sciences
+(VITAL) - 202021-LIFE201 - From Genes to Proteins
+(VITAL) - 202021-LIFE202 - Cell Signalling in Health and Disease
+(VITAL) - 202021-LIFE204 - Endocrine and Neuro-physiology
+(VITAL) - 202021-LIFE205 - The Multicellular Organism: tissues, development, regeneration and aging
+(VITAL) - 202021-LIFE209 - Virology
+(VITAL) - 202021-LIFE217 - Advanced Animal Husbandry
+(VITAL) - 202021-LIFE221 - The Immune System in Health and Disease
+(VITAL) - 202021-LIFE223 - Essential Skills for the Life Sciences 2
+(VITAL) - 202021-LIFE225 - E-Biology: Informatics for Life Sciences
+(VITAL) - 202021-LIFE227 - Techniques in Cell Biology
+(VITAL) - 202021-LIFE229 - Practical Human Physiology
+(VITAL) - 202021-LIFE232 - Experimental Physiology
+(VITAL) - 202021-LIFE233 - Biodiversity Practical Skills
+(VITAL) - 202021-LIFE236 - Practical Skills in Tropical Medicine
+(VITAL) - 202021-LIFE335 - THE BODY IN MOTION: MUSCULOSKELETAL FUNCTIONING IN HEALTH, PERFORMANCE AND DISEASE
+(VITAL) - 202021-LIFE349 - Advanced Human Topographical Anatomy
+(VITAL) - 202021-LIFE355 - Advanced Skills in Biological Sciences
+(VITAL) - 202021-LIFE363 - Research Project
+(VITAL) - 202021-LIFE373 - Molecular, Clinical and Translational Cancer
+(VITAL) - 202021-LIFE621 - INFORMATICS FOR LIFE SCIENCES (OFF-CAMPUS)
+(VITAL) - 202021-LIFE631 - RESEARCH METHODS AND APPLICATIONS IN BIOLOGICAL SCIENCES (OFF-CAMPUS)
+(VITAL) - 202021-LIFE701 - RESEARCH INTERNSHIP
+(VITAL) - 202021-LIFE702 - INTRODUCTION TO RESEARCH
+(VITAL) - 202021-LIFE703 - MSC RESEARCH PROJECT
+(VITAL) - 202021-LIFE705 - Microbiomes: microbial diversity and host interactions
+(VITAL) - 202021-LIFE707 - ADVANCED STATISTICS FOR BIOLOGICAL RESEARCH
+(VITAL) - 202021-LIFE710 - PROFESSIONAL, EMPLOYABILITY AND RESEARCH SKILLS FOR ADVANCED BIOLOGICAL SCIENCES
+(VITAL) - 202021-LIFE714 - Negotiated Research Skills
+(VITAL) - 202021-LIFE721 - INFORMATICS FOR LIFE SCIENCES
+(VITAL) - 202021-LIFE731 - RESEARCH METHODS AND APPLICATIONS IN BIOLOGICAL SCIENCES
+(VITAL) - 202021-LIFE733 - PROGRAMMING FOR LIFE SCIENCES
+(VITAL) - 202021-LIFE763 - STATISTICS FOR BIOLOGICAL RESEARCH
+399 Work Based Placement
+201617-LIFE109 - ESSENTIAL SKILLS FOR THE LIFE SCIENCES I
+201617-LIFE223 - Essential Skills for the Life Sciences 2
+201617-LIFE338 - Chemotherapy of Parasitic Disease
+201617-LIFE340 - Topics in Global Health
+201617-LIFE363 - Research Project
+201617-LIFE365 - Advanced Skills in Biological and Medical Sciences
+201617-LIFE621 - INFORMATICS FOR LIFE SCIENCES (OFF-CAMPUS)
+201617-PHYS901 - Fundamentals of New and Sustainable Photovoltaics
+201718-LIFE107 - Experiment Skills in Curr Biol
+201718-LIFE109 - Essent Skills for Life Sci 1
+201718-LIFE223 - Essential Skills for the Life Sciences 2
+201718-LIFE228 - Advanced Microbiological Techniques
+201718-LIFE340 - Topics in Global Health
+201718-LIFE355 - Advanced Skills in Biological Sciences
+201718-LIFE365 - Biomedical Sciences Skills
+201718-LIFE701 - RESEARCH INTERNSHIP
+201718-LIFE710 - PROFESSIONAL, EMPLOYABILITY AND RESEARCH SKILLS FOR ADVANCED BIOLOGICAL SCIENCES
+201718-LIFE733 - PROGRAMMING FOR LIFE SCIENCES
+201718-PHYS901 - Fundamentals of New and Sustainable Photovoltaics
+201819-LIFE107 - EXPERIMENTAL SKILLS IN CURRENT BIOLOGY
+201819-LIFE109 - ESSENTIAL SKILLS FOR THE LIFE SCIENCES I
+201819-LIFE209 - Virology
+201819-LIFE223 - Essential Skills for the Life Sciences 2
+201819-LIFE355 - Advanced Skills in Biological Sciences
+201819-LIFE363 - Research Project
+201819-LIFE365 - Advanced Skills in Biological and Medical Sciences
+201819-LIFE700 - RESEARCH PROJECT
+201819-LIFE701 - RESEARCH INTERNSHIP
+201920-LIFE102 - BIOCHEMISTRY AND BIOMEDICAL SCIENCES
+201920-LIFE105 - GRAND CHALLENGES IN BIOLOGY
+201920-LIFE106 - INTRODUCTION TO PHYSIOLOGY AND PHARMACOLOGY
+201920-LIFE107 - EXPERIMENTAL SKILLS IN CURRENT BIOLOGY
+201920-LIFE109 - ESSENTIAL SKILLS FOR THE LIFE SCIENCES I
+201920-LIFE110 - MICROBIOLOGY
+201920-LIFE112 - ANIMAL BIODIVERSITY
+201920-LIFE113 - Quantitative Skills for the Life Sciences
+201920-LIFE116 - CIRCULATORY AND RESPIRATORY ANATOMY
+201920-LIFE118 - INTRODUCTION TO ANIMAL HUSBANDRY
+201920-LIFE120 - ECOLOGY AND THE GLOBAL ENVIRONMENT
+201920-LIFE122 - Biochemical Methods
+201920-LIFE126 - Introduction to Animal Infectious Diseases, Epidemiology and Public Health
+201920-LIFE128 - Introduction to Genetics and Development
+201920-LIFE130 - Communication and Study Skills for the Life Sciences
+201920-LIFE202 - Cell Signalling in Health and Disease
+201920-LIFE204 - Endocrine and Neuro-physiology
+201920-LIFE206 - DRUG ACTION
+201920-LIFE208 - MOLECULAR AND MEDICAL GENETICS
+201920-LIFE210 - Biotechnology
+201920-LIFE212 - Comparative Animal Physiology
+201920-LIFE214 - Population and Community Ecology
+201920-LIFE216 - Veterinary Parasitology and Public Health
+201920-LIFE218 - Functional Neuroanatomy
+201920-LIFE220 - Anatomy of the Head and Neck
+201920-LIFE223 - Essential Skills for Life Sciences 2
+201920-LIFE238 - Advanced Experimental Design and Analysis
+201920-LIFE240 - Pathological Basis of Animal Diseases
+201920-LIFE242 - E-Biology: Informatics for Life Sciences (S2)
+201920-LIFE302 - GENES AND CANCER
+201920-LIFE304 - Biochemical Messengers and Signal Transduction
+201920-LIFE306 - Molecular Medicine
+201920-LIFE307 - The Dynamic Cell: Membrane Traffic in Health and Disease
+201920-LIFE310 - Data Handling for Physiologists
+201920-LIFE312 - Chemotherapy and Cellular Pharmacology
+201920-LIFE314 - Cancer Pharmacology
+201920-LIFE316 - Molecular Toxicology
+201920-LIFE318 - Bacterial Disease Mechanisms
+201920-LIFE320 - Viral Disease Mechanisms
+201920-LIFE322 - Current Topics in Animal Behaviour
+201920-LIFE324 - CURRENT SKILLS AND TOPICS IN EVOLUTIONARY BIOLOGY
+201920-LIFE328 - Veterinary Epidemiology and Public Health
+201920-LIFE330 - The Cardiovascular System in Health and Disease
+201920-LIFE332 - SPECIALISED BODY SYSTEMS: DEVELOPMENT, DISEASE AND REGENERATION
+201920-LIFE334 - Clinical, Anatomical and Cellular Basis of Neurological Dysfunction
+201920-LIFE338 - Chemotherapy of Parasitic Disease
+201920-LIFE340 - Topics in Global Health
+201920-LIFE342 - Genome Biology and Technology
+201920-LIFE344 - Animal Nervous and Musculoskeletal Disorders
+201920-LIFE348 - ANTIMICROBIAL CHEMOTHERAPY FOR CHEMISTS
+201920-LIFE355 - Advanced Skills in Biological Sciences
+201920-LIFE364 - BECOMING HUMAN: GENOMICS, DEVELOPMENT, AND EVOLUTIONARY ANTHROPOLOGY
+201920-LIFE377 - ADVANCED DATA ANALYSIS FOR GENETICS
+201920-LIFE399 - LIFE SCIENCES WORK BASED PLACEMENT
+201920-LIFE402 - Cancer Pharmacology for Medicinal Chemists
+201920-LIFE700 - RESEARCH PROJECT
+201920-LIFE701 - RESEARCH INTERNSHIP
+201920-LIFE702 - INTRODUCTION TO RESEARCH
+201920-LIFE710 - PROFESSIONAL EMPLOYABILITY AND RESEARCH SKILLS FOR ADVANCED BIOLOGICAL SCIENCES
+201920-LIFE713 - ADVANCED TOPICS IN CELL SIGNALING
+201920-LIFE715 - ADVANCED TOPICS IN MOLECULAR MEDICINE
+201920-LIFE720 - ADVANCED TOPICS IN VIRAL DISEASE MECHANISMS
+201920-LIFE760 - GENES AND CANCER
+201920-PHAR660 - PHARMACOLOGY RESEARCH PROJECTS
+202021- BSTM - 202021 - Biomedical Sciences Masters Course
+202021-ADEV701 - Individual Investigation to Inform Innovation and Excellence
+202021-ENGG286 - PROGRAMMING FOR ENGINEERS 1
+202021-FWK-LHS - Institute of Life and Human Sciences
+202021-FWK-PF - School of Life Sciences
+202021-LIFE101 - MOLECULES AND CELLS
+202021-LIFE103 - EVOLUTION
+202021-LIFE105 - GRAND CHALLENGES IN BIOLOGY
+202021-LIFE107 - EXPERIMENTAL SKILLS IN CURRENT BIOLOGY
+202021-LIFE111 - CORE CONCEPTS OF ANATOMY
+202021-LIFE113 - Quantitative Skills for the Life Sciences
+202021-LIFE221 - The Immune System in Health and Disease
+202021-LIFE223 - Essential Skills for the Life Sciences 2
+202021-LIFE227 - Techniques in Cell Biology
+202021-LIFE322 - Current Topics in Animal Behaviour
+202021-LIFE335 - The Body in Motion: Musculoskeletal Functioning in Health, Performance and Disease
+202021-LIFE343 - Microbiomes - microbial diversity and host interactions
+202021-LIFE349 - Advanced Human Topographical Anatomy
+202021-LIFE363 - Research Project
+202021-LIFE705 - Microbiomes: microbial diversity and host interactions
+202021-LIFE710 - PROFESSIONAL, EMPLOYABILITY AND RESEARCH SKILLS FOR ADVANCED BIOLOGICAL SCIENCES
+202021-LIFE714 - Negotiated Research Skills
+202021-LIFE733 - PROGRAMMING FOR LIFE SCIENCES
+202021-LIFE763 - STATISTICS FOR BIOLOGICAL RESEARCH
+202021-OX-RSRCINTNSP - LIFE701 Research Internship
+202021-OX-SOLS-RESITS - School of Life Sciences Resits
+202021-PF-LIFE223QS - Essential Skill for the Life Sciences - Quantitative Skills
+202122 - BSTM - Biomedical Sciences Masters Course
+202122-AERO113 - AEROSPACE ENGINEERING DESIGN 1A
+202122-ENGG108 - INTRODUCTION TO STRUCTURAL MATERIALS
+202122-ENVS432 - THEORY POWER &amp; ETHICS
+202122-LIFE105 - GRAND CHALLENGES IN BIOLOGY
+202122-LIFE107 - EXPERIMENTAL SKILLS IN CURRENT BIOLOGY
+202122-LIFE111 - CORE CONCEPTS OF ANATOMY
+202122-LIFE113 - Quantitative Skills for the Life Sciences
+202122-LIFE118 - INTRODUCTION TO ANIMAL HUSBANDRY
+202122-LIFE130 - Communication and Study Skills for the Life Sciences
+202122-LIFE201 - From Genes to Proteins
+202122-LIFE205 - The Multicellular Organism: tissues development regeneration and aging
+202122-LIFE210 - Biotechnology
+202122-LIFE223 - Essential Skills for the Life Sciences 2
+202122-LIFE229 - Practical Human Physiology
+202122-LIFE233 - Biodiversity Practical Skills
+202122-LIFE237 - Molecular Science
+202122-LIFE305 - Cell Signalling in Health and Disease
+202122-LIFE311 - NEUROMUSCULAR PHYSIOLOGY AND DISEASE
+202122-LIFE340 - Topics in Global Health
+202122-LIFE344 - Animal Nervous and Musculoskeletal Disorders
+202122-LIFE363 - Research Project
+202122-LIFE710 - PROFESSIONAL EMPLOYABILITY AND RESEARCH SKILLS FOR ADVANCED BIOLOGICAL SCIENCES
+202122-LIFE726 - Cancer Clinical Trials
+202122-LIFE733 - PROGRAMMING FOR LIFE SCIENCES
+202122-LIFE752 - Computational Biology
+202122-MCMR002 - TRANSFERABLE SKILLS
+202122-MCMR003 - RESEARCH FRONTIERS IN CLINICAL SCIENCES 1
+202122-MCMR004 - RESEARCH FRONTIERS IN CLINICAL SCIENCES 2
+202122-MNFG308 - ADDITIVE MANUFACTURING
+202122-OX-223REFLECTIONS - LIFE223 Reflections
+202122-OX-363PRES - LIFE363 - Presentations
+202122-OX-ANATOM - Anatomy
+202122-OX-BIOCHEMISTRY - Biochemistry
+202122-OX-BIOMED - Biological and Medical Sciences
+202122-OX-BIOSCI - Biological Sciences
+202122-OX-BIOVETERINARY - Bioveterinary Sciences
+202122-OX-GENETICS - Genetics
+202122-OX-LIFE-SCIENCES - School of Life Sciences
+202122-OX-LIFE223QS - Essential Skill for the Life Sciences - Quantitative Skills
+202122-OX-LIFE363-2NDASSE - LIFE363 SECOND ASSESSOR
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>202122-OX-LIFEPEERS - School of Life Sciences - Peer Mentoring
+202122-OX-MICROBIOLOGY - Microbiology
+202122-OX-PHARMACOLOGY - Pharmacology
+202122-OX-PHYSIOLOGY - Physiology
+202122-OX-RSRCINTNSP - LIFE701 Research Internship
+202122-OX-TLG-PROJECT - TLG Project
+202122-OX-TLG-PROJECT-2 - TLG Project 2
+202122-OX-TLG-PROJECT-3 - TLG Project 3
+202122-OX-TROPICALDISEASE - Tropical Disease Medicine
+202122-OX-ZOOLOGY - Zoology
+202122-PF-LIFESALL - School of Life Sciences All
+202122-PHYS106 - PRACTICAL PHYSICS I
+202122-PSYC130 - DEVELOPMENTAL PSYCHOLOGY
+202122-PSYC132 - SOCIAL PSYCHOLOGY AND INDIVIDUAL DIFFERENCES
+202122-PSYC301 - GREAT DEBATES IN PSYCHOLOGY
+202122-PSYC324 - Conflict Psychology
+202122-PSYC339 - TYPICAL AND ATYPICAL LANGUAGE DEVELOPMENT
+202122-PSYC399 - PSYCHOLOGY WORK BASED PLACEMENT
+202122-TJ-SUSINACT - Sustainability In Action
+202223-LIFE105 - GRAND CHALLENGES IN BIOLOGY
+202223-LIFE107 - EXPERIMENTAL SKILLS IN CURRENT BIOLOGY
+202223-LIFE109 - ESSENTIAL SKILLS FOR THE LIFE SCIENCES I
+202223-LIFE113 - Quantitative Skills for the Life Sciences
+202223-LIFE130 - Communication and Study Skills for the Life Sciences
+202223-LIFE223 - Essential Skills for the Life Sciences 2
+202223-LIFE315 - Drug Metabolism and Drug Response
+202223-LIFE363 - Research Project
+202223-LIFE710 - PROFESSIONAL, EMPLOYABILITY AND RESEARCH SKILLS FOR ADVANCED BIOLOGICAL SCIENCES
+202223-LIFE733 - CODING FOR LIFE SCIENCES
+202223-OJ-FWK-OJ - School of Psychology
+202223-OX-ANATOM - Anatomy
+202223-OX-BIOCHEMISTRY - Biochemistry
+202223-OX-BIOMED - Biological and Medical Sciences
+202223-OX-BIOSCI - Biological Sciences
+202223-OX-BIOVETERINARY - Bioveterinary Sciences
+202223-OX-LIFE-SCIENCES - School of Life Sciences
+202223-OX-LIFE223QS - Essential Skill for the Life Sciences - Quantitative Skills
+202223-OX-LIFE363-2NDASSE - LIFE363 SECOND ASSESSOR
+202223-OX-LIFEPEERS - School of Life Sciences - Peer Mentoring
+202223-OX-LIFESSCSA - Science and Society Civic Service Award
+202223-OX-MICROBIOLOGY - Microbiology
+202223-OX-PHARMACOLOGY - Pharmacology
+202223-OX-PHYSIOLOGY - Physiology
+202223-OX-RSRCINTNSP - LIFE701 Research Internship
+202223-OX-SSCSA-YEAR-2 - Science and Society Civic Service Award (Year 2)
+202223-OX-TROPICALDISEASE - Tropical Disease Medicine
+202223-PHIL105 - PHILOSOPHY TOOLKIT
+ADB Canvas Demo
+Advanced Biochemical Techniques
+AY-RFORBUSYPEOPLE - R for Busy People
+Canvas Help for Staff
+Canvas Training [Feb 2020]
+CIE on demand
+CTL Science Jamboree
+Department of Psychology - General Information
+Developing  Online Communities for Education
+Diversity &amp; Equality for Staff
+DJ-FHLSPG - FHLS Postgraduate Students
+FHLS Postgraduate Students
+Flagship
+FWK-OX - School of Life Sciences
+Growing with Canvas
+Hybrid Active Learning Support
+Instructure Deep Dive Training
+IT Services Online Training and Resources
+KnowHow: Academic Success
+LIFE101 - migrated
+migrated - LIFE230
+migrated LIFE110
+OX-ALLLFS - Life Science Staff
+OX-LIFE363-2NDASSR - LIFE363 SECOND ASSESSOR
+OX-SOLS-CR - SoLS Curriculum Review
+Peer Observation of Teaching
+personal test course bates
+personal test course jjf
+personal test course treharne
+PF-TEL LIFE SCIENCES
+PGR Supervisors Network
+Role Related Development
+School of Life Sciences - Peer Mentoring
+School of Life Sciences SSLC
+Terry Gleave Sandbox
+TK-OUTFELSHP - Output of T&amp;L Fellowship
+University of Liverpool Obligatory Training
+ZOOLOGY
+</pre></div>
+</div>
+</div>
+</div>
+<p>Fantastic! This list will contain ALL canvas courses that you’ve ever been enrolled on. You may wish to filter this according to some substring in the course’s title, e.g. you can use the following code to make sure you’re only picking out courses that have “LIFE” and “202223” in the course titles:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">courses</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">user</span><span class="o">.</span><span class="n">get_courses</span><span class="p">()</span> <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;LIFE&quot;</span><span class="p">,</span> <span class="s2">&quot;202223&quot;</span><span class="p">])]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Right! Now you’re ready for some real “expecto patronum” stuff. Let’s create a report on whether your courses are ‘published’ or not. This is useful if you need to check if a course organiser has published their course on time ahead of the start of a semester.</p>
+<p>First, lets import the pandas module for Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pandas is mostly used for data science type tasks in Python. Think of it as being like Excel but a million times more awesome.</p>
+</div>
+<p>Now lets loop over all our courses and build a data frame with some useful stuff in it, i.e. <code class="docutils literal notranslate"><span class="pre">course_code</span></code>, <code class="docutils literal notranslate"><span class="pre">workflow_state</span></code>, <code class="docutils literal notranslate"><span class="pre">course_url</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">course</span> <span class="ow">in</span> <span class="n">courses</span><span class="p">:</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s2">&quot;course_code&quot;</span><span class="p">:</span> <span class="n">course</span><span class="o">.</span><span class="n">course_code</span><span class="p">,</span>
+        <span class="s2">&quot;workflow_state&quot;</span><span class="p">:</span> <span class="n">course</span><span class="o">.</span><span class="n">workflow_state</span><span class="p">,</span>
+        <span class="s2">&quot;course_url&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/courses/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">API_URL</span><span class="p">,</span> <span class="n">course</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="p">})</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="c1"># Creates a pandas data frame of the info</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s2">&quot;course_workflow_state_report.xlsx&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># Saves the data frame to an Excel spreadsheet!</span>
 </pre></div>
 </div>
 </div>

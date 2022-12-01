@@ -31,34 +31,40 @@
 # 
 # First, ensure that you've imported the canvasapi module for Python by running the following cell:
 
-# In[ ]:
+# In[8]:
 
 
 from canvasapi import Canvas
 
 
 # ```{note}
-# If you're using Colab or Jupyter Notebook you'll need to install the canvasapi first using the following command: **!pip install canvasapi**
-
-# Now create an `API_URL` variable and set it to the URL of your institutions Canvas homepage, e.g. "https://canvas.liverpool.ac.uk". Make sure that the URL has quotation marks either side of it (i.e. define it as a string variable!).
+# If you're using Colab or Jupyter Notebook you'll need to install the canvasapi first using the following command: ```
 
 # In[ ]:
 
 
-API_URL = "<YOUR CANVAS URL>"
+get_ipython().system('pip install canvasapi')
+
+
+# Now create an `API_URL` variable and set it to the URL of your institutions Canvas homepage, e.g. "https://canvas.liverpool.ac.uk". Make sure that the URL has quotation marks either side of it (i.e. define it as a string variable!).
+
+# In[4]:
+
+
+API_URL = "https://canvas.liverpool.ac.uk"
 
 
 # You now need to define an `API_KEY` variable. Your API Key (or token as their called in canvas). To get your API key follow <a href="https://community.canvaslms.com/t5/Admin-Guide/How-do-I-manage-API-access-tokens-as-an-admin/ta-p/89" target="_blank">this guide</a>.
 
-# In[ ]:
+# In[6]:
 
 
-API_KEY = "<YOUR API KEY>"
+API_KEY = "15502~ly3QVBGlcM0eOVgPAaYzPL3nYp6vRNOvEju5F6ZaPPA6J1zzR1e7L2LKP7k92rP0"
 
 
 # Lastly, you need to create a Canvas session and store it in a variable:
 
-# In[ ]:
+# In[9]:
 
 
 canvas = Canvas(API_URL, API_KEY)
@@ -66,7 +72,7 @@ canvas = Canvas(API_URL, API_KEY)
 
 # OK. Done! Now to get a list of all the courses that you're currently enrolled run the following lines ...
 
-# In[ ]:
+# In[10]:
 
 
 user = canvas.get_user(101) # Replace the value 101 with you own use ID
@@ -74,6 +80,46 @@ user = canvas.get_user(101) # Replace the value 101 with you own use ID
 courses = user.get_courses() # Get the user's courses
 
 # Print out all the courses
-for course in course:
+for course in courses:
     print(course.name)
+
+
+# Fantastic! This list will contain ALL canvas courses that you've ever been enrolled on. You may wish to filter this according to some substring in the course's title, e.g. you can use the following code to make sure you're only picking out courses that have "LIFE" and "202223" in the course titles:
+
+# In[14]:
+
+
+courses = [x for x in user.get_courses() if all(y in x.name for y in ["LIFE", "202223"])]
+
+
+# Right! Now you're ready for some real "expecto patronum" stuff. Let's create a report on whether your courses are 'published' or not. This is useful if you need to check if a course organiser has published their course on time ahead of the start of a semester.
+# 
+# First, lets import the pandas module for Python.
+
+# In[15]:
+
+
+import pandas as pd
+
+
+# ```{note}
+# Pandas is mostly used for data science type tasks in Python. Think of it as being like Excel but a million times more awesome.
+# ```
+
+# Now lets loop over all our courses and build a data frame with some useful stuff in it, i.e. `course_code`, `workflow_state`, `course_url`.
+
+# In[18]:
+
+
+rows = []
+for course in courses:
+    rows.append({
+        "course_code": course.course_code,
+        "workflow_state": course.workflow_state,
+        "course_url": "{}/courses/{}".format(API_URL, course.id)
+    })
+
+data = pd.DataFrame(rows) # Creates a pandas data frame of the info
+
+data.to_excel("course_workflow_state_report.xlsx", index=False) # Saves the data frame to an Excel spreadsheet!
 
