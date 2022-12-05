@@ -1,0 +1,840 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Basics &#8212; Canvas LMS for Admin Wizards</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sentiment analysis of feedback" href="sentiment_analysis.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Canvas LMS for Admin Wizards</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Canvas LMS for Admin Wizards
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Workshop
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Basics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="sentiment_analysis.html">
+   Sentiment analysis of feedback
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/rtreharne/canvas-wizards/main?urlpath=tree/docs/basics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/rtreharne/canvas-wizards/blob/main/docs/basics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/rtreharne/canvas-wizards"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/rtreharne/canvas-wizards/issues/new?title=Issue%20on%20page%20%2Fbasics.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/basics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#enrollments">
+   Enrollments
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#getting-all-enrollments-on-a-course">
+     Getting all enrollments on a course
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#export-course-enrollments">
+     Export course enrollments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignments">
+   Assignments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submissions">
+   Submissions
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Basics</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#enrollments">
+   Enrollments
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#getting-all-enrollments-on-a-course">
+     Getting all enrollments on a course
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#export-course-enrollments">
+     Export course enrollments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignments">
+   Assignments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submissions">
+   Submissions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="basics">
+<h1>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">#</a></h1>
+<p>In this section we’ll cover:</p>
+<ul class="simple">
+<li><p>Enrollments</p></li>
+<li><p>Assignments</p></li>
+<li><p>Submissions</p></li>
+</ul>
+<p>Before we begin, create your <code class="docutils literal notranslate"><span class="pre">canvas</span></code> session variable again by running the cell below with <code class="docutils literal notranslate"><span class="pre">API_URL</span></code> AND <code class="docutils literal notranslate"><span class="pre">API_KEY</span></code> set to your own personal values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create your Canvas session</span>
+<span class="kn">from</span> <span class="nn">canvasapi</span> <span class="kn">import</span> <span class="n">Canvas</span>
+<span class="n">API_URL</span> <span class="o">=</span> <span class="s2">&quot;https://canvas.liverpool.ac.uk&quot;</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;15502~f4Ezll8DlucRLthAlSKTjFqNQeED6FfpId6mZnyS9wvHmYqMHXd8ZJj7AkIjy15K&quot;</span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">API_URL</span><span class="p">,</span> <span class="n">API_KEY</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="enrollments">
+<h2>Enrollments<a class="headerlink" href="#enrollments" title="Permalink to this headline">#</a></h2>
+<section id="getting-all-enrollments-on-a-course">
+<h3>Getting all enrollments on a course<a class="headerlink" href="#getting-all-enrollments-on-a-course" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">course_id</span> <span class="o">=</span> <span class="mi">0000</span> <span class="c1"># REPLACE 0000 WITH YOUR COURSE ID</span>
+<span class="n">course</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">get_course</span><span class="p">(</span><span class="n">course_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can get the course id by going to any course homepage on Canvas and then looking at the last number in the URL string, e.g. for <a class="reference external" href="https://canvas.liverpool.ac.uk/courses/60371">https://canvas.liverpool.ac.uk/courses/60371</a> the course id is 60371</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">course</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can also get a course based on the course_sis_id which is usually the course name as it appears</span>
+<span class="c1"># in the top left of the course homepage on Canvas. You need to use the additional parameter `use_sis_id` in </span>
+<span class="c1"># the `get_course` function, and make sure it&#39;s set to True</span>
+
+<span class="n">course</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">get_course</span><span class="p">(</span><span class="s2">&quot;&lt;COURSE_SIS_ID&gt;&quot;</span><span class="p">,</span> <span class="n">use_sis_id</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To get all the enrollments on a course</span>
+<span class="n">enrollments</span> <span class="o">=</span> <span class="n">course</span><span class="o">.</span><span class="n">get_enrollments</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The line above will successfully return all enrollments for a course and store them in the variable <code class="docutils literal notranslate"><span class="pre">enrollments</span></code>. However, all the information will stored in an object called a <code class="docutils literal notranslate"><span class="pre">PaginatedList</span></code> which isn’t that useful when trying to do stuff in Python. For example, if you want to figure out how many enrollments there are you might try and use the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function (very sensible), but for a <code class="docutils literal notranslate"><span class="pre">PaginatedList</span></code> you’d encounter a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">enrollments</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">len</span><span class="p">(</span><span class="n">enrollments</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: object of type &#39;PaginatedList&#39; has no len()
+</pre></div>
+</div>
+</div>
+</div>
+<p>To avoid <code class="docutils literal notranslate"><span class="pre">TypeErrors</span></code>, it is recommended that you retrieve list of things from canvas by using the relevant function, in this case <code class="docutils literal notranslate"><span class="pre">course.get_enrollments()</span></code>, within what is known as a “list comprehension” in Python. Without going into any futher detail, the code you need is as follows …</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enrollments</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">course</span><span class="o">.</span><span class="n">get_enrollments</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">enrollments</span><span class="p">)</span> <span class="c1"># That&#39;s better!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>539
+</pre></div>
+</div>
+</div>
+</div>
+<p>Also, you can now slice your list of enrollments, e.g. to pick out a single enrollment from the list to look at it, by doing something like this …</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pick out the first enrollment from the list</span>
+<span class="n">enrollments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enrollment(_requester=&lt;canvasapi.requester.Requester object at 0x7f59dda0beb0&gt;, id=3103371, user_id=115162, course_id=60371, type=ObserverEnrollment, created_at=2022-10-03T09:14:10Z, created_at_date=2022-10-03 09:14:10+00:00, updated_at=2022-10-03T09:14:10Z, updated_at_date=2022-10-03 09:14:10+00:00, associated_user_id=None, start_at=None, end_at=None, course_section_id=60911, root_account_id=1, limit_privileges_to_course_section=False, enrollment_state=active, role=ObserverEnrollment, role_id=7, last_activity_at=2022-12-03T20:31:40Z, last_activity_at_date=2022-12-03 20:31:40+00:00, last_attended_at=None, total_activity_time=743, sis_account_id=OX, sis_course_id=LIFE130-202223, course_integration_id=None, sis_section_id=None, section_integration_id=None, sis_user_id=201676425hlshu, html_url=https://canvas.liverpool.ac.uk/courses/60371/users/115162, user={&#39;id&#39;: 115162, &#39;name&#39;: &#39;Senyi Hu&#39;, &#39;created_at&#39;: &#39;2022-08-30T03:37:50+01:00&#39;, &#39;sortable_name&#39;: &#39;Hu, Senyi&#39;, &#39;short_name&#39;: &#39;Senyi Hu&#39;, &#39;sis_user_id&#39;: &#39;201676425hlshu&#39;, &#39;integration_id&#39;: None, &#39;login_id&#39;: &#39;hlshu@liverpool.ac.uk&#39;})
+</pre></div>
+</div>
+</div>
+</div>
+<p>To make the data associated with the enrollment a bit more readable you can use the <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use .__dict__ to print out the dictionary map for the enrollment object. Beatuful!</span>
+<span class="n">enrollments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_requester&#39;: &lt;canvasapi.requester.Requester at 0x7f59dda0beb0&gt;,
+ &#39;id&#39;: 3103371,
+ &#39;user_id&#39;: 115162,
+ &#39;course_id&#39;: 60371,
+ &#39;type&#39;: &#39;ObserverEnrollment&#39;,
+ &#39;created_at&#39;: &#39;2022-10-03T09:14:10Z&#39;,
+ &#39;created_at_date&#39;: datetime.datetime(2022, 10, 3, 9, 14, 10, tzinfo=&lt;UTC&gt;),
+ &#39;updated_at&#39;: &#39;2022-10-03T09:14:10Z&#39;,
+ &#39;updated_at_date&#39;: datetime.datetime(2022, 10, 3, 9, 14, 10, tzinfo=&lt;UTC&gt;),
+ &#39;associated_user_id&#39;: None,
+ &#39;start_at&#39;: None,
+ &#39;end_at&#39;: None,
+ &#39;course_section_id&#39;: 60911,
+ &#39;root_account_id&#39;: 1,
+ &#39;limit_privileges_to_course_section&#39;: False,
+ &#39;enrollment_state&#39;: &#39;active&#39;,
+ &#39;role&#39;: &#39;ObserverEnrollment&#39;,
+ &#39;role_id&#39;: 7,
+ &#39;last_activity_at&#39;: &#39;2022-12-03T20:31:40Z&#39;,
+ &#39;last_activity_at_date&#39;: datetime.datetime(2022, 12, 3, 20, 31, 40, tzinfo=&lt;UTC&gt;),
+ &#39;last_attended_at&#39;: None,
+ &#39;total_activity_time&#39;: 743,
+ &#39;sis_account_id&#39;: &#39;OX&#39;,
+ &#39;sis_course_id&#39;: &#39;LIFE130-202223&#39;,
+ &#39;course_integration_id&#39;: None,
+ &#39;sis_section_id&#39;: None,
+ &#39;section_integration_id&#39;: None,
+ &#39;sis_user_id&#39;: &#39;201676425hlshu&#39;,
+ &#39;html_url&#39;: &#39;https://canvas.liverpool.ac.uk/courses/60371/users/115162&#39;,
+ &#39;user&#39;: {&#39;id&#39;: 115162,
+  &#39;name&#39;: &#39;Senyi Hu&#39;,
+  &#39;created_at&#39;: &#39;2022-08-30T03:37:50+01:00&#39;,
+  &#39;sortable_name&#39;: &#39;Hu, Senyi&#39;,
+  &#39;short_name&#39;: &#39;Senyi Hu&#39;,
+  &#39;sis_user_id&#39;: &#39;201676425hlshu&#39;,
+  &#39;integration_id&#39;: None,
+  &#39;login_id&#39;: &#39;hlshu@liverpool.ac.uk&#39;}}
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can access any “key value” associated with the enrollment object by using <code class="docutils literal notranslate"><span class="pre">.&lt;key_name&gt;</span></code> on any enrollment object. For example, to get the role associated with any enrollment:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enrollments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">role</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ObserverEnrollment&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enrollments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;id&#39;: 115162,
+ &#39;name&#39;: &#39;Senyi Hu&#39;,
+ &#39;created_at&#39;: &#39;2022-08-30T03:37:50+01:00&#39;,
+ &#39;sortable_name&#39;: &#39;Hu, Senyi&#39;,
+ &#39;short_name&#39;: &#39;Senyi Hu&#39;,
+ &#39;sis_user_id&#39;: &#39;201676425hlshu&#39;,
+ &#39;integration_id&#39;: None,
+ &#39;login_id&#39;: &#39;hlshu@liverpool.ac.uk&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_enrollment_from_key_substring</span><span class="p">(</span><span class="n">enrollments</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">substring</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">enrollments</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">substring</span> <span class="ow">in</span> <span class="n">e</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">e</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User Not Found&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>          
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="export-course-enrollments">
+<h3>Export course enrollments<a class="headerlink" href="#export-course-enrollments" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">enrollments</span><span class="p">:</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span>
+        <span class="s2">&quot;sortable_name&quot;</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">user</span><span class="p">[</span><span class="s2">&quot;sortable_name&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">role</span><span class="p">,</span>
+        <span class="s2">&quot;course_section_id&quot;</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">course_section_id</span>
+    <span class="p">}</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enrollments_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enrollments_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>user_id</th>
+      <th>sortable_name</th>
+      <th>role</th>
+      <th>course_section_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>115162</td>
+      <td>Hu, Senyi</td>
+      <td>ObserverEnrollment</td>
+      <td>60911</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>108783</td>
+      <td>-, Sneh</td>
+      <td>StudentEnrollment</td>
+      <td>60911</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>106580</td>
+      <td>Abyanova, Aliya</td>
+      <td>StudentEnrollment</td>
+      <td>60911</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>105831</td>
+      <td>Adegoke, Nat</td>
+      <td>StudentEnrollment</td>
+      <td>60911</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>112517</td>
+      <td>Aghazadeh, Mehrnaz</td>
+      <td>StudentEnrollment</td>
+      <td>60911</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enrollments_df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s2">&quot;course_enrollments.xlsx&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="assignments">
+<h2>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="submissions">
+<h2>Submissions<a class="headerlink" href="#submissions" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="getting_started.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Getting Started</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="sentiment_analysis.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sentiment analysis of feedback</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By R. E. Treharne<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

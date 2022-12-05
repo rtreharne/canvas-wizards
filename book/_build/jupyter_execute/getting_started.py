@@ -38,7 +38,8 @@ from canvasapi import Canvas
 
 
 # ```{note}
-# If you're using Colab or Jupyter Notebook you'll need to install the canvasapi first using the following command: ```
+# If you're using Colab or Jupyter Notebook you'll need to install the canvasapi first using the following command: 
+# ```
 
 # In[ ]:
 
