@@ -7,7 +7,7 @@ parts:
   - caption: Workshop
     chapters:
     - file: getting_started
-    - file: basics
+    - file: essentials
   - caption: Tools
     chapters:
     - file: sentiment_analysis
