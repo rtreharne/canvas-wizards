@@ -1024,6 +1024,328 @@ title="Print to PDF"
 </section>
 <section id="submissions">
 <h2>Submissions<a class="headerlink" href="#submissions" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">course</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">get_course</span><span class="p">(</span><span class="s2">&quot;LIFE113-202122&quot;</span><span class="p">,</span> <span class="n">use_sis_id</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">assignments</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">course</span><span class="o">.</span><span class="n">get_assignments</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">assignments</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Student Survey (194236)
+Fizzy Newt | Record Session Attendance (149927)
+Fizzy Newt | Record An Absence (149928)
+Moles, Concentrations and Dilutions Practice Problems (154730)
+Unit Conversion (154729)
+Good Laboratory Practice (GLP) V1.2 (190769)
+LIFE113.1 (40%) - Test 1 (Summative) (165716)
+LIFE113.0 (60%) - Test 2 (Summative) (168483)
+RESIT LIFE113.1 (40%) - Test 1 (199616)
+RESIT LIFE113.0 (60%) - Test 2 (199617)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">assignments</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">course</span><span class="o">.</span><span class="n">get_assignments</span><span class="p">()</span> <span class="k">if</span> <span class="s2">&quot;LIFE113.&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">assignment</span> <span class="o">=</span> <span class="n">assignments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">submissions</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">assignment</span><span class="o">.</span><span class="n">get_submissions</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">])]</span>
+<span class="c1">#submissions = [x for x in assignment.get_submissions(include=[&quot;user&quot;])]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">submissions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>428
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">submissions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_requester&#39;: &lt;canvasapi.requester.Requester at 0x7efd3d253070&gt;,
+ &#39;id&#39;: 15946621,
+ &#39;body&#39;: &#39;user: 3283, quiz: 116522, score: 60.0, time: 2022-01-20 11:44:59 +0000&#39;,
+ &#39;url&#39;: None,
+ &#39;grade&#39;: &#39;60&#39;,
+ &#39;score&#39;: 60.0,
+ &#39;submitted_at&#39;: &#39;2022-01-20T11:44:59Z&#39;,
+ &#39;submitted_at_date&#39;: datetime.datetime(2022, 1, 20, 11, 44, 59, tzinfo=&lt;UTC&gt;),
+ &#39;assignment_id&#39;: 168483,
+ &#39;user_id&#39;: 3283,
+ &#39;user_id_date&#39;: datetime.datetime(3283, 1, 1, 0, 0, tzinfo=&lt;UTC&gt;),
+ &#39;submission_type&#39;: &#39;online_quiz&#39;,
+ &#39;workflow_state&#39;: &#39;graded&#39;,
+ &#39;grade_matches_current_submission&#39;: True,
+ &#39;graded_at&#39;: &#39;2022-01-20T11:44:59Z&#39;,
+ &#39;graded_at_date&#39;: datetime.datetime(2022, 1, 20, 11, 44, 59, tzinfo=&lt;UTC&gt;),
+ &#39;grader_id&#39;: -116522,
+ &#39;attempt&#39;: 1,
+ &#39;cached_due_date&#39;: &#39;2022-01-21T16:00:00Z&#39;,
+ &#39;cached_due_date_date&#39;: datetime.datetime(2022, 1, 21, 16, 0, tzinfo=&lt;UTC&gt;),
+ &#39;excused&#39;: None,
+ &#39;late_policy_status&#39;: None,
+ &#39;points_deducted&#39;: None,
+ &#39;grading_period_id&#39;: None,
+ &#39;extra_attempts&#39;: None,
+ &#39;posted_at&#39;: &#39;2022-02-10T11:10:55Z&#39;,
+ &#39;posted_at_date&#39;: datetime.datetime(2022, 2, 10, 11, 10, 55, tzinfo=&lt;UTC&gt;),
+ &#39;redo_request&#39;: False,
+ &#39;late&#39;: False,
+ &#39;missing&#39;: False,
+ &#39;seconds_late&#39;: 0,
+ &#39;entered_grade&#39;: &#39;60&#39;,
+ &#39;entered_score&#39;: 60.0,
+ &#39;preview_url&#39;: &#39;https://canvas.liverpool.ac.uk/courses/46832/assignments/168483/submissions/3283?preview=1&amp;version=1&#39;,
+ &#39;user&#39;: {&#39;id&#39;: 3283,
+  &#39;name&#39;: &#39;Freya Baxter&#39;,
+  &#39;created_at&#39;: &#39;2020-01-16T14:50:56+00:00&#39;,
+  &#39;sortable_name&#39;: &#39;Baxter, Freya&#39;,
+  &#39;short_name&#39;: &#39;Freya Baxter&#39;,
+  &#39;sis_user_id&#39;: &#39;201427538psfbaxte&#39;,
+  &#39;integration_id&#39;: None,
+  &#39;login_id&#39;: &#39;psfbaxte@liverpool.ac.uk&#39;,
+  &#39;avatar_url&#39;: &#39;https://canvas.liverpool.ac.uk/images/messages/avatar-50.png&#39;},
+ &#39;anonymous_id&#39;: &#39;h3pgr&#39;,
+ &#39;course_id&#39;: 46832,
+ &#39;attachments&#39;: []}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
+
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">submissions</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s2">&quot;submitted_at_date&quot;</span> <span class="ow">in</span> <span class="n">sub</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">sub</span><span class="o">.</span><span class="n">submitted_at_date</span> <span class="o">&lt;=</span> <span class="n">assignment</span><span class="o">.</span><span class="n">due_at_date</span><span class="p">:</span> <span class="c1"># </span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;course_code&quot;</span><span class="p">:</span> <span class="n">course</span><span class="o">.</span><span class="n">course_code</span><span class="p">,</span>
+                    <span class="s2">&quot;assignment&quot;</span><span class="p">:</span> <span class="n">assignment</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="s2">&quot;anonymous_id&quot;</span><span class="p">:</span> <span class="n">sub</span><span class="o">.</span><span class="n">anonymous_id</span><span class="p">,</span>
+                    <span class="s2">&quot;score&quot;</span><span class="p">:</span> <span class="n">sub</span><span class="o">.</span><span class="n">score</span><span class="p">,</span>
+                    <span class="s2">&quot;submitted_at&quot;</span><span class="p">:</span> <span class="n">sub</span><span class="o">.</span><span class="n">submitted_at_date</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+                    <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="n">sub</span><span class="o">.</span><span class="n">submitted_at_date</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span>
+                    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://canvas.liverpool.ac.uk/courses/</span><span class="si">{0}</span><span class="s2">/gradebook/speed_grader?assignment_id=</span><span class="si">{1}</span><span class="s2">&amp;anonymous_id=</span><span class="si">{2}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">course</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">assignment</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">sub</span><span class="o">.</span><span class="n">anonymous_id</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>    
+
+<span class="c1">#data = data[data[&quot;date&quot;] &lt; max(data[&quot;date&quot;].tolist())]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>course_code</th>
+      <th>assignment</th>
+      <th>anonymous_id</th>
+      <th>score</th>
+      <th>submitted_at</th>
+      <th>date</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>LIFE113-202122</td>
+      <td>LIFE113.0 (60%) - Test 2 (Summative)</td>
+      <td>h3pgr</td>
+      <td>60.0</td>
+      <td>2022-01-20 11:44:59</td>
+      <td>2022-01-20</td>
+      <td>https://canvas.liverpool.ac.uk/courses/46832/g...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>LIFE113-202122</td>
+      <td>LIFE113.0 (60%) - Test 2 (Summative)</td>
+      <td>6e6xp</td>
+      <td>20.0</td>
+      <td>2022-01-21 13:43:52</td>
+      <td>2022-01-21</td>
+      <td>https://canvas.liverpool.ac.uk/courses/46832/g...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>LIFE113-202122</td>
+      <td>LIFE113.0 (60%) - Test 2 (Summative)</td>
+      <td>gRxLo</td>
+      <td>30.0</td>
+      <td>2022-01-21 12:41:04</td>
+      <td>2022-01-21</td>
+      <td>https://canvas.liverpool.ac.uk/courses/46832/g...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>LIFE113-202122</td>
+      <td>LIFE113.0 (60%) - Test 2 (Summative)</td>
+      <td>HCKTn</td>
+      <td>80.0</td>
+      <td>2022-01-17 15:42:28</td>
+      <td>2022-01-17</td>
+      <td>https://canvas.liverpool.ac.uk/courses/46832/g...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>LIFE113-202122</td>
+      <td>LIFE113.0 (60%) - Test 2 (Summative)</td>
+      <td>JcvcC</td>
+      <td>60.0</td>
+      <td>2022-01-17 18:26:04</td>
+      <td>2022-01-17</td>
+      <td>https://canvas.liverpool.ac.uk/courses/46832/g...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s2">&quot;LIFE113_2022122_online_test_results.xlsx&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summary</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    374.000000
+mean      70.407754
+std       19.321193
+min       30.000000
+25%       55.000000
+50%       70.000000
+75%       85.000000
+max      100.000000
+Name: score, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">summary</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">],</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Score&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 90.0)
+</pre></div>
+</div>
+<img alt="_images/essentials_87_1.png" src="_images/essentials_87_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">df_gb</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_gb</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">height</span><span class="o">=</span><span class="n">df_gb</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span><span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Date&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Score (%)&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of daily submissions&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;&#39;)
+</pre></div>
+</div>
+<img alt="_images/essentials_88_1.png" src="_images/essentials_88_1.png" />
+</div>
+</div>
 </section>
 </section>
 

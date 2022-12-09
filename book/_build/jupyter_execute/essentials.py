@@ -12,7 +12,7 @@
 # 
 # Before we begin, create your `canvas` session variable again by running the cell below with `API_URL` AND `API_KEY` set to your own personal values.
 
-# In[ ]:
+# In[1]:
 
 
 # Create your Canvas session
@@ -506,8 +506,133 @@ import_assignment(58338, course.id, 201149)
 
 # ## Submissions
 
+# In[155]:
+
+
+course = canvas.get_course("LIFE113-202122", use_sis_id=True)
+
+
+# In[156]:
+
+
+assignments = [x for x in course.get_assignments()]
+
+
+# In[157]:
+
+
+for a in assignments:
+    print(a)
+
+
+# In[158]:
+
+
+assignments = [x for x in course.get_assignments() if "LIFE113." in x.name]
+
+
+# In[159]:
+
+
+assignment = assignments[1]
+
+
+# In[178]:
+
+
+submissions = [x for x in assignment.get_submissions(include=["user"])]
+#submissions = [x for x in assignment.get_submissions(include=["user"])]
+
+
+# In[174]:
+
+
+len(submissions)
+
+
+# In[177]:
+
+
+submissions[0].__dict__
+
+
+# In[172]:
+
+
+import pandas as pd
+from datetime import datetime, date
+import pytz
+
+rows = []
+for sub in submissions:
+    if "submitted_at_date" in sub.__dict__.keys():
+        if sub.submitted_at_date <= assignment.due_at_date: # 
+            rows.append(
+                {
+                    "course_code": course.course_code,
+                    "assignment": assignment.name,
+                    "anonymous_id": sub.anonymous_id,
+                    "score": sub.score,
+                    "submitted_at": sub.submitted_at_date.replace(tzinfo=None),
+                    "date": sub.submitted_at_date.date(),
+                    "url": "https://canvas.liverpool.ac.uk/courses/{0}/gradebook/speed_grader?assignment_id={1}&anonymous_id={2}".format(course.id, assignment.id, sub.anonymous_id)
+                }
+            )
+
+data = pd.DataFrame(rows)    
+
+#data = data[data["date"] < max(data["date"].tolist())]
+
+
+# In[181]:
+
+
+data.head()
+
+
+# In[170]:
+
+
+data.to_excel("LIFE113_2022122_online_test_results.xlsx")
+
+
 # In[ ]:
 
 
+summary = data["score"].describe()
 
+
+# In[182]:
+
+
+summary
+
+
+# In[185]:
+
+
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+ax.hist(data["score"])
+ax.vlines(summary["mean"], ymin=0, ymax=90, color='red')
+ax.set_xlabel("Score")
+ax.set_ylabel("Frequency")
+ax.set_ylim(0, 90)
+
+
+# In[186]:
+
+
+fig, ax = plt.subplots(figsize=(8, 4))
+ax2 = ax.twinx()
+df_gb = data.groupby('date').count()
+data.boxplot(column='score', by='date', ax=ax)
+ax2.bar(range(1, len(df_gb['score'])+1), height=df_gb['score'],align='center', alpha=0.3)
+fig.autofmt_xdate()
+ax.set_xlabel("Date")
+ax.set_ylabel("Score (%)")
+ax2.set_ylabel("Number of daily submissions")
+ax.set_title("")
+fig.suptitle("")
 
