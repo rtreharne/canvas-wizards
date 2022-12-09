@@ -29,7 +29,7 @@
 
 # # Step 1. Install canvasapi and configure Canvas API session
 
-# In[5]:
+# In[ ]:
 
 
 # Run this cell to import the necessary modules from canvasapi and other Python modules
@@ -46,25 +46,24 @@ nltk.download('punkt')
  
 API_URL = "https://canvas.liverpool.ac.uk/"
  
-API_KEY = "<INPUT YOUR KEY HERE>" # Replace everything inside the quotation marks with your API KEY/TOKEN
+API_KEY = "15502~DqhNjK9tqamH68fsXvkoPkvH3Jgk5Tu5Uf5p4MFiCjoiUKGJBeqR7vgFs3yOj9Oe"#"<INPUT YOUR KEY HERE>" # Replace everything inside the quotation marks with your API KEY/TOKEN
 
 # Where do I get my Canvas API Key from? 
 # https://community.canvaslms.com/t5/Admin-Guide/How-do-I-manage-API-access-tokens-as-an-admin/ta-p/89
 
 
-# In[6]:
+# In[2]:
 
 
-# Uncomment and run the line below to create a Canvas session
-
-# canvas = Canvas(API_URL, API_KEY)
+# Create a canvas Session variable
+canvas = Canvas(API_URL, API_KEY)
 
 
 # # Step 2. Run the following cell
 # 
 # This cell contains all the code needed to perform the analysis. You need to run this cell, but once you've done this you can ignore the code.
 
-# In[7]:
+# In[3]:
 
 
 import matplotlib.pyplot as plt
@@ -192,24 +191,20 @@ class SpeedgraderAnalysis():
 # ```
 # 
 
-# In[8]:
+# In[ ]:
 
 
 url = "https://liverpool.instructure.com/courses/58609/assignments/218636" # LIFE223_1 as an example
 
-# Uncomment the following line to run:
-
-# result = SpeedgraderAnalysis(url) #!important
+result = SpeedgraderAnalysis(url) #!important
 
 
-# In[9]:
+# In[ ]:
 
 
 # Once you're run the cell above you can look at the extracted sentiment data as follows:
 
-# Uncomment the following line to run:
-
-# result.submissions_comments
+result.submissions_comments
 
 
 # In[10]:
@@ -217,33 +212,29 @@ url = "https://liverpool.instructure.com/courses/58609/assignments/218636" # LIF
 
 # You can save this data as an Excel spreadsheet as follows (uncomment to run):
 
-# result.submissions_comments.to_excel("sentiment_analysis.xlsx", index=False)
+result.submissions_comments.to_excel("sentiment_analysis.xlsx", index=False)
 
 
-# In[11]:
+# In[9]:
 
 
 # Plot your sentiment analysis
 
-# Uncomment the following line to run:
-
-# result.plot()
+result.plot()
 
 
-# In[12]:
+# In[10]:
 
 
 # You can highlight the comments of any marker (or multiple markers) as follows (uncomment to run):
 
-# result.plot(marker=["Treharne", "Mitchell"], title="Sentiment analysis of feedback comments for LIFE223-202223 Essay Assignment")
+result.plot(marker=["Treharne", "Mitchell"], title="Sentiment analysis of feedback comments for LIFE223-202223 Essay Assignment")
 
 
-# In[14]:
+# In[ ]:
 
 
 # One last thing: You can plot a bar chart showing the top 20 markers (or bottom 20) listed according to comment length.
 
-# Uncomment the following line to run:
-
-# result.comment_length_bar(ascending=True) # change to ascending=False if you want to see the bottom 20
+result.comment_length_bar(ascending=True) # change to ascending=False if you want to see the bottom 20
 
