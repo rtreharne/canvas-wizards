@@ -2,3 +2,4 @@ matplotlib
 canvasapi
 numpy
 plotly
+alive-progress

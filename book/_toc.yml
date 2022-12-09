@@ -10,4 +10,5 @@ parts:
     - file: basics
   - caption: Tools
     chapters:
+    - file: doing_stuff
     - file: sentiment_analysis
