@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Getting Started &#8212; Canvas for Admin Wizards</title>
+    <title>Doing stuff across multiple courses &#8212; Canvas for Admin Wizards</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Essentials" href="essentials.html" />
-    <link rel="prev" title="Welcome to Canvas for Admin Wizards" href="intro.html" />
+    <link rel="next" title="Sentiment analysis of feedback" href="sentiment_analysis.html" />
+    <link rel="prev" title="Essentials" href="essentials.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -118,9 +118,9 @@ const thebe_selector_output = ".output, .cell_output"
   Workshop
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
    Getting Started
   </a>
  </li>
@@ -135,9 +135,9 @@ const thebe_selector_output = ".output, .cell_output"
   Tools
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="doing_stuff.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Doing stuff across multiple courses
   </a>
  </li>
@@ -205,7 +205,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/rtreharne/canvas-wizards/main?urlpath=tree/docs/getting_started.ipynb"
+        <a href="https://mybinder.org/v2/gh/rtreharne/canvas-wizards/main?urlpath=tree/docs/doing_stuff.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -223,7 +223,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/rtreharne/canvas-wizards/blob/main/docs/getting_started.ipynb"
+        <a href="https://colab.research.google.com/github/rtreharne/canvas-wizards/blob/main/docs/doing_stuff.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -283,7 +283,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/rtreharne/canvas-wizards/issues/new?title=Issue%20on%20page%20%2Fgetting_started.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/rtreharne/canvas-wizards/issues/new?title=Issue%20on%20page%20%2Fdoing_stuff.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -311,7 +311,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/getting_started.ipynb"
+        <a href="_sources/doing_stuff.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -370,19 +370,31 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-an-api">
-   What is an API?
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Doing stuff across multiple courses
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#authors">
+     Authors
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#description">
+     Description
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-1-install-canvasapi-and-configure-canvas-api-session">
+   Step 1. Install canvasapi and configure Canvas API session
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup-and-configuration">
-   Setup and Configuration
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ready-for-a-test-drive">
-   Ready for a Test Drive
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-2-run-the-following-cell">
+   Step 2. Run the following cell
   </a>
  </li>
 </ul>
@@ -394,7 +406,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Getting Started</h1>
+                <h1>Doing stuff across multiple courses</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -404,19 +416,31 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-an-api">
-   What is an API?
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Doing stuff across multiple courses
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#authors">
+     Authors
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#description">
+     Description
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-1-install-canvasapi-and-configure-canvas-api-session">
+   Step 1. Install canvasapi and configure Canvas API session
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup-and-configuration">
-   Setup and Configuration
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ready-for-a-test-drive">
-   Ready for a Test Drive
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-2-run-the-following-cell">
+   Step 2. Run the following cell
   </a>
  </li>
 </ul>
@@ -429,99 +453,165 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="getting-started">
-<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">#</a></h1>
-<section id="what-is-an-api">
-<h2>What is an API?<a class="headerlink" href="#what-is-an-api" title="Permalink to this headline">#</a></h2>
-<p>An <strong>application programming interface</strong> (API) is a set of stored functions or procedures that allow you get, create or edit data from an application without having to use a graphical interface (e.g. a website). The Canvas API will allow you to do almost anything that you currently do using the standard user interface.</p>
-<p>The Canvas API is extremely well documented and, while the documentation may seem impenetrable at first, reading the docs can solve most problems. Check it out at <a href="https://canvas.instructure.com/doc/api/" target="_blank">https://canvas.instructure.com/doc/api/</a>.</p>
-<p><em>“So what?”</em> - I hear you say. Well, the power of the API lies with the ability to prepare snippets of code (we’re going to use <strong>Python</strong> here) to make use of the API’s functions in order to automate repetitive tasks and cut your workload dramatically.</p>
-<p><em>“OMG, I have to write code?”</em>. Well, yes. Get over it. It’s really not that bad and this book is going to guide you all the way. Deep breath now, let’s dive in.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="doing-stuff-across-multiple-courses">
+<h1>Doing stuff across multiple courses<a class="headerlink" href="#doing-stuff-across-multiple-courses" title="Permalink to this headline">#</a></h1>
+<section id="authors">
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">#</a></h2>
+<p><em>R. Treharne</em></p>
 </section>
-<section id="setup-and-configuration">
-<h2>Setup and Configuration<a class="headerlink" href="#setup-and-configuration" title="Permalink to this headline">#</a></h2>
-<p>There are about a <strong>zillion</strong> different ways that you could create a coding environment in which you can begin your tranformation to Canvas wizard. The best way for you get started will be to click the little <em>rocket icon</em> at the top of this page and then click the <em>Binder</em> button. You might have to wait a couple of minutes while the environment is created but once it’s ready you’ll be good to go without having to download or install a single thing. Wizard!</p>
-<p>Or, you can click the <em>Colab</em> button and open a notebook using the Google Colab platform for online notebooks. You will also need use the “Copy to Drive” button to run the code on the page - this will require you to login using a Google account.</p>
-<p>If you’re hardcore you can click the download button in the top-right and download the .ipynb for each section and run it on your local machine using <strong>Jupyter Notebook</strong>. For advice on how to install Jupyter Notebook checkout <a href="https://www.geeksforgeeks.org/how-to-install-jupyter-notebook-in-windows/" target="_blank">this article</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you’re new to all of this then the Binder option above is strongly recommended.</p>
-</div>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">#</a></h2>
+<p>This tool will update the assignment deadlines across multiple Canvas courses</p>
+<img src="https://github.com/rtreharne/random/blob/main/telife_trans_pink.png?raw=true" width=200></section>
 </section>
-<section id="ready-for-a-test-drive">
-<h2>Ready for a Test Drive<a class="headerlink" href="#ready-for-a-test-drive" title="Permalink to this headline">#</a></h2>
-<p>OK. I think you’re ready to try a few lines of code yourself. Let’s start simple. How about trying to get a list of all the Canvas courses you’re currently enrolled on? This is pretty easy.</p>
-<p>First, ensure that you’ve imported the canvasapi module for Python by running the following cell:</p>
+<section class="tex2jax_ignore mathjax_ignore" id="step-1-install-canvasapi-and-configure-canvas-api-session">
+<h1>Step 1. Install canvasapi and configure Canvas API session<a class="headerlink" href="#step-1-install-canvasapi-and-configure-canvas-api-session" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from canvasapi import Canvas
-</pre></div>
-</div>
-</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you’re using Colab or Jupyter Notebook you’ll need to install the canvasapi first using the following command:</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!pip install canvasapi
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now create an <code class="docutils literal notranslate"><span class="pre">API_URL</span></code> variable and set it to the URL of your institutions Canvas homepage, e.g. “<a class="reference external" href="https://canvas.liverpool.ac.uk">https://canvas.liverpool.ac.uk</a>”. Make sure that the URL has quotation marks either side of it (i.e. define it as a string variable!).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>API_URL = &quot;&lt;YOUR_CANVAS_URL&gt;&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<p>You now need to define an <code class="docutils literal notranslate"><span class="pre">API_KEY</span></code> variable. Your API Key (or token as their called in canvas). To get your API key follow <a href="https://community.canvaslms.com/t5/Admin-Guide/How-do-I-manage-API-access-tokens-as-an-admin/ta-p/89" target="_blank">this guide</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>API_KEY = &quot;&lt;YOUR_API_KEY&gt;&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<p>Lastly, you need to create a Canvas session and store it in a variable:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>canvas = Canvas(API_URL, API_KEY)
-</pre></div>
-</div>
-</div>
-</div>
-<p>OK. Done! Now to get a list of all the courses that you’re currently enrolled on run the following lines …</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>user = canvas.get_user(101) # Replace the value 101 with you own user ID
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Run this cell to import the necessary modules from canvasapi and other Python modules
 
-courses = user.get_courses() # Get the user&#39;s courses
+from canvasapi import Canvas
+import pandas as pd
+import numpy as np
+import re
+from datetime import datetime, timedelta, timezone
+from tqdm import tqdm
+ 
+API_URL = &quot;https://canvas.liverpool.ac.uk/&quot;
 
-# Print out all the courses you&#39;ve ever been enrolled on in Canvas!
-for course in courses:
-    print(course.name)
+API_KEY = &quot;&lt;INPUT YOUR KEY HERE&gt;&quot; # Replace everything inside the quotation marks with your API KEY/TOKEN
+API_KEY = &quot;15502~25CM3f7ltUxu05h6rkQWlIvpH1wRBLzDE1FL2xLqI1Ht2yr6Kzfxta6DBWWAdn0Z&quot;
+# Where do I get my Canvas API Key from? 
+# https://community.canvaslms.com/t5/Admin-Guide/How-do-I-manage-API-access-tokens-as-an-admin/ta-p/89
 </pre></div>
 </div>
 </div>
 </div>
-<p>Fantastic! This list will contain ALL canvas courses that you’ve ever been enrolled on. You may wish to filter this according to some substring in the course’s title, e.g. you can use the following code to make sure you’re only picking out courses that have “LIFE” and “202223” in the course titles:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="step-2-run-the-following-cell">
+<h1>Step 2. Run the following cell<a class="headerlink" href="#step-2-run-the-following-cell" title="Permalink to this headline">#</a></h1>
+<p>This cell contains all the code needed to perform the analysis. You need to run this cell, but once you’ve done this you can ignore the code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>courses = [x for x in user.get_courses() if all(y in x.name for y in [&quot;LIFE&quot;, &quot;202223&quot;])]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class MultiCanvas():
+    def __init__(self, API_URL, API_KEY, label=None, term=None, courses=None):
+        self.canvas = Canvas(API_URL, API_KEY)
+        if courses is None:
+            if label is None:
+                self.label = str(input(&quot;Input course code label (e.g. LIFE): &quot;)).upper()
+            else:
+                self.label = label
+            if term is None:
+                self.term = str(input(&quot;Input term (e.g. 202223): &quot;))
+            else:
+                self.term = term
+            self.courses = self.get_courses()
+        else:
+            self.courses = courses
+    
+    def get_courses(self):
+        courses = []
+        for x in tqdm(
+            range(100, 1000),
+            desc=&quot;Getting courses from Canvas&quot;
+        ):
+            try:
+                course = self.canvas.get_course(
+                    &quot;{0}{1}-{2}&quot;.format(self.label, str(x), self.term),
+                    use_sis_id=True
+                )
+                courses.append(course)
+            except:
+                continue
+        return courses
+    
+    def get_assignments(self, key, value, update_key=None, update_value=None):
+        assignments = []
+        
+        for course in tqdm(self.courses, desc=&quot;Getting assignments&quot;):
+            course_assignments = [x for x in course.get_assignments() if x.__dict__[key] is not None]
+            assignments.extend(
+                [x for x in course_assignments if value in x.__dict__[key]]
+            )
+        
+        if update_key is not None and update_value is not None:
+            updated_assignments = []
+            for assignment in assignments:
+                updated_assignments.append(assignment.edit(assignment={update_key: update_value}))
+            return updated_assignments
+            
+        return assignments
+    
+    def get_modules(self, key, value, update_key=None, update_value=None):
+        modules = []
+        
+        for course in tqdm(self.courses, desc=&quot;Getting modules&quot;):
+            course_modules = [x for x in course.get_modules() if x.__dict__[key] is not None]
+            modules.extend(
+                [x for x in course_modules if value in x.__dict__[key]]
+            )
+        
+        if update_key is not None and update_value is not None:
+            updated_modules = []
+            for module in modules:
+                updated_modules.append(module.edit(module={update_key: update_value}))
+            return updated_modules
+            
+        return modules
+            
+        
 </pre></div>
 </div>
 </div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>What’s my Canvas user id? You can find this out by searching for own name in the “People” section of any of your Canvas courses. If you scroll over your username or photo you should see a URL pop up that looks something like this: “<a class="reference external" href="https://canvas.liverpool.ac.uk/courses/58338/users/101">https://canvas.liverpool.ac.uk/courses/58338/users/101</a>”. The number at the very end of the URL is your user id.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>canvas_objects = MultiCanvas(API_URL, API_KEY, label=&quot;LIFE&quot;, term=&quot;202223&quot;)
+</pre></div>
 </div>
-<p>If you’ve successfully run the lines of code above then you’re now ready to become a Canvas Admin Wizard! Get ready to cover the basics.</p>
-</section>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Getting courses from Canvas: 100%|███████████████████████████████████████████████████| 900/900 [02:01&lt;00:00,  7.43it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>assignments = canvas_objects.get_assignments(&quot;due_at&quot;, &quot;2023-01-23&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Getting assignments: 100%|███████████████████████████████████████████████████████████| 156/156 [00:55&lt;00:00,  2.79it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>modules = canvas_objects.get_modules(&quot;unlock_at&quot;, &quot;2023-01&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Getting modules: 100%|███████████████████████████████████████████████████████████████| 156/156 [00:42&lt;00:00,  3.68it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>len(modules)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>43
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -551,17 +641,17 @@ for course in courses:
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="essentials.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Welcome to Canvas for Admin Wizards</p>
+            <p class="prev-next-title">Essentials</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="essentials.html" title="next page">
+    <a class='right-next' id="next-link" href="sentiment_analysis.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Essentials</p>
+        <p class="prev-next-title">Sentiment analysis of feedback</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
