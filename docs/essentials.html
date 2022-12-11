@@ -403,8 +403,18 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#getting-assignments">
+     Getting Assignments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#edit-assignments">
      Edit Assignments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-new-assignments">
+     Create New Assignments
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -476,8 +486,18 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#getting-assignments">
+     Getting Assignments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#edit-assignments">
      Edit Assignments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-new-assignments">
+     Create New Assignments
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -525,8 +545,11 @@ from canvasapi import Canvas
 API_URL = &quot;&quot; # e.g. &quot;https://liverpool.instructure.com&quot;
 API_KEY = &quot;&quot;
 
+API_URL = &quot;&lt;YOUR_CANVAS_URL&gt;&quot; # Put your canvas URL here, e.g. &quot;https://canvas.liverpool.ac.uk&quot;
+API_KEY = &quot;&lt;YOUR_API_KEY&gt;&quot;
+
 API_URL = &quot;https://canvas.liverpool.ac.uk&quot;
-API_KEY = &quot;15502~DqhNjK9tqamH68fsXvkoPkvH3Jgk5Tu5Uf5p4MFiCjoiUKGJBeqR7vgFs3yOj9Oe&quot;
+API_KEY = &quot;15502~AucX1kPx4A7c0hsJf4Z5JnpgLL0INvjLRGQK98jcy7sR53dBauGKqmAS01KU6J6W&quot;
 
 canvas = Canvas(API_URL, API_KEY)
 </pre></div>
@@ -554,6 +577,51 @@ course = canvas.get_course(course_id)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>course.__dict__
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_requester&#39;: &lt;canvasapi.requester.Requester at 0x7f68845e20&gt;,
+ &#39;id&#39;: 61073,
+ &#39;name&#39;: &#39;202223-LIFE733 - CODING FOR LIFE SCIENCES&#39;,
+ &#39;account_id&#39;: 409,
+ &#39;uuid&#39;: &#39;vs6vgd3Xcjd2hAipdtCKPM6hohnSDzj22OMBzCOW&#39;,
+ &#39;start_at&#39;: None,
+ &#39;grading_standard_id&#39;: None,
+ &#39;is_public&#39;: False,
+ &#39;created_at&#39;: &#39;2022-05-23T16:55:49Z&#39;,
+ &#39;created_at_date&#39;: datetime.datetime(2022, 5, 23, 16, 55, 49, tzinfo=&lt;UTC&gt;),
+ &#39;course_code&#39;: &#39;LIFE733-202223&#39;,
+ &#39;default_view&#39;: &#39;modules&#39;,
+ &#39;root_account_id&#39;: 1,
+ &#39;enrollment_term_id&#39;: 111,
+ &#39;license&#39;: &#39;private&#39;,
+ &#39;grade_passback_setting&#39;: None,
+ &#39;end_at&#39;: None,
+ &#39;public_syllabus&#39;: False,
+ &#39;public_syllabus_to_auth&#39;: False,
+ &#39;storage_quota_mb&#39;: 5000,
+ &#39;storage_quota_mb_date&#39;: datetime.datetime(5000, 1, 1, 0, 0, tzinfo=&lt;UTC&gt;),
+ &#39;is_public_to_auth_users&#39;: False,
+ &#39;homeroom_course&#39;: False,
+ &#39;course_color&#39;: None,
+ &#39;friendly_name&#39;: None,
+ &#39;hide_final_grades&#39;: False,
+ &#39;apply_assignment_group_weights&#39;: True,
+ &#39;calendar&#39;: {&#39;ics&#39;: &#39;https://canvas.liverpool.ac.uk/feeds/calendars/course_vs6vgd3Xcjd2hAipdtCKPM6hohnSDzj22OMBzCOW.ics&#39;},
+ &#39;time_zone&#39;: &#39;Europe/London&#39;,
+ &#39;blueprint&#39;: False,
+ &#39;template&#39;: False,
+ &#39;sis_course_id&#39;: &#39;LIFE733-202223&#39;,
+ &#39;integration_id&#39;: None,
+ &#39;enrollments&#39;: [{&#39;type&#39;: &#39;teacher&#39;,
+   &#39;role&#39;: &#39;TeacherEnrollment&#39;,
+   &#39;role_id&#39;: 4,
+   &#39;user_id&#39;: 101,
+   &#39;enrollment_state&#39;: &#39;active&#39;,
+   &#39;limit_privileges_to_course_section&#39;: False}],
+ &#39;workflow_state&#39;: &#39;available&#39;,
+ &#39;restrict_enrollments_to_course_dates&#39;: False}
 </pre></div>
 </div>
 </div>
@@ -585,6 +653,16 @@ enrollments = course.get_enrollments()
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">53</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">len</span><span class="p">(</span><span class="n">enrollments</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: object of type &#39;PaginatedList&#39; has no len()
+</pre></div>
+</div>
+</div>
 </div>
 <p>To avoid <code class="docutils literal notranslate"><span class="pre">TypeErrors</span></code>, it is recommended that you retrieve list of things from canvas by using the relevant function, in this case <code class="docutils literal notranslate"><span class="pre">course.get_enrollments()</span></code>, within what is known as a “list comprehension” in Python. Without going into any futher detail, the code you need is as follows …</p>
 <div class="cell docutils container">
@@ -604,12 +682,22 @@ enrollments = course.get_enrollments()
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>68
+</pre></div>
+</div>
+</div>
 </div>
 <p>Also, you can now slice your list of enrollments, e.g. to pick out a single enrollment from the list to look at it, by doing something like this …</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Example: Pick out the 65th enrollment from a list of enrollments.
 enrollments[65]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enrollment(_requester=&lt;canvasapi.requester.Requester object at 0x7f68845e20&gt;, id=2662810, user_id=101, course_id=61073, type=TeacherEnrollment, created_at=2022-05-23T17:06:18Z, created_at_date=2022-05-23 17:06:18+00:00, updated_at=2022-12-08T04:58:43Z, updated_at_date=2022-12-08 04:58:43+00:00, associated_user_id=None, start_at=None, end_at=None, course_section_id=60814, root_account_id=1, limit_privileges_to_course_section=False, enrollment_state=active, role=TeacherEnrollment, role_id=4, last_activity_at=2022-12-10T13:31:56Z, last_activity_at_date=2022-12-10 13:31:56+00:00, last_attended_at=None, total_activity_time=41374, sis_account_id=OX, sis_course_id=LIFE733-202223, course_integration_id=None, sis_section_id=None, section_integration_id=None, sis_user_id=442673treharne, html_url=https://canvas.liverpool.ac.uk/courses/61073/users/101, user={&#39;id&#39;: 101, &#39;name&#39;: &#39;Robert Treharne&#39;, &#39;created_at&#39;: &#39;2019-11-26T15:23:49+00:00&#39;, &#39;sortable_name&#39;: &#39;Treharne, Robert&#39;, &#39;short_name&#39;: &#39;Robert Treharne&#39;, &#39;sis_user_id&#39;: &#39;442673treharne&#39;, &#39;integration_id&#39;: None, &#39;login_id&#39;: &#39;treharne@liverpool.ac.uk&#39;, &#39;pronouns&#39;: &#39;He/Him&#39;})
 </pre></div>
 </div>
 </div>
@@ -622,12 +710,59 @@ enrollments[65].__dict__
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_requester&#39;: &lt;canvasapi.requester.Requester at 0x7f68845e20&gt;,
+ &#39;id&#39;: 2662810,
+ &#39;user_id&#39;: 101,
+ &#39;course_id&#39;: 61073,
+ &#39;type&#39;: &#39;TeacherEnrollment&#39;,
+ &#39;created_at&#39;: &#39;2022-05-23T17:06:18Z&#39;,
+ &#39;created_at_date&#39;: datetime.datetime(2022, 5, 23, 17, 6, 18, tzinfo=&lt;UTC&gt;),
+ &#39;updated_at&#39;: &#39;2022-12-08T04:58:43Z&#39;,
+ &#39;updated_at_date&#39;: datetime.datetime(2022, 12, 8, 4, 58, 43, tzinfo=&lt;UTC&gt;),
+ &#39;associated_user_id&#39;: None,
+ &#39;start_at&#39;: None,
+ &#39;end_at&#39;: None,
+ &#39;course_section_id&#39;: 60814,
+ &#39;root_account_id&#39;: 1,
+ &#39;limit_privileges_to_course_section&#39;: False,
+ &#39;enrollment_state&#39;: &#39;active&#39;,
+ &#39;role&#39;: &#39;TeacherEnrollment&#39;,
+ &#39;role_id&#39;: 4,
+ &#39;last_activity_at&#39;: &#39;2022-12-10T13:31:56Z&#39;,
+ &#39;last_activity_at_date&#39;: datetime.datetime(2022, 12, 10, 13, 31, 56, tzinfo=&lt;UTC&gt;),
+ &#39;last_attended_at&#39;: None,
+ &#39;total_activity_time&#39;: 41374,
+ &#39;sis_account_id&#39;: &#39;OX&#39;,
+ &#39;sis_course_id&#39;: &#39;LIFE733-202223&#39;,
+ &#39;course_integration_id&#39;: None,
+ &#39;sis_section_id&#39;: None,
+ &#39;section_integration_id&#39;: None,
+ &#39;sis_user_id&#39;: &#39;442673treharne&#39;,
+ &#39;html_url&#39;: &#39;https://canvas.liverpool.ac.uk/courses/61073/users/101&#39;,
+ &#39;user&#39;: {&#39;id&#39;: 101,
+  &#39;name&#39;: &#39;Robert Treharne&#39;,
+  &#39;created_at&#39;: &#39;2019-11-26T15:23:49+00:00&#39;,
+  &#39;sortable_name&#39;: &#39;Treharne, Robert&#39;,
+  &#39;short_name&#39;: &#39;Robert Treharne&#39;,
+  &#39;sis_user_id&#39;: &#39;442673treharne&#39;,
+  &#39;integration_id&#39;: None,
+  &#39;login_id&#39;: &#39;treharne@liverpool.ac.uk&#39;,
+  &#39;pronouns&#39;: &#39;He/Him&#39;}}
+</pre></div>
+</div>
+</div>
 </div>
 <p>You can access any “key value” associated with the enrollment object by using <code class="docutils literal notranslate"><span class="pre">.&lt;key_name&gt;</span></code> on any enrollment object. For example, to get the role associated the object above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Get the role associated with my enrollment
 enrollments[65].role
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;TeacherEnrollment&#39;
 </pre></div>
 </div>
 </div>
@@ -677,6 +812,70 @@ output.head()
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>user_id</th>
+      <th>sortable_name</th>
+      <th>role</th>
+      <th>course_section_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>106115</td>
+      <td>Abdeljaied, Ahmed</td>
+      <td>StudentEnrollment</td>
+      <td>60814</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>110067</td>
+      <td>Ajith, Harikrishnan</td>
+      <td>StudentEnrollment</td>
+      <td>60814</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>108589</td>
+      <td>Ali, Bazilah</td>
+      <td>StudentEnrollment</td>
+      <td>60814</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>116643</td>
+      <td>Anto, Alwin</td>
+      <td>StudentEnrollment</td>
+      <td>60814</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3146</td>
+      <td>Austin, Ben</td>
+      <td>StudentEnrollment</td>
+      <td>60814</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Finally, lets save the data frame to something we all know and love - the humble Excel spreadsheet.</p>
 <div class="cell docutils container">
@@ -714,6 +913,11 @@ course.enroll_user(user=101, #the id of the user
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enrollment(_requester=&lt;canvasapi.requester.Requester object at 0x7f68845e20&gt;, id=2662810, user_id=101, course_id=61073, type=TeacherEnrollment, created_at=2022-05-23T17:06:18Z, created_at_date=2022-05-23 17:06:18+00:00, updated_at=2022-12-08T04:58:43Z, updated_at_date=2022-12-08 04:58:43+00:00, associated_user_id=None, start_at=None, end_at=None, course_section_id=60814, root_account_id=1, limit_privileges_to_course_section=False, enrollment_state=active, role=TeacherEnrollment, role_id=4, last_activity_at=2022-12-11T14:04:54Z, last_activity_at_date=2022-12-11 14:04:54+00:00, last_attended_at=None, total_activity_time=41374, sis_account_id=OX, sis_course_id=LIFE733-202223, course_integration_id=None, sis_section_id=None, section_integration_id=None, sis_user_id=442673treharne, html_url=https://canvas.liverpool.ac.uk/courses/61073/users/101)
+</pre></div>
+</div>
+</div>
 </div>
 <p>And hey presto! The user is enrolled. If you navigate to the “People” section of the course via the LMS you should now be able to see the enrollment.</p>
 <p>Very often it is necessary to take all the enrollments from one course and replicated them on another. Remember that <code class="docutils literal notranslate"><span class="pre">course_enrollments.xlsx</span></code> spreadsheet that you created above. Let’s use this to enrol all of the students on another course.</p>
@@ -728,6 +932,11 @@ user_sheet = pd.read_excel(&quot;course_enrollments.xlsx&quot;)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>user_sheet.columns
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;user_id&#39;, &#39;sortable_name&#39;, &#39;role&#39;, &#39;course_section_id&#39;], dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
@@ -758,6 +967,60 @@ for i, row in user_sheet.iterrows():
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enrolling user:  106115
+Enrolling user:  110067
+Enrolling user:  108589
+Enrolling user:  116643
+Enrolling user:  3146
+Enrolling user:  116838
+Enrolling user:  4103
+Enrolling user:  5546
+Enrolling user:  7300
+Enrolling user:  116615
+Enrolling user:  109950
+Enrolling user:  116732
+Enrolling user:  9998
+Enrolling user:  9214
+Enrolling user:  10159
+Enrolling user:  8939
+Enrolling user:  121031
+Enrolling user:  11023
+Enrolling user:  116269
+Enrolling user:  102919
+Enrolling user:  116642
+Enrolling user:  116608
+Enrolling user:  106002
+Enrolling user:  60329
+Enrolling user:  109366
+Enrolling user:  102582
+Enrolling user:  116653
+Enrolling user:  121036
+Enrolling user:  103527
+Enrolling user:  109783
+Enrolling user:  34372
+Enrolling user:  36211
+Enrolling user:  110129
+Enrolling user:  108129
+Enrolling user:  103588
+Enrolling user:  37511
+Enrolling user:  37998
+Enrolling user:  37983
+Enrolling user:  38575
+Enrolling user:  38868
+Enrolling user:  109594
+Enrolling user:  105195
+Enrolling user:  43349
+Enrolling user:  43555
+Enrolling user:  44081
+Enrolling user:  117384
+Enrolling user:  116508
+Enrolling user:  60290
+Enrolling user:  124480
+Couldn&#39;t enroll user: student, Test (124480)
+</pre></div>
+</div>
+</div>
 </div>
 <p>Checkout the “People” area on your test course now. You should see that all the students in the spreadsheet have been enrolled.</p>
 </section>
@@ -784,6 +1047,58 @@ for i, e in enumerate(enrollments):
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 3166507 Abdeljaied, Ahmed
+1 3166508 Ajith, Harikrishnan
+2 3166509 Ali, Bazilah
+3 3166510 Anto, Alwin
+4 3166511 Austin, Ben
+5 3166512 Baldwin, Joseph
+6 3166513 Behnan, Griff
+7 3166514 Brophy, Thomas
+8 3166515 Callow, Sofia
+9 3166516 Casey, Dylan
+10 3166517 Chenumalla, Srivarshini
+11 3166518 Chick, Louise
+12 3166519 Choi, Hannah
+13 3166520 Clarke, Emily
+14 3166521 Cochrane, Sam
+15 3166522 Collins, Stacey
+16 3166523 Diab, Anas
+17 3166524 Dobbash, Reyhaneh
+18 3166525 Eager, Mia
+19 3166526 Gangwar, Dhananjay
+20 3166527 Glenn, Kathryn
+21 3166528 Guthrie, Megan
+22 3166529 Haddow, Summer
+23 3166530 He, Yuhan
+24 3166531 Jones, Sam
+25 3166532 King, Conor
+26 3166533 Lidasan, Mark
+27 3166534 Mathias, Laura
+28 3166535 Moloney, Aidan
+29 3166536 Onem, Urascan
+30 3166537 Onwuneme, Chigozie
+31 3166538 Powell, Joe
+32 3166539 Prakash Rao, Nityasree
+33 3166540 Pukkat Josy, Sharon Priya
+34 3166541 Rani, Preeti
+35 3166542 Roberts, Katie
+36 3166543 Rowley, Billy
+37 3166544 Samad, Tazim Shakh
+38 3166545 Sanyal, Rupali
+39 3166546 Shah, ASCHAS
+40 3166547 Srinivasan, Lakshmi Narashimhan
+41 3166548 Sudha, Niranjana
+42 3166549 Tibbitts, Rachael
+43 3166550 Topping, Alistair
+44 3166551 Valji, Ajay
+45 3166552 Wazir, Yasmin
+46 3166553 Wilson, Andrew
+47 3166554 Zeng, Zilong
+</pre></div>
+</div>
+</div>
 </div>
 <p>Select the enrollmet you want to delete by using <code class="docutils literal notranslate"><span class="pre">[x]</span></code> at the end of your <code class="docutils literal notranslate"><span class="pre">enrollments</span></code> variable, where <code class="docutils literal notranslate"><span class="pre">x</span></code> is the index of the enrollment (you printed them out above).</p>
 <div class="cell docutils container">
@@ -791,7 +1106,7 @@ for i, e in enumerate(enrollments):
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Select the enrollment to delete
 # Arbitrarily I&#39;m going to delete the first enrollment (i.e. use [0] to slice)
 
-enrollment_to_delete = enrollments[15]
+enrollment_to_delete = enrollments[0]
 </pre></div>
 </div>
 </div>
@@ -802,6 +1117,11 @@ enrollment_to_delete = enrollments[15]
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Select the enrollment you want to delete by using `[x]` at the end of your `enrollment
 
 enrollment_to_delete.deactivate(task=&quot;delete&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enrollment(_requester=&lt;canvasapi.requester.Requester object at 0x7f68845e20&gt;, course_id=53523, course_section_id=14066, id=3166507, user_id=106115, type=StudentEnrollment, created_at=2022-12-08T05:06:07Z, created_at_date=2022-12-08 05:06:07+00:00, updated_at=2022-12-11T14:06:34Z, updated_at_date=2022-12-11 14:06:34+00:00, associated_user_id=None, start_at=None, end_at=None, root_account_id=1, limit_privileges_to_course_section=False, enrollment_state=deleted, role=StudentEnrollment, role_id=3, last_activity_at=None, last_attended_at=None, total_activity_time=0, grades={&#39;html_url&#39;: &#39;https://canvas.liverpool.ac.uk/courses/53523/grades/106115&#39;, &#39;current_grade&#39;: None, &#39;current_score&#39;: None, &#39;final_grade&#39;: None, &#39;final_score&#39;: None, &#39;unposted_current_score&#39;: None, &#39;unposted_current_grade&#39;: None, &#39;unposted_final_score&#39;: None, &#39;unposted_final_grade&#39;: None}, sis_account_id=sandbox, sis_course_id=ptc-treharne, course_integration_id=None, sis_section_id=None, section_integration_id=None, sis_user_id=201671166hlaabde3, html_url=https://canvas.liverpool.ac.uk/courses/53523/users/106115)
 </pre></div>
 </div>
 </div>
@@ -825,35 +1145,79 @@ for e in enrollments:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No enrollment to delete!
+Ajith, Harikrishnan (110067) removed from course.
+Ali, Bazilah (108589) removed from course.
+Anto, Alwin (116643) removed from course.
+Austin, Ben (3146) removed from course.
+Baldwin, Joseph (116838) removed from course.
+Behnan, Griff (4103) removed from course.
+Brophy, Thomas (5546) removed from course.
+Callow, Sofia (7300) removed from course.
+Casey, Dylan (116615) removed from course.
+Chenumalla, Srivarshini (109950) removed from course.
+Chick, Louise (116732) removed from course.
+Choi, Hannah (9998) removed from course.
+Clarke, Emily (9214) removed from course.
+Cochrane, Sam (10159) removed from course.
+Collins, Stacey (8939) removed from course.
+Diab, Anas (121031) removed from course.
+Dobbash, Reyhaneh (11023) removed from course.
+Eager, Mia (116269) removed from course.
+Gangwar, Dhananjay (102919) removed from course.
+Glenn, Kathryn (116642) removed from course.
+Guthrie, Megan (116608) removed from course.
+Haddow, Summer (106002) removed from course.
+He, Yuhan (60329) removed from course.
+Jones, Sam (109366) removed from course.
+King, Conor (102582) removed from course.
+Lidasan, Mark (116653) removed from course.
+Mathias, Laura (121036) removed from course.
+Moloney, Aidan (103527) removed from course.
+Onem, Urascan (109783) removed from course.
+Onwuneme, Chigozie (34372) removed from course.
+Powell, Joe (36211) removed from course.
+Prakash Rao, Nityasree (110129) removed from course.
+Pukkat Josy, Sharon Priya (108129) removed from course.
+Rani, Preeti (103588) removed from course.
+Roberts, Katie (37511) removed from course.
+Rowley, Billy (37998) removed from course.
+Samad, Tazim Shakh (37983) removed from course.
+Sanyal, Rupali (38575) removed from course.
+Shah, ASCHAS (38868) removed from course.
+Srinivasan, Lakshmi Narashimhan (109594) removed from course.
+Sudha, Niranjana (105195) removed from course.
+Tibbitts, Rachael (43349) removed from course.
+Topping, Alistair (43555) removed from course.
+Valji, Ajay (44081) removed from course.
+Wazir, Yasmin (117384) removed from course.
+Wilson, Andrew (116508) removed from course.
+Zeng, Zilong (60290) removed from course.
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
 <section id="assignments">
 <h2>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">#</a></h2>
-<p>TODO:</p>
-<ul class="simple">
-<li><p>Getting Assignments</p></li>
-<li><p>Editing Existing Assignments</p></li>
-<li><p>Creating New assignments</p></li>
-<li><p>Duplicating assignments</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>### Getting Assignments
-
-</pre></div>
-</div>
-</div>
-</div>
+<p>I’d say that we (Jack and I) mostly use the Canvas API to create, edit and update assignments. Our School has over 750 assignments per year(not including resit assignments), spread accross 150 separate Canvas courses. Trying to manage these assignments without the Canvas API is a grinding, repetitive task (trust us on this!). Instead, the API lets us automate the creation of our assignments every September so that we can get on with more interesting projects. Hooray!</p>
+<p>What follows is a description of our most commonly used API actions associated with assignments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from canvasapi import Canvas
-
-canvas = Canvas(&quot;https://canvas.liverpool.ac.uk&quot;, &quot;15502~DqhNjK9tqamH68fsXvkoPkvH3Jgk5Tu5Uf5p4MFiCjoiUKGJBeqR7vgFs3yOj9Oe&quot;)
+canvas = Canvas(
+    &quot;https://canvas.liverpool.ac.uk&quot;,
+    &quot;15502~0h0tC35okrJhOw0KPEX7V4cvrfeU0PiztrZ5mNAxfd6iCqK3tGd31fjjBTAmnbFQ&quot;
+)
 </pre></div>
 </div>
 </div>
 </div>
+<section id="getting-assignments">
+<h3>Getting Assignments<a class="headerlink" href="#getting-assignments" title="Permalink to this headline">#</a></h3>
+<p>In this, and the following sections I use my own personal test course in Canvas to showcase manipulating assignments with the Canvas API. Note that you will only be able to access courses via the API that you are enrolled on as a Teacher or for those that admin privelidges have been granted.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># first get the course
@@ -865,6 +1229,7 @@ assignment = course.get_assignment(224200) # 224200 is the assignment id. Get it
 </div>
 </div>
 </div>
+<p>The object that you now have stored in the <code class="docutils literal notranslate"><span class="pre">assignment</span></code> variable will tell you pretty much everything you ever needed to know about an assignment’s settings. Let’s take a look via the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#object.__dict__"><code class="docutils literal notranslate"><span class="pre">__dict__</span></code></a> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># inspect the assignment object
@@ -872,52 +1237,429 @@ assignment.__dict__
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_requester&#39;: &lt;canvasapi.requester.Requester at 0x7f68845e20&gt;,
+ &#39;id&#39;: 224200,
+ &#39;description&#39;: &#39;&#39;,
+ &#39;due_at&#39;: &#39;2023-01-09T12:00:00Z&#39;,
+ &#39;due_at_date&#39;: datetime.datetime(2023, 1, 9, 12, 0, tzinfo=&lt;UTC&gt;),
+ &#39;unlock_at&#39;: &#39;2023-01-02T12:00:00Z&#39;,
+ &#39;unlock_at_date&#39;: datetime.datetime(2023, 1, 2, 12, 0, tzinfo=&lt;UTC&gt;),
+ &#39;lock_at&#39;: &#39;2023-01-30T12:00:00Z&#39;,
+ &#39;lock_at_date&#39;: datetime.datetime(2023, 1, 30, 12, 0, tzinfo=&lt;UTC&gt;),
+ &#39;points_possible&#39;: 100.0,
+ &#39;grading_type&#39;: &#39;percent&#39;,
+ &#39;assignment_group_id&#39;: 258812,
+ &#39;grading_standard_id&#39;: None,
+ &#39;created_at&#39;: &#39;2022-12-07T17:33:44Z&#39;,
+ &#39;created_at_date&#39;: datetime.datetime(2022, 12, 7, 17, 33, 44, tzinfo=&lt;UTC&gt;),
+ &#39;updated_at&#39;: &#39;2022-12-11T11:19:46Z&#39;,
+ &#39;updated_at_date&#39;: datetime.datetime(2022, 12, 11, 11, 19, 46, tzinfo=&lt;UTC&gt;),
+ &#39;peer_reviews&#39;: False,
+ &#39;automatic_peer_reviews&#39;: False,
+ &#39;position&#39;: 1,
+ &#39;grade_group_students_individually&#39;: False,
+ &#39;anonymous_peer_reviews&#39;: False,
+ &#39;group_category_id&#39;: None,
+ &#39;post_to_sis&#39;: False,
+ &#39;moderated_grading&#39;: False,
+ &#39;omit_from_final_grade&#39;: False,
+ &#39;intra_group_peer_reviews&#39;: False,
+ &#39;anonymous_instructor_annotations&#39;: False,
+ &#39;anonymous_grading&#39;: True,
+ &#39;graders_anonymous_to_graders&#39;: False,
+ &#39;grader_count&#39;: 0,
+ &#39;grader_comments_visible_to_graders&#39;: True,
+ &#39;final_grader_id&#39;: None,
+ &#39;grader_names_visible_to_final_grader&#39;: True,
+ &#39;allowed_attempts&#39;: -1,
+ &#39;annotatable_attachment_id&#39;: None,
+ &#39;secure_params&#39;: &#39;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsdGlfYXNzaWdubWVudF9pZCI6ImY4YjRiZWYzLTI4NzYtNGViZS04ZWJiLWQzODQ1YjQwYTVhYyIsImx0aV9hc3NpZ25tZW50X2Rlc2NyaXB0aW9uIjoiIn0.tTAWyg4c9Wkp-ASz6xizPBiW6072B8MT34ty20GJaqI&#39;,
+ &#39;lti_context_id&#39;: &#39;f8b4bef3-2876-4ebe-8ebb-d3845b40a5ac&#39;,
+ &#39;course_id&#39;: 53523,
+ &#39;name&#39;: &#39;Awesome Assignment&#39;,
+ &#39;submission_types&#39;: [&#39;online_upload&#39;],
+ &#39;has_submitted_submissions&#39;: False,
+ &#39;due_date_required&#39;: False,
+ &#39;max_name_length&#39;: 255,
+ &#39;in_closed_grading_period&#39;: False,
+ &#39;graded_submissions_exist&#39;: False,
+ &#39;is_quiz_assignment&#39;: False,
+ &#39;can_duplicate&#39;: True,
+ &#39;original_course_id&#39;: None,
+ &#39;original_assignment_id&#39;: None,
+ &#39;original_lti_resource_link_id&#39;: None,
+ &#39;original_assignment_name&#39;: None,
+ &#39;original_quiz_id&#39;: None,
+ &#39;workflow_state&#39;: &#39;published&#39;,
+ &#39;important_dates&#39;: False,
+ &#39;muted&#39;: True,
+ &#39;html_url&#39;: &#39;https://canvas.liverpool.ac.uk/courses/53523/assignments/224200&#39;,
+ &#39;has_overrides&#39;: False,
+ &#39;needs_grading_count&#39;: 0,
+ &#39;sis_assignment_id&#39;: None,
+ &#39;integration_id&#39;: None,
+ &#39;integration_data&#39;: {},
+ &#39;allowed_extensions&#39;: [&#39;docx&#39;, &#39;pdf&#39;, &#39;pptx&#39;, &#39;txt&#39;],
+ &#39;use_rubric_for_grading&#39;: False,
+ &#39;free_form_criterion_comments&#39;: False,
+ &#39;rubric&#39;: [{&#39;id&#39;: &#39;_3677&#39;,
+   &#39;points&#39;: 20.0,
+   &#39;description&#39;: &#39;Knowledge Base&#39;,
+   &#39;long_description&#39;: None,
+   &#39;ignore_for_scoring&#39;: None,
+   &#39;criterion_use_range&#39;: True,
+   &#39;ratings&#39;: [{&#39;id&#39;: &#39;blank&#39;,
+     &#39;points&#39;: 20.0,
+     &#39;description&#39;: &#39;Outstanding&#39;,
+     &#39;long_description&#39;: &#39;Knowledge base could hardly be improved.&#39;},
+    {&#39;id&#39;: &#39;_7480&#39;,
+     &#39;points&#39;: 16.0,
+     &#39;description&#39;: &#39;Excellent&#39;,
+     &#39;long_description&#39;: &#39;In depth coverage of relevant content, some appreciation of broader biological context. Almost faultless&#39;},
+    {&#39;id&#39;: &#39;_2168&#39;,
+     &#39;points&#39;: 14.0,
+     &#39;description&#39;: &#39;Very Good&#39;,
+     &#39;long_description&#39;: &#39;In depth coverage of most of the relevant content. May contain a few minor mistakes. No irrelevant content. Question fully answered.&#39;},
+    {&#39;id&#39;: &#39;_2247&#39;,
+     &#39;points&#39;: 12.0,
+     &#39;description&#39;: &#39;Good&#39;,
+     &#39;long_description&#39;: &#39;Covers most of the relevant issues but some topics may be treated superficially. May contain some mistakes and/or irrelevant content. Question has been adequately answered.&#39;},
+    {&#39;id&#39;: &#39;_9729&#39;,
+     &#39;points&#39;: 10.0,
+     &#39;description&#39;: &#39;Adequate&#39;,
+     &#39;long_description&#39;: &#39;Basic coverage of most key issues but some important aspects missing. May contain some serious errors and/ or a lot of irrelevant material. Question only partially answered.&#39;},
+    {&#39;id&#39;: &#39;_7742&#39;,
+     &#39;points&#39;: 8.0,
+     &#39;description&#39;: &#39;Marginal fail&#39;,
+     &#39;long_description&#39;: &#39;Poor coverage of relevant content. Addresses the question only marginally and/or may contain several serious errors.&#39;},
+    {&#39;id&#39;: &#39;blank_2&#39;,
+     &#39;points&#39;: 4.0,
+     &#39;description&#39;: &#39;Fail&#39;,
+     &#39;long_description&#39;: &#39;Very poor coverage of relevant content. Does not address the question.&#39;}]},
+  {&#39;id&#39;: &#39;_5998&#39;,
+   &#39;points&#39;: 25.0,
+   &#39;description&#39;: &#39;Comprehension&#39;,
+   &#39;long_description&#39;: None,
+   &#39;ignore_for_scoring&#39;: None,
+   &#39;criterion_use_range&#39;: True,
+   &#39;ratings&#39;: [{&#39;id&#39;: &#39;_3021&#39;,
+     &#39;points&#39;: 25.0,
+     &#39;description&#39;: &#39;Outstanding&#39;,
+     &#39;long_description&#39;: &#39;Comprehension could hardly be improved.&#39;},
+    {&#39;id&#39;: &#39;_6884&#39;,
+     &#39;points&#39;: 20.0,
+     &#39;description&#39;: &#39;Excellent&#39;,
+     &#39;long_description&#39;: &#39;Entirely clear and logical. Clear use of relevant terms and concepts.&#39;},
+    {&#39;id&#39;: &#39;_3758&#39;,
+     &#39;points&#39;: 17.5,
+     &#39;description&#39;: &#39;Very Good&#39;,
+     &#39;long_description&#39;: &#39;Generally clear and logical, mainly correct use of relevant terms and concepts.&#39;},
+    {&#39;id&#39;: &#39;_3081&#39;,
+     &#39;points&#39;: 15.0,
+     &#39;description&#39;: &#39;Good&#39;,
+     &#39;long_description&#39;: &#39;The main relevant concepts appear to be understood, but a few misconceptions and terminology not always correct. Not always clear.&#39;},
+    {&#39;id&#39;: &#39;_2167&#39;,
+     &#39;points&#39;: 12.5,
+     &#39;description&#39;: &#39;Adequate&#39;,
+     &#39;long_description&#39;: &#39;Serious misconceptions and/or several mistakes in terminology and/or sometimes unclear.&#39;},
+    {&#39;id&#39;: &#39;_4796&#39;,
+     &#39;points&#39;: 10.0,
+     &#39;description&#39;: &#39;Marginal fail&#39;,
+     &#39;long_description&#39;: &#39;Little understanding of the relevant topics.&#39;},
+    {&#39;id&#39;: &#39;_1574&#39;,
+     &#39;points&#39;: 5.0,
+     &#39;description&#39;: &#39;Fail&#39;,
+     &#39;long_description&#39;: &#39;Almost no understanding of the relevant topics.&#39;}]},
+  {&#39;id&#39;: &#39;_5173&#39;,
+   &#39;points&#39;: 20.0,
+   &#39;description&#39;: &#39;Synthesis&#39;,
+   &#39;long_description&#39;: None,
+   &#39;ignore_for_scoring&#39;: None,
+   &#39;criterion_use_range&#39;: True,
+   &#39;ratings&#39;: [{&#39;id&#39;: &#39;_3318&#39;,
+     &#39;points&#39;: 20.0,
+     &#39;description&#39;: &#39;Outstanding&#39;,
+     &#39;long_description&#39;: &#39;Synthesis and evaluation could hardly be improved.&#39;},
+    {&#39;id&#39;: &#39;_2331&#39;,
+     &#39;points&#39;: 16.0,
+     &#39;description&#39;: &#39;Excellent&#39;,
+     &#39;long_description&#39;: &#39;Excellent synthesis and evaluation with some degree of critical thinking.&#39;},
+    {&#39;id&#39;: &#39;_2079&#39;,
+     &#39;points&#39;: 14.0,
+     &#39;description&#39;: &#39;Very Good&#39;,
+     &#39;long_description&#39;: &#39;Clear evidence of synthesis and evaluation leading to a well- founded conclusion.&#39;},
+    {&#39;id&#39;: &#39;_2000&#39;,
+     &#39;points&#39;: 12.0,
+     &#39;description&#39;: &#39;Good&#39;,
+     &#39;long_description&#39;: &#39;Some evidence of synthesis and evaluation. Some degree of logical argument leading to a sensible conclusion. Information is put into context.&#39;},
+    {&#39;id&#39;: &#39;_2360&#39;,
+     &#39;points&#39;: 10.0,
+     &#39;description&#39;: &#39;Adequate&#39;,
+     &#39;long_description&#39;: &#39;Somewhat descriptive with little evidence of logical argument. May contain some synthesis.&#39;},
+    {&#39;id&#39;: &#39;_1538&#39;,
+     &#39;points&#39;: 8.0,
+     &#39;description&#39;: &#39;Marginal fail&#39;,
+     &#39;long_description&#39;: &#39;Mainly descriptive, little evidence of synthesis and no logical argument.&#39;},
+    {&#39;id&#39;: &#39;_9585&#39;,
+     &#39;points&#39;: 4.0,
+     &#39;description&#39;: &#39;Fail&#39;,
+     &#39;long_description&#39;: &#39;Purely descriptive, no evidence of synthesis.&#39;}]},
+  {&#39;id&#39;: &#39;_4559&#39;,
+   &#39;points&#39;: 10.0,
+   &#39;description&#39;: &#39;Structure&#39;,
+   &#39;long_description&#39;: None,
+   &#39;ignore_for_scoring&#39;: None,
+   &#39;criterion_use_range&#39;: True,
+   &#39;ratings&#39;: [{&#39;id&#39;: &#39;_3185&#39;,
+     &#39;points&#39;: 10.0,
+     &#39;description&#39;: &#39;Outstanding&#39;,
+     &#39;long_description&#39;: &#39;Structure could hardly be improved.&#39;},
+    {&#39;id&#39;: &#39;_9290&#39;,
+     &#39;points&#39;: 8.0,
+     &#39;description&#39;: &#39;Excellent&#39;,
+     &#39;long_description&#39;: &#39;Excellent structure and logical flow which enhances the argument.&#39;},
+    {&#39;id&#39;: &#39;_9265&#39;,
+     &#39;points&#39;: 7.0,
+     &#39;description&#39;: &#39;Very Good&#39;,
+     &#39;long_description&#39;: &#39;Very well structured, largely logical flow.&#39;},
+    {&#39;id&#39;: &#39;_1004&#39;,
+     &#39;points&#39;: 6.0,
+     &#39;description&#39;: &#39;Good&#39;,
+     &#39;long_description&#39;: &#39;Well structured, generally logical flow, but some paragraphs may be disjointed or contain repetition.&#39;},
+    {&#39;id&#39;: &#39;_2336&#39;,
+     &#39;points&#39;: 5.0,
+     &#39;description&#39;: &#39;Adequate&#39;,
+     &#39;long_description&#39;: &#39;Some attempt to order the argument, but not necessarily logical. Paragraphs may be disjointed, and there may be significant repetition.&#39;},
+    {&#39;id&#39;: &#39;_6979&#39;,
+     &#39;points&#39;: 4.0,
+     &#39;description&#39;: &#39;Marginal fail&#39;,
+     &#39;long_description&#39;: &#39;Little sense of direction. May contain a lot of repetition and misplaced sections.&#39;},
+    {&#39;id&#39;: &#39;_3593&#39;,
+     &#39;points&#39;: 2.0,
+     &#39;description&#39;: &#39;Fail&#39;,
+     &#39;long_description&#39;: &#39;Structure does not seem to make sense&#39;}]},
+  {&#39;id&#39;: &#39;_3437&#39;,
+   &#39;points&#39;: 15.0,
+   &#39;description&#39;: &#39;Use of supplementary&#39;,
+   &#39;long_description&#39;: None,
+   &#39;ignore_for_scoring&#39;: None,
+   &#39;criterion_use_range&#39;: True,
+   &#39;ratings&#39;: [{&#39;id&#39;: &#39;_6149&#39;,
+     &#39;points&#39;: 15.0,
+     &#39;description&#39;: &#39;Outstanding&#39;,
+     &#39;long_description&#39;: &#39;The use of supplementary material could hardly be improved.&#39;},
+    {&#39;id&#39;: &#39;_6042&#39;,
+     &#39;points&#39;: 12.0,
+     &#39;description&#39;: &#39;Excellent&#39;,
+     &#39;long_description&#39;: &#39;Throughout, the writing is supported by a good range of suitable references including some primary, current research articles. Some references are beyond directed readings. Competent use of text citations throughout.&#39;},
+    {&#39;id&#39;: &#39;_3575&#39;,
+     &#39;points&#39;: 10.5,
+     &#39;description&#39;: &#39;Very Good&#39;,
+     &#39;long_description&#39;: &#39;Where appropriate, the writing is supported by a good range of suitable references. Generally competent use of text citations with few lapses.&#39;},
+    {&#39;id&#39;: &#39;_3032&#39;,
+     &#39;points&#39;: 9.0,
+     &#39;description&#39;: &#39;Good&#39;,
+     &#39;long_description&#39;: &#39;The writing is supported by some relevant material, most of which is suitable, but may include some less suitable or relevant sources. Citations in the text are mostly appropriate but may contain some errors.&#39;},
+    {&#39;id&#39;: &#39;_5200&#39;,
+     &#39;points&#39;: 7.5,
+     &#39;description&#39;: &#39;Adequate&#39;,
+     &#39;long_description&#39;: &#39;There is evidence of use of outside material, but may not be entirely suitable or not entirely relevant. Citations patchy or may contain several errors.&#39;},
+    {&#39;id&#39;: &#39;_8459&#39;,
+     &#39;points&#39;: 6.0,
+     &#39;description&#39;: &#39;Marginal fail&#39;,
+     &#39;long_description&#39;: &#39;Little use of outside material or material may be of little relevance or unsuitable. Insufficient text citations and/or many errors.&#39;},
+    {&#39;id&#39;: &#39;_1293&#39;,
+     &#39;points&#39;: 3.0,
+     &#39;description&#39;: &#39;Fail&#39;,
+     &#39;long_description&#39;: &#39;Almost no use of relevant, suitable outside material and/or no text citations.&#39;}]},
+  {&#39;id&#39;: &#39;_3148&#39;,
+   &#39;points&#39;: 5.0,
+   &#39;description&#39;: &#39;Language&#39;,
+   &#39;long_description&#39;: None,
+   &#39;ignore_for_scoring&#39;: None,
+   &#39;criterion_use_range&#39;: True,
+   &#39;ratings&#39;: [{&#39;id&#39;: &#39;_2748&#39;,
+     &#39;points&#39;: 5.0,
+     &#39;description&#39;: &#39;Outstanding&#39;,
+     &#39;long_description&#39;: &#39;Language could hardly be improved.&#39;},
+    {&#39;id&#39;: &#39;_5855&#39;,
+     &#39;points&#39;: 4.0,
+     &#39;description&#39;: &#39;Excellent&#39;,
+     &#39;long_description&#39;: &#39;Excellent English, almost faultless, very good style, academic language throughout, a pleasure to read.&#39;},
+    {&#39;id&#39;: &#39;_2323&#39;,
+     &#39;points&#39;: 3.5,
+     &#39;description&#39;: &#39;Very Good&#39;,
+     &#39;long_description&#39;: &#39;Very good use of English, clear prose, mainly academic, may include occasional lapses.&#39;},
+    {&#39;id&#39;: &#39;_1680&#39;,
+     &#39;points&#39;: 3.0,
+     &#39;description&#39;: &#39;Good&#39;,
+     &#39;long_description&#39;: &#39;Competent English but use of some colloquialisms and/or may contain a few errors.&#39;},
+    {&#39;id&#39;: &#39;_841&#39;,
+     &#39;points&#39;: 2.5,
+     &#39;description&#39;: &#39;Adequate&#39;,
+     &#39;long_description&#39;: &#39;Generally acceptable English, contains several errors and / or may contain several colloquialisms.&#39;},
+    {&#39;id&#39;: &#39;_102&#39;,
+     &#39;points&#39;: 2.0,
+     &#39;description&#39;: &#39;Marginal fail&#39;,
+     &#39;long_description&#39;: &#39;Barely acceptable English with many grammar and spelling mistakes. Generally non-academic.&#39;},
+    {&#39;id&#39;: &#39;_772&#39;,
+     &#39;points&#39;: 1.0,
+     &#39;description&#39;: &#39;Fail&#39;,
+     &#39;long_description&#39;: &#39;Poor spelling, grammar and/or punctuation&#39;}]},
+  {&#39;id&#39;: &#39;_6614&#39;,
+   &#39;points&#39;: 5.0,
+   &#39;description&#39;: &#39;Referencing&#39;,
+   &#39;long_description&#39;: None,
+   &#39;ignore_for_scoring&#39;: None,
+   &#39;criterion_use_range&#39;: True,
+   &#39;ratings&#39;: [{&#39;id&#39;: &#39;_8115&#39;,
+     &#39;points&#39;: 5.0,
+     &#39;description&#39;: &#39;Outstanding&#39;,
+     &#39;long_description&#39;: &#39;Referencing and (if used) figures, tables and legends are of publishable standard and could hardly be improved.&#39;},
+    {&#39;id&#39;: &#39;_3240&#39;,
+     &#39;points&#39;: 4.0,
+     &#39;description&#39;: &#39;Excellent&#39;,
+     &#39;long_description&#39;: &#39;Referencing format almost flawless. Where used, diagrams and tables are clear, and fully labelled.&#39;},
+    {&#39;id&#39;: &#39;_2207&#39;,
+     &#39;points&#39;: 3.5,
+     &#39;description&#39;: &#39;Very Good&#39;,
+     &#39;long_description&#39;: &#39;Referencing format mostly correct but may contain a few lapses. Where used, diagrams and tables are mostly informative and labelled but may contain a few lapses.&#39;},
+    {&#39;id&#39;: &#39;_6518&#39;,
+     &#39;points&#39;: 3.0,
+     &#39;description&#39;: &#39;Good&#39;,
+     &#39;long_description&#39;: &#39;Referencing may contain a few formatting errors. Where used, diagrams/tables may not be fully labelled and/or may not be always entirely clear.&#39;},
+    {&#39;id&#39;: &#39;_7257&#39;,
+     &#39;points&#39;: 2.5,
+     &#39;description&#39;: &#39;Adequate&#39;,
+     &#39;long_description&#39;: &#39;May contain a number of formatting errors and/or diagrams/tables (where used) may not be informative and may contain several labelling errors.&#39;},
+    {&#39;id&#39;: &#39;_1763&#39;,
+     &#39;points&#39;: 2.0,
+     &#39;description&#39;: &#39;Marginal fail&#39;,
+     &#39;long_description&#39;: &#39;Referencing format barely acceptable, and/or diagrams/tables (where used) not appropriately labelled and may contain mistakes.&#39;},
+    {&#39;id&#39;: &#39;_9145&#39;,
+     &#39;points&#39;: 1.0,
+     &#39;description&#39;: &#39;Fail&#39;,
+     &#39;long_description&#39;: &#39;Referencing format unacceptable, diagrams and tables (where used) lack labels and contain many other mistakes.&#39;}]},
+  {&#39;id&#39;: &#39;7116_6815&#39;,
+   &#39;points&#39;: 0.0,
+   &#39;description&#39;: &#39;Academic Integrity&#39;,
+   &#39;long_description&#39;: None,
+   &#39;ignore_for_scoring&#39;: None,
+   &#39;criterion_use_range&#39;: False,
+   &#39;ratings&#39;: [{&#39;id&#39;: &#39;7116_2499&#39;,
+     &#39;points&#39;: 0.0,
+     &#39;description&#39;: &#39;Category A: minor errors&#39;,
+     &#39;long_description&#39;: &#39;For minor errors please manually deduct either 5% or 10%, depending on the extent of referencing errors&#39;},
+    {&#39;id&#39;: &#39;7116_9061&#39;,
+     &#39;points&#39;: 0.0,
+     &#39;description&#39;: &#39;Category B: poor academic practice&#39;,
+     &#39;long_description&#39;: &#39;The assessed mark is reduced to 40% where there is a paragraph of mostly copied text (not necessarily a contiguous paragraph). Assessors are advised to consult with the Academic Integrity Officer (lycett@liverpool.ac.uk)&#39;},
+    {&#39;id&#39;: &#39;7116_6082&#39;,
+     &#39;points&#39;: 0.0,
+     &#39;description&#39;: &#39;Category C, D, E: collusion, fabrication/falsification of data, procured assignment&#39;,
+     &#39;long_description&#39;: &#39;All suspected Cat C, D, E cases must be referred to the Academic Integrity Officer (lycett@liverpool.ac.uk)&#39;},
+    {&#39;id&#39;: &#39;7116_5589&#39;,
+     &#39;points&#39;: 0.0,
+     &#39;description&#39;: &#39;No academic integrity concerns&#39;,
+     &#39;long_description&#39;: &#39;There are no academic integrity concerns with this assignment&#39;}]}],
+ &#39;rubric_settings&#39;: {&#39;id&#39;: 12263,
+  &#39;title&#39;: &#39;SOLS - Standard Essay Rubric&#39;,
+  &#39;points_possible&#39;: 100.0,
+  &#39;free_form_criterion_comments&#39;: False,
+  &#39;hide_score_total&#39;: False,
+  &#39;hide_points&#39;: False},
+ &#39;published&#39;: True,
+ &#39;unpublishable&#39;: True,
+ &#39;only_visible_to_overrides&#39;: False,
+ &#39;locked_for_user&#39;: False,
+ &#39;submissions_download_url&#39;: &#39;https://canvas.liverpool.ac.uk/courses/53523/assignments/224200/submissions?zip=1&#39;,
+ &#39;post_manually&#39;: True,
+ &#39;anonymize_students&#39;: True,
+ &#39;require_lockdown_browser&#39;: False}
+</pre></div>
 </div>
+</div>
+</div>
+<p>Sometimes, you don’t know the exact id of the assignment that you want but can’t be bothered to navigate to a course’s assignments page. To get a list of <em>all</em> the assignment objects associated with a course you can use the following line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># get all course assignments
-assignments = [x for x in course.get_assignments()]
+assignments = [x for x in course.get_assignments()] # This particular syntax is known as a list comprehension in Python.
+
+# print out all the assignments and their clickable urls!
+for a in assignments:
+    print(a, a.html_url)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Awesome Assignment (224200) https://canvas.liverpool.ac.uk/courses/53523/assignments/224200
+Assignment created with API (224435) https://canvas.liverpool.ac.uk/courses/53523/assignments/224435
+PHIL103.0 Coursework (75%) due on 11/01/2023 at 2pm (221387) https://canvas.liverpool.ac.uk/courses/53523/assignments/221387
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can tweak the list comprehension above to filter assignments based on it’s properties. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># filter assignments based on a due date
+assignments = [x for x in course.get_assignments() if x.due_at == &quot;2023-01-09T16:00:00Z&quot;]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for a in assignments:
-    print(a)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># or, here&#39;s another example where I search for a substring in an assignmet&#39;s name
+assignments = [x for x in course.get_assignments() if &quot;awesome&quot; in x.name.lower()]
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># filter assignments based on key value
-assignments = [x for x in course.get_assignments() if x.due_at == &quot;2023-01-09T12:00:00Z&quot;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>assignments = [x for x in course.get_assignments() if &quot;test&quot; in x.name.lower()]
-</pre></div>
-</div>
-</div>
-</div>
+</section>
 <section id="edit-assignments">
 <h3>Edit Assignments<a class="headerlink" href="#edit-assignments" title="Permalink to this headline">#</a></h3>
+<p>Once you’ve got an assignment object you edit it using the API as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = assignments[0] # from above
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = assignments[0] # slicing my assignments variable from above to get the assignment
 
+# create a dictionary of keys and values that you want to update
 assignment_update_info = {
     &quot;description&quot;: &quot;Important information about this assignment&quot;,
     &quot;due_at&quot;: &quot;2023-01-09T16:00:00Z&quot;, # important to get the format correct
-    &quot;name&quot;: &quot;Awesome Assignment&quot;,
-    &quot;published&quot;: False
+    &quot;name&quot;: &quot;Summative Test&quot;,
+    &quot;published&quot;: False # Students won&#39;t be able to see this assignment
 }
 
-a = a.edit(assignment=assignment_update_info)
+a = a.edit(assignment=assignment_update_info) # This line makes the changes in Canvas
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-new-assignments">
+<h3>Create New Assignments<a class="headerlink" href="#create-new-assignments" title="Permalink to this headline">#</a></h3>
+<p>Creating new assignments with the the API is straightforward. Do it like this</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>new_assignment = course.create_assignment(assignment={
+        &quot;name&quot;: &quot;Assignment created with API&quot;,
+        &quot;open_at&quot;: &quot;2023-12-13T09:00:00Z&quot;,
+        &quot;due_at&quot;: &quot;2023-12-13T16:00:00Z&quot;,
+        &quot;submission_types&quot;: [&quot;online_upload&quot;],
+        &quot;anonymous_grading&quot;: True,
+        &quot;published&quot;: True
+    }
+)
+print(new_assignment.html_url)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://canvas.liverpool.ac.uk/courses/53523/assignments/224437
 </pre></div>
 </div>
 </div>
@@ -925,9 +1667,19 @@ a = a.edit(assignment=assignment_update_info)
 </section>
 <section id="duplicate-assignments">
 <h3>Duplicate Assignments<a class="headerlink" href="#duplicate-assignments" title="Permalink to this headline">#</a></h3>
+<p>The one thing you <strong>CAN’T</strong> do with the API is configure third party tools associated with an assignment, for example a Turnitin Plagiarism Review Tool. This is mildly frustrating but there is a workaround - you can duplicate any existing assignment that already has a third party tool configured and all the settings will be copied accross for your duplicated assignment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When duplicating assignments, any associated rubrics are also copied and attached to the new assignments</p>
+</div>
+<p>There is no <code class="docutils literal notranslate"><span class="pre">duplicate_assigment()</span></code> function in the <code class="docutils literal notranslate"><span class="pre">canvasapi</span></code> module sadly. We have to do it the old fashioned way be defining a new function that makes direct use of the API’s <a class="reference external" href="https://canvas.instructure.com/doc/api/assignments.html#method.assignments_api.duplicate">duplicate</a> url endpoint.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import requests
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># run this cell to create your own duplicate_assignment function
+import requests
+
+API_URL = &quot;https://canvas.liverpool.ac.uk&quot;
+API_KEY = &quot;15502~AucX1kPx4A7c0hsJf4Z5JnpgLL0INvjLRGQK98jcy7sR53dBauGKqmAS01KU6J6W&quot;
 
 def duplicate_assignment(course_id, assignment_id):
     &quot;&quot;&quot;
@@ -957,20 +1709,20 @@ def duplicate_assignment(course_id, assignment_id):
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Running this cell will copy your assignment from above. Check this in Canvas
 new_assignment = duplicate_assignment(course.id, a.id)
+print(new_assignment.html_url)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://canvas.liverpool.ac.uk/courses/53523/assignments/224439
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>new_assignment.name
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>new_assignment = new_assignment.edit(
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># now you can proceed to edit the duplicated assignment
+new_assignment = new_assignment.edit(
     assignment={
         &quot;name&quot;: &quot;Another Awesome Assignment&quot;,
         &quot;published&quot;: True,
@@ -981,6 +1733,7 @@ new_assignment = duplicate_assignment(course.id, a.id)
 </div>
 </div>
 </div>
+<p>You can create as many duplicate assignments as you want in one go by using a loop. For example, let’s create 5 duplicates and name then accordingly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i in range(1,6):
@@ -1326,7 +2079,7 @@ ax.set_ylim(0, 90)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 90.0)
 </pre></div>
 </div>
-<img alt="_images/essentials_87_1.png" src="_images/essentials_87_1.png" />
+<img alt="_images/essentials_94_1.png" src="_images/essentials_94_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1349,7 +2102,7 @@ fig.suptitle(&quot;&quot;)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;&#39;)
 </pre></div>
 </div>
-<img alt="_images/essentials_88_1.png" src="_images/essentials_88_1.png" />
+<img alt="_images/essentials_95_1.png" src="_images/essentials_95_1.png" />
 </div>
 </div>
 </section>
