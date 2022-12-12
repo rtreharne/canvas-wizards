@@ -12,7 +12,7 @@
 # 
 # Before we begin, create your `canvas` session variable again by running the cell below with `API_URL` AND `API_KEY` set to your own personal values.
 
-# In[45]:
+# In[ ]:
 
 
 # Create your Canvas session
@@ -24,9 +24,6 @@ API_KEY = ""
 
 API_URL = "<YOUR_CANVAS_URL>" # Put your canvas URL here, e.g. "https://canvas.liverpool.ac.uk"
 API_KEY = "<YOUR_API_KEY>"
-
-API_URL = "https://canvas.liverpool.ac.uk"
-API_KEY = "15502~AucX1kPx4A7c0hsJf4Z5JnpgLL0INvjLRGQK98jcy7sR53dBauGKqmAS01KU6J6W"
 
 canvas = Canvas(API_URL, API_KEY)
 
@@ -41,7 +38,7 @@ canvas = Canvas(API_URL, API_KEY)
 # If you don't know a course's id, you can get it by going to the course's homepage on Canvas and then looking at the last number in the URL string, e.g. for https://canvas.liverpool.ac.uk/courses/60371 the course id is 60371.
 # ```
 
-# In[46]:
+# In[ ]:
 
 
 course_id = 61073 # REPLACE 61073 WITH YOUR COURSE ID - I'm just giving an example here.
@@ -50,7 +47,7 @@ course = canvas.get_course(course_id)
 
 # To view all of the settings for the course use the `__dict__` method:
 
-# In[47]:
+# In[ ]:
 
 
 course.__dict__
@@ -58,7 +55,7 @@ course.__dict__
 
 # If you want, you can also get a course based on the course_code which is usually the course name as it appears in the top left of the course homepage on Canvas. You will need to use the additional parameter `use_sis_id` in the `get_course()` function, and make sure it's set to a value of `True`.
 
-# In[51]:
+# In[ ]:
 
 
 # Getting a course with its course_code instead of the id
@@ -69,7 +66,7 @@ course = canvas.get_course("LIFE733-202223", use_sis_id=True)
 
 # Use the `get_enrollments()` function to get all the enrollments associated with the course.
 
-# In[52]:
+# In[ ]:
 
 
 # To get all the enrollments on a course
@@ -78,7 +75,7 @@ enrollments = course.get_enrollments()
 
 # The line above will successfully return all enrollments for a course and store them in the variable `enrollments`. However, all the information will stored in an object called a `PaginatedList` which isn't that useful when trying to do stuff in Python. For example, if you want to figure out how many enrollments there are you might try and use the `len()` function (very sensible), but for a `PaginatedList` you'd encounter a `TypeError`.
 
-# In[53]:
+# In[ ]:
 
 
 len(enrollments)
@@ -86,7 +83,7 @@ len(enrollments)
 
 # To avoid `TypeErrors`, it is recommended that you retrieve list of things from canvas by using the relevant function, in this case `course.get_enrollments()`, within what is known as a "list comprehension" in Python. Without going into any futher detail, the code you need is as follows ...
 
-# In[54]:
+# In[ ]:
 
 
 enrollments = [x for x in course.get_enrollments()]
@@ -96,7 +93,7 @@ enrollments = [x for x in course.get_enrollments()]
 # This slightly more complicated way of obtaining a list of things from Canvas is better in the long run. You'll see it used a lot when I'm getting enrollments, assignments and submissions.
 # ```
 
-# In[55]:
+# In[ ]:
 
 
 len(enrollments) # That's better! I can see there are 68 enrollments on this course.
@@ -104,7 +101,7 @@ len(enrollments) # That's better! I can see there are 68 enrollments on this cou
 
 # Also, you can now slice your list of enrollments, e.g. to pick out a single enrollment from the list to look at it, by doing something like this ...
 
-# In[56]:
+# In[ ]:
 
 
 # Example: Pick out the 65th enrollment from a list of enrollments.
@@ -113,7 +110,7 @@ enrollments[65]
 
 # To make the data associated with the enrollment a bit more readable you can use the `__dict__` method.
 
-# In[57]:
+# In[ ]:
 
 
 # Use .__dict__ to print out the dictionary map for the enrollment object. Beatuful!
@@ -122,7 +119,7 @@ enrollments[65].__dict__
 
 # You can access any "key value" associated with the enrollment object by using `.<key_name>` on any enrollment object. For example, to get the role associated the object above:
 
-# In[58]:
+# In[ ]:
 
 
 # Get the role associated with my enrollment
@@ -131,7 +128,7 @@ enrollments[65].role
 
 # Sometimes, you just want to get the enrollments associated with a particular role, e.g. ``StudentEnrolment``. To do this you can filter accordingly using the following line.
 
-# In[59]:
+# In[ ]:
 
 
 student_enrollments = [x for x in course.get_enrollments() if x.role == "StudentEnrollment"]
@@ -145,7 +142,7 @@ student_enrollments = [x for x in course.get_enrollments() if x.role == "Student
 # 
 # Run the cell below to create a Pandas data frame containing your enrollment data.
 
-# In[60]:
+# In[ ]:
 
 
 # The pandas module is fantastic for reading/creating spreadsheets from data in Python
@@ -169,7 +166,7 @@ output = pd.DataFrame(rows) # Convert your rows into a Pandas dataframe
 
 # You can view the first 5 rows of your data frame using the following command.
 
-# In[61]:
+# In[ ]:
 
 
 # check it out!
@@ -178,7 +175,7 @@ output.head()
 
 # Finally, lets save the data frame to something we all know and love - the humble Excel spreadsheet.
 
-# In[62]:
+# In[ ]:
 
 
 # Save the output to an Excel spreadsheet
@@ -201,12 +198,12 @@ output.to_excel("course_enrollments.xlsx", index=False)
 
 # Below is an example of how to enroll a new user (in this case me! - my id is a very Orwellian 101) as a Teacher on a course. The `enrollment` dictionary contains information on the `enrollment_state` of the user. By setting it to `active` we can avoid sending the user any notification of their enrollment which is sometimes preferable.
 
-# In[63]:
+# In[ ]:
 
 
 # Enrollment example
 
-course.enroll_user(user=101, #the id of the user
+course.enroll_user(user=101, # the id of the user
                    enrollment_type="TeacherEnrollment", # use "StudentEnrollment" if you want to enrols as student.
                    enrollment={
                        "enrollment_state": "active" # important! Otherwise use will receive notification.
@@ -216,22 +213,16 @@ course.enroll_user(user=101, #the id of the user
 
 # And hey presto! The user is enrolled. If you navigate to the "People" section of the course via the LMS you should now be able to see the enrollment.
 # 
-# Very often it is necessary to take all the enrollments from one course and replicated them on another. Remember that `course_enrollments.xlsx` spreadsheet that you created above. Let's use this to enrol all of the students on another course.
+# Very often it is necessary to take all the enrollments from one course and replicated them on another. Remember that `course_enrollments.xlsx` spreadsheet that you created above? Let's use this to enrol all of the students on another course.
 
-# In[64]:
+# In[ ]:
 
 
 # Read the spreadsheet to a data frame variable called `user_sheet`
 user_sheet = pd.read_excel("course_enrollments.xlsx")
 
 
-# In[65]:
-
-
-user_sheet.columns
-
-
-# In[66]:
+# In[ ]:
 
 
 # enroll them on another course
@@ -267,7 +258,7 @@ for i, row in user_sheet.iterrows():
 # 
 # As an example, let's get all the student enrollments on a course, print them out in a big list and then delete the enrollment chose enrollment.
 
-# In[67]:
+# In[ ]:
 
 
 # Get all student enrollments on the test_course we used above
@@ -276,7 +267,7 @@ for i, row in user_sheet.iterrows():
 enrollments = [x for x in test_course.get_enrollments() if x.type=="StudentEnrollment" and "Treharne" not in x.user["name"]]
 
 
-# In[68]:
+# In[ ]:
 
 
 # Loop over all your enrollments and print out the index and user name
@@ -286,7 +277,7 @@ for i, e in enumerate(enrollments):
 
 # Select the enrollmet you want to delete by using `[x]` at the end of your `enrollments` variable, where `x` is the index of the enrollment (you printed them out above).
 
-# In[69]:
+# In[ ]:
 
 
 # Select the enrollment to delete
@@ -297,7 +288,7 @@ enrollment_to_delete = enrollments[0]
 
 # Now, use the `.deactivate` function. Make sure you pass it a `task` variable with the value `"delete"` set.
 
-# In[70]:
+# In[ ]:
 
 
 # Select the enrollment you want to delete by using `[x]` at the end of your `enrollment
@@ -311,7 +302,7 @@ enrollment_to_delete.deactivate(task="delete")
 # There's no way of undoing the following. It is strongly recommended that you export the course enrollments to a spreadsheet (see above) and keep the file in a safe place just in case you need to re-add the students to the course.
 # ```
 
-# In[71]:
+# In[ ]:
 
 
 # Remove ALL students from a course
@@ -331,21 +322,11 @@ for e in enrollments:
 # 
 # What follows is a description of our most commonly used API actions associated with assignments.
 
-# In[1]:
-
-
-from canvasapi import Canvas
-canvas = Canvas(
-    "https://canvas.liverpool.ac.uk",
-    "15502~0h0tC35okrJhOw0KPEX7V4cvrfeU0PiztrZ5mNAxfd6iCqK3tGd31fjjBTAmnbFQ"
-)
-
-
 # ### Getting Assignments
 # 
-# In this, and the following sections I use my own personal test course in Canvas to showcase manipulating assignments with the Canvas API. Note that you will only be able to access courses via the API that you are enrolled on as a Teacher or for those that admin privelidges have been granted.
+# In this, and the following sections I continue use my own personal test course in Canvas to showcase manipulating assignments with the Canvas API. Note that you will only be able to access courses via the API that you are enrolled on as a Teacher or for those that admin privelidges have been granted.
 
-# In[72]:
+# In[ ]:
 
 
 # first get the course
@@ -357,7 +338,7 @@ assignment = course.get_assignment(224200) # 224200 is the assignment id. Get it
 
 # The object that you now have stored in the `assignment` variable will tell you pretty much everything you ever needed to know about an assignment's settings. Let's take a look via the [`__dict__`](https://docs.python.org/3/library/stdtypes.html#object.__dict__) method.
 
-# In[73]:
+# In[ ]:
 
 
 # inspect the assignment object
@@ -366,7 +347,7 @@ assignment.__dict__
 
 # Sometimes, you don't know the exact id of the assignment that you want but can't be bothered to navigate to a course's assignments page. To get a list of *all* the assignment objects associated with a course you can use the following line.
 
-# In[74]:
+# In[ ]:
 
 
 # get all course assignments
@@ -379,25 +360,23 @@ for a in assignments:
 
 # You can tweak the list comprehension above to filter assignments based on it's properties. For example:
 
-# In[75]:
+# In[ ]:
 
 
 # filter assignments based on a due date
 assignments = [x for x in course.get_assignments() if x.due_at == "2023-01-09T16:00:00Z"]
 
 
-# In[76]:
+# In[ ]:
 
 
 # or, here's another example where I search for a substring in an assignmet's name
-assignments = [x for x in course.get_assignments() if "awesome" in x.name.lower()]
+assignments = [x for x in course.get_assignments() if "summative" in x.name.lower()]
 
 
-# ### Edit Assignments
+# Once you've got an assignment object you can edit it using the API as follows:
 
-# Once you've got an assignment object you edit it using the API as follows:
-
-# In[78]:
+# In[ ]:
 
 
 a = assignments[0] # slicing my assignments variable from above to get the assignment
@@ -416,7 +395,7 @@ a = a.edit(assignment=assignment_update_info) # This line makes the changes in C
 # ### Create New Assignments
 # Creating new assignments with the the API is straightforward. Do it like this
 
-# In[79]:
+# In[ ]:
 
 
 new_assignment = course.create_assignment(assignment={
@@ -428,6 +407,10 @@ new_assignment = course.create_assignment(assignment={
         "published": True
     }
 )
+# Here's a neat trick ...
+# print the html_url value of the new assignment (or any assignment)
+# and you can click on the resultant link.
+# It'll take you straight to the new assignment on Canvas.
 print(new_assignment.html_url)
 
 
@@ -442,14 +425,11 @@ print(new_assignment.html_url)
 
 # There is no `duplicate_assigment()` function in the `canvasapi` module sadly. We have to do it the old fashioned way be defining a new function that makes direct use of the API's [duplicate](https://canvas.instructure.com/doc/api/assignments.html#method.assignments_api.duplicate) url endpoint.
 
-# In[83]:
+# In[ ]:
 
 
 # run this cell to create your own duplicate_assignment function
 import requests
-
-API_URL = "https://canvas.liverpool.ac.uk"
-API_KEY = "15502~AucX1kPx4A7c0hsJf4Z5JnpgLL0INvjLRGQK98jcy7sR53dBauGKqmAS01KU6J6W"
 
 def duplicate_assignment(course_id, assignment_id):
     """
@@ -473,7 +453,7 @@ def duplicate_assignment(course_id, assignment_id):
     return assignment
 
 
-# In[84]:
+# In[ ]:
 
 
 # Running this cell will copy your assignment from above. Check this in Canvas
@@ -481,7 +461,7 @@ new_assignment = duplicate_assignment(course.id, a.id)
 print(new_assignment.html_url)
 
 
-# In[85]:
+# In[ ]:
 
 
 # now you can proceed to edit the duplicated assignment
@@ -496,7 +476,7 @@ new_assignment = new_assignment.edit(
 
 # You can create as many duplicate assignments as you want in one go by using a loop. For example, let's create 5 duplicates and name then accordingly.
 
-# In[86]:
+# In[ ]:
 
 
 for i in range(1,6):
@@ -511,6 +491,10 @@ for i in range(1,6):
 
 
 # ### Importing Assignments
+# 
+# Another really useful API operation is the importing of assignments from once course into another. This allows us to copy assignments from a previous year into fresh new Canvas course shells ahead of the new term. When importing, the settings for third party tools (e.g. Turnitin) and associated rubrics are copied across to the new assignment.
+# 
+# The function below will take care of business.
 
 # In[ ]:
 
@@ -531,67 +515,61 @@ def import_assignment(from_course_id, to_course_id, assignment_id):
 # In[ ]:
 
 
-# https://canvas.liverpool.ac.uk/courses/58338/assignments/201149
+# importing from course - https://canvas.liverpool.ac.uk/courses/58338/assignments/201149
+# into test course
+
+# keep an eye on the test course's import page after running the following line.
 import_assignment(58338, course.id, 201149)
 
 
-# You can import anything!
+# You can similarly import just about anything using the Canvas API. Checkout the content migration documentation for more info.
 # 
 # https://canvas.instructure.com/doc/api/content_migrations.html#method.content_migrations.create
 
 # ## Submissions
+# 
+# Wow! Yes! You can use the Canvas API to report on all submissions made by students to Canvas assignments. As an example, let's take a look at submissions to a module that I teach on. Maybe I can gain some further insight into how my students are performing.
 
-# In[155]:
+# In[ ]:
 
 
+# get the course object
 course = canvas.get_course("LIFE113-202122", use_sis_id=True)
 
-
-# In[156]:
-
-
-assignments = [x for x in course.get_assignments()]
+# get the assignment object
+assignment = course.get_assignment(168483)
 
 
-# In[157]:
+# In[ ]:
 
 
-for a in assignments:
-    print(a)
+# Get the submissions for the assignment
+submissions = [x for x in assignment.get_submissions()]
 
+# All submission objects are anonymised by default
+# If I want to include user information I can use the following line instead
 
-# In[158]:
-
-
-assignments = [x for x in course.get_assignments() if "LIFE113." in x.name]
-
-
-# In[159]:
-
-
-assignment = assignments[1]
-
-
-# In[178]:
-
-
-submissions = [x for x in assignment.get_submissions(include=["user"])]
 #submissions = [x for x in assignment.get_submissions(include=["user"])]
 
 
-# In[174]:
+# In[ ]:
 
 
-len(submissions)
+len(submissions) # Sanity check, I should have over 400 assignments
 
 
-# In[177]:
+# In[ ]:
 
 
+# Let's take a look at a single submission
 submissions[0].__dict__
 
 
-# In[172]:
+# This particular assignment was a two hour open-book quiz that my students need to complete within a week period. I'm interested in knowing how many of my cohort attempted the quiz on any given day during that period and whether there was an significant change in the marks of students between the Monday and Friday.
+# 
+# The following code will take my submission and store it in a Pandas Data Frame. Pandas is a superb Python module that is typically used to organise and analyse data.
+
+# In[ ]:
 
 
 import pandas as pd
@@ -614,51 +592,53 @@ for sub in submissions:
                 }
             )
 
-data = pd.DataFrame(rows)    
-
-#data = data[data["date"] < max(data["date"].tolist())]
-
-
-# In[181]:
-
-
-data.head()
-
-
-# In[170]:
-
-
-data.to_excel("LIFE113_2022122_online_test_results.xlsx")
+data = pd.DataFrame(rows) # Convert your data to a dataframe
 
 
 # In[ ]:
 
 
+data.head() # inspect the data
+
+
+# In[ ]:
+
+
+# save the data
+data.to_excel("LIFE113_2022122_online_test_results.xlsx", index=False)
+
+
+# In[ ]:
+
+
+# generate some summary statistics
 summary = data["score"].describe()
-
-
-# In[182]:
-
 
 summary
 
 
-# In[185]:
+# Once we've created a dataframe we can start to visualise our data using another workhorse of a Python package - matplotlib.
+
+# In[ ]:
 
 
 import matplotlib.pyplot as plt
 
+# Plot a histogram of the scores
 fig, ax = plt.subplots()
-ax.hist(data["score"])
+ax.hist(data["score"], edgecolor='white')
 ax.vlines(summary["mean"], ymin=0, ymax=90, color='red')
 ax.set_xlabel("Score")
 ax.set_ylabel("Frequency")
 ax.set_ylim(0, 90)
 
 
-# In[186]:
+# Nice! But what remember, I really want to know how the marks changed on a daily basis over the week. The following code will do the job. 
+
+# In[ ]:
 
 
+# Box plot and bar char in one plot. OMG!
 fig, ax = plt.subplots(figsize=(8, 4))
 ax2 = ax.twinx()
 df_gb = data.groupby('date').count()
@@ -670,4 +650,16 @@ ax.set_ylabel("Score (%)")
 ax2.set_ylabel("Number of daily submissions")
 ax.set_title("")
 fig.suptitle("")
+
+
+# It's clear that Friday was definitely the preferred day for my students to take the quiz with aproximately one third of the cohort choosing that day. Students who took the quiz earlier in the week, i.e. Mon, Tues Wed, attained higher marks on average (~70%). On Thursday and Friday, as more and more of my students attempted the quiz, the average mark dropped to 65% and then 50% respectively. 
+# 
+# What does this tell me exactly? Well, as suspected, most students (like me) will cut it as close as possible to a deadline. It's probably wrong to interpret the figure above as evidence that students who take tests earlier in the week attain higher scores in online tests. Instead, I'd guess that students who are move confident in the subject (coding skils in this case) are happier to take the test earlier and get it out of the way. I should probably think about this a bit more first, but I'm tempted this year to shorten the window over which the test is available (e.g. Mon to Wed).
+
+# For another example of submission analysis using the Canvas API and Python checkout the sentiment analysis workbook in the Tools section.
+
+# In[ ]:
+
+
+
 
