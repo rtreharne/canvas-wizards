@@ -46,7 +46,7 @@ nltk.download('punkt')
  
 API_URL = "https://canvas.liverpool.ac.uk/"
  
-API_KEY = "15502~DqhNjK9tqamH68fsXvkoPkvH3Jgk5Tu5Uf5p4MFiCjoiUKGJBeqR7vgFs3yOj9Oe"#"<INPUT YOUR KEY HERE>" # Replace everything inside the quotation marks with your API KEY/TOKEN
+API_KEY = "<INPUT YOUR KEY HERE>" # Replace everything inside the quotation marks with your API KEY/TOKEN
 
 # Where do I get my Canvas API Key from? 
 # https://community.canvaslms.com/t5/Admin-Guide/How-do-I-manage-API-access-tokens-as-an-admin/ta-p/89

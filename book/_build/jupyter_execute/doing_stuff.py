@@ -14,7 +14,7 @@
 
 # # Step 1. Install canvasapi and configure Canvas API session
 
-# In[6]:
+# In[1]:
 
 
 # Run this cell to import the necessary modules from canvasapi and other Python modules
@@ -29,7 +29,7 @@ from tqdm import tqdm
 API_URL = "https://canvas.liverpool.ac.uk/"
 
 API_KEY = "<INPUT YOUR KEY HERE>" # Replace everything inside the quotation marks with your API KEY/TOKEN
-API_KEY = "15502~25CM3f7ltUxu05h6rkQWlIvpH1wRBLzDE1FL2xLqI1Ht2yr6Kzfxta6DBWWAdn0Z"
+
 # Where do I get my Canvas API Key from? 
 # https://community.canvaslms.com/t5/Admin-Guide/How-do-I-manage-API-access-tokens-as-an-admin/ta-p/89
 

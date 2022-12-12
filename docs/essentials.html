@@ -528,17 +528,17 @@ title="Print to PDF"
 <p>Before we begin, create your <code class="docutils literal notranslate"><span class="pre">canvas</span></code> session variable again by running the cell below with <code class="docutils literal notranslate"><span class="pre">API_URL</span></code> AND <code class="docutils literal notranslate"><span class="pre">API_KEY</span></code> set to your own personal values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Create your Canvas session
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create your Canvas session</span>
 
-from canvasapi import Canvas
+<span class="kn">from</span> <span class="nn">canvasapi</span> <span class="kn">import</span> <span class="n">Canvas</span>
 
-API_URL = &quot;&quot; # e.g. &quot;https://liverpool.instructure.com&quot;
-API_KEY = &quot;&quot;
+<span class="n">API_URL</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1"># e.g. &quot;https://liverpool.instructure.com&quot;</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
-API_URL = &quot;&lt;YOUR_CANVAS_URL&gt;&quot; # Put your canvas URL here, e.g. &quot;https://canvas.liverpool.ac.uk&quot;
-API_KEY = &quot;&lt;YOUR_API_KEY&gt;&quot;
+<span class="n">API_URL</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_CANVAS_URL&gt;&quot;</span> <span class="c1"># Put your canvas URL here, e.g. &quot;https://canvas.liverpool.ac.uk&quot;</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_API_KEY&gt;&quot;</span>
 
-canvas = Canvas(API_URL, API_KEY)
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">API_URL</span><span class="p">,</span> <span class="n">API_KEY</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -554,8 +554,8 @@ canvas = Canvas(API_URL, API_KEY)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>course_id = 61073 # REPLACE 61073 WITH YOUR COURSE ID - I&#39;m just giving an example here.
-course = canvas.get_course(course_id)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">course_id</span> <span class="o">=</span> <span class="mi">61073</span> <span class="c1"># REPLACE 61073 WITH YOUR COURSE ID - I&#39;m just giving an example here.</span>
+<span class="n">course</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">get_course</span><span class="p">(</span><span class="n">course_id</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -563,7 +563,7 @@ course = canvas.get_course(course_id)
 <p>To view all of the settings for the course use the <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>course.__dict__
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">course</span><span class="o">.</span><span class="vm">__dict__</span>
 </pre></div>
 </div>
 </div>
@@ -571,10 +571,10 @@ course = canvas.get_course(course_id)
 <p>If you want, you can also get a course based on the course_code which is usually the course name as it appears in the top left of the course homepage on Canvas. You will need to use the additional parameter <code class="docutils literal notranslate"><span class="pre">use_sis_id</span></code> in the <code class="docutils literal notranslate"><span class="pre">get_course()</span></code> function, and make sure it’s set to a value of <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Getting a course with its course_code instead of the id
-# LIFE733-202223 is used as an example here. User your own course_code!
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Getting a course with its course_code instead of the id</span>
+<span class="c1"># LIFE733-202223 is used as an example here. User your own course_code!</span>
 
-course = canvas.get_course(&quot;LIFE733-202223&quot;, use_sis_id=True)
+<span class="n">course</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">get_course</span><span class="p">(</span><span class="s2">&quot;LIFE733-202223&quot;</span><span class="p">,</span> <span class="n">use_sis_id</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -582,8 +582,8 @@ course = canvas.get_course(&quot;LIFE733-202223&quot;, use_sis_id=True)
 <p>Use the <code class="docutils literal notranslate"><span class="pre">get_enrollments()</span></code> function to get all the enrollments associated with the course.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># To get all the enrollments on a course
-enrollments = course.get_enrollments()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To get all the enrollments on a course</span>
+<span class="n">enrollments</span> <span class="o">=</span> <span class="n">course</span><span class="o">.</span><span class="n">get_enrollments</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -591,7 +591,7 @@ enrollments = course.get_enrollments()
 <p>The line above will successfully return all enrollments for a course and store them in the variable <code class="docutils literal notranslate"><span class="pre">enrollments</span></code>. However, all the information will stored in an object called a <code class="docutils literal notranslate"><span class="pre">PaginatedList</span></code> which isn’t that useful when trying to do stuff in Python. For example, if you want to figure out how many enrollments there are you might try and use the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function (very sensible), but for a <code class="docutils literal notranslate"><span class="pre">PaginatedList</span></code> you’d encounter a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>len(enrollments)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">enrollments</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -599,7 +599,7 @@ enrollments = course.get_enrollments()
 <p>To avoid <code class="docutils literal notranslate"><span class="pre">TypeErrors</span></code>, it is recommended that you retrieve list of things from canvas by using the relevant function, in this case <code class="docutils literal notranslate"><span class="pre">course.get_enrollments()</span></code>, within what is known as a “list comprehension” in Python. Without going into any futher detail, the code you need is as follows …</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>enrollments = [x for x in course.get_enrollments()]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enrollments</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">course</span><span class="o">.</span><span class="n">get_enrollments</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
@@ -610,7 +610,7 @@ enrollments = course.get_enrollments()
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>len(enrollments) # That&#39;s better! I can see there are 68 enrollments on this course.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">enrollments</span><span class="p">)</span> <span class="c1"># That&#39;s better! I can see there are 68 enrollments on this course.</span>
 </pre></div>
 </div>
 </div>
@@ -618,8 +618,8 @@ enrollments = course.get_enrollments()
 <p>Also, you can now slice your list of enrollments, e.g. to pick out a single enrollment from the list to look at it, by doing something like this …</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Example: Pick out the 65th enrollment from a list of enrollments.
-enrollments[65]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example: Pick out the 65th enrollment from a list of enrollments.</span>
+<span class="n">enrollments</span><span class="p">[</span><span class="mi">65</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -627,8 +627,8 @@ enrollments[65]
 <p>To make the data associated with the enrollment a bit more readable you can use the <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Use .__dict__ to print out the dictionary map for the enrollment object. Beatuful!
-enrollments[65].__dict__
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use .__dict__ to print out the dictionary map for the enrollment object. Beatuful!</span>
+<span class="n">enrollments</span><span class="p">[</span><span class="mi">65</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span>
 </pre></div>
 </div>
 </div>
@@ -636,8 +636,8 @@ enrollments[65].__dict__
 <p>You can access any “key value” associated with the enrollment object by using <code class="docutils literal notranslate"><span class="pre">.&lt;key_name&gt;</span></code> on any enrollment object. For example, to get the role associated the object above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Get the role associated with my enrollment
-enrollments[65].role
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the role associated with my enrollment</span>
+<span class="n">enrollments</span><span class="p">[</span><span class="mi">65</span><span class="p">]</span><span class="o">.</span><span class="n">role</span>
 </pre></div>
 </div>
 </div>
@@ -645,7 +645,7 @@ enrollments[65].role
 <p>Sometimes, you just want to get the enrollments associated with a particular role, e.g. <code class="docutils literal notranslate"><span class="pre">StudentEnrolment</span></code>. To do this you can filter accordingly using the following line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>student_enrollments = [x for x in course.get_enrollments() if x.role == &quot;StudentEnrollment&quot;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">student_enrollments</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">course</span><span class="o">.</span><span class="n">get_enrollments</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">role</span> <span class="o">==</span> <span class="s2">&quot;StudentEnrollment&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -658,23 +658,23 @@ enrollments[65].role
 <p>Run the cell below to create a Pandas data frame containing your enrollment data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># The pandas module is fantastic for reading/creating spreadsheets from data in Python
-import pandas as pd
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The pandas module is fantastic for reading/creating spreadsheets from data in Python</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-rows = [] #create an empty list to store your row data
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#create an empty list to store your row data</span>
 
-# Loop over all your student enrollments
-for e in student_enrollments:
-    # Create a dictionary containing useful info from each enrollment
-    row = {
-        &quot;user_id&quot;: e.user_id,
-        &quot;sortable_name&quot;: e.user[&quot;sortable_name&quot;],
-        &quot;role&quot;: e.role,
-        &quot;course_section_id&quot;: e.course_section_id
-    }
-    rows.append(row) # add the dictionary to the rows list.
+<span class="c1"># Loop over all your student enrollments</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">student_enrollments</span><span class="p">:</span>
+    <span class="c1"># Create a dictionary containing useful info from each enrollment</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span>
+        <span class="s2">&quot;sortable_name&quot;</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">user</span><span class="p">[</span><span class="s2">&quot;sortable_name&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">role</span><span class="p">,</span>
+        <span class="s2">&quot;course_section_id&quot;</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">course_section_id</span>
+    <span class="p">}</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="c1"># add the dictionary to the rows list.</span>
 
-output = pd.DataFrame(rows) # Convert your rows into a Pandas dataframe
+<span class="n">output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="c1"># Convert your rows into a Pandas dataframe</span>
 </pre></div>
 </div>
 </div>
@@ -682,8 +682,8 @@ output = pd.DataFrame(rows) # Convert your rows into a Pandas dataframe
 <p>You can view the first 5 rows of your data frame using the following command.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># check it out!
-output.head()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check it out!</span>
+<span class="n">output</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -691,8 +691,8 @@ output.head()
 <p>Finally, lets save the data frame to something we all know and love - the humble Excel spreadsheet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Save the output to an Excel spreadsheet
-output.to_excel(&quot;course_enrollments.xlsx&quot;, index=False)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save the output to an Excel spreadsheet</span>
+<span class="n">output</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s2">&quot;course_enrollments.xlsx&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -713,14 +713,14 @@ output.to_excel(&quot;course_enrollments.xlsx&quot;, index=False)
 <p>Below is an example of how to enroll a new user (in this case me! - my id is a very Orwellian 101) as a Teacher on a course. The <code class="docutils literal notranslate"><span class="pre">enrollment</span></code> dictionary contains information on the <code class="docutils literal notranslate"><span class="pre">enrollment_state</span></code> of the user. By setting it to <code class="docutils literal notranslate"><span class="pre">active</span></code> we can avoid sending the user any notification of their enrollment which is sometimes preferable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Enrollment example
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enrollment example</span>
 
-course.enroll_user(user=101, # the id of the user
-                   enrollment_type=&quot;TeacherEnrollment&quot;, # use &quot;StudentEnrollment&quot; if you want to enrols as student.
-                   enrollment={
-                       &quot;enrollment_state&quot;: &quot;active&quot; # important! Otherwise use will receive notification.
-                   }
-                  )
+<span class="n">course</span><span class="o">.</span><span class="n">enroll_user</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="c1"># the id of the user</span>
+                   <span class="n">enrollment_type</span><span class="o">=</span><span class="s2">&quot;TeacherEnrollment&quot;</span><span class="p">,</span> <span class="c1"># use &quot;StudentEnrollment&quot; if you want to enrols as student.</span>
+                   <span class="n">enrollment</span><span class="o">=</span><span class="p">{</span>
+                       <span class="s2">&quot;enrollment_state&quot;</span><span class="p">:</span> <span class="s2">&quot;active&quot;</span> <span class="c1"># important! Otherwise use will receive notification.</span>
+                   <span class="p">}</span>
+                  <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -729,35 +729,35 @@ course.enroll_user(user=101, # the id of the user
 <p>Very often it is necessary to take all the enrollments from one course and replicated them on another. Remember that <code class="docutils literal notranslate"><span class="pre">course_enrollments.xlsx</span></code> spreadsheet that you created above? Let’s use this to enrol all of the students on another course.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Read the spreadsheet to a data frame variable called `user_sheet`
-user_sheet = pd.read_excel(&quot;course_enrollments.xlsx&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the spreadsheet to a data frame variable called `user_sheet`</span>
+<span class="n">user_sheet</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;course_enrollments.xlsx&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># enroll them on another course
-# I&#39;ll use my own personal test course for this example, id=53523
-# https://canvas.liverpool.ac.uk/courses/53523/users
-# You can use any other course you&#39;re enrolled on.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># enroll them on another course</span>
+<span class="c1"># I&#39;ll use my own personal test course for this example, id=53523</span>
+<span class="c1"># https://canvas.liverpool.ac.uk/courses/53523/users</span>
+<span class="c1"># You can use any other course you&#39;re enrolled on.</span>
 
-test_course = canvas.get_course(53523)
+<span class="n">test_course</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">get_course</span><span class="p">(</span><span class="mi">53523</span><span class="p">)</span>
 
-for i, row in user_sheet.iterrows():
-    print(&quot;Enrolling user: &quot;, row.user_id) # Print out a line-by-line log of what&#39;s going on.
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">user_sheet</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enrolling user: &quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span> <span class="c1"># Print out a line-by-line log of what&#39;s going on.</span>
     
-    # Enroll each user in turn from the data frame
+    <span class="c1"># Enroll each user in turn from the data frame</span>
     
-    try:
-        test_course.enroll_user(user=row.user_id, 
-                       enrollment_type=row.role,
-                       enrollment={
-                           &quot;enrollment_state&quot;: &quot;active&quot; # important! Otherwise use will receive notification.
-                       }
-                      )
-    except:
-        print(&quot;Couldn&#39;t enroll user: {} ({})&quot;.format(row.sortable_name, row.user_id))
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">test_course</span><span class="o">.</span><span class="n">enroll_user</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span> 
+                       <span class="n">enrollment_type</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">role</span><span class="p">,</span>
+                       <span class="n">enrollment</span><span class="o">=</span><span class="p">{</span>
+                           <span class="s2">&quot;enrollment_state&quot;</span><span class="p">:</span> <span class="s2">&quot;active&quot;</span> <span class="c1"># important! Otherwise use will receive notification.</span>
+                       <span class="p">}</span>
+                      <span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Couldn&#39;t enroll user: </span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">sortable_name</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">user_id</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -771,19 +771,19 @@ for i, row in user_sheet.iterrows():
 <p>As an example, let’s get all the student enrollments on a course, print them out in a big list and then delete the enrollment chose enrollment.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Get all student enrollments on the test_course we used above
-# Note: I&#39;m filtering the enrollments so I don&#39;t include my own enrollment on the course (I can&#39;t delete mysef!)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all student enrollments on the test_course we used above</span>
+<span class="c1"># Note: I&#39;m filtering the enrollments so I don&#39;t include my own enrollment on the course (I can&#39;t delete mysef!)</span>
 
-enrollments = [x for x in test_course.get_enrollments() if x.type==&quot;StudentEnrollment&quot; and &quot;Treharne&quot; not in x.user[&quot;name&quot;]]
+<span class="n">enrollments</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">test_course</span><span class="o">.</span><span class="n">get_enrollments</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">type</span><span class="o">==</span><span class="s2">&quot;StudentEnrollment&quot;</span> <span class="ow">and</span> <span class="s2">&quot;Treharne&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">user</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Loop over all your enrollments and print out the index and user name
-for i, e in enumerate(enrollments):
-    print(i, e.id, e.user[&quot;sortable_name&quot;])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loop over all your enrollments and print out the index and user name</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">enrollments</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">user</span><span class="p">[</span><span class="s2">&quot;sortable_name&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -791,10 +791,10 @@ for i, e in enumerate(enrollments):
 <p>Select the enrollmet you want to delete by using <code class="docutils literal notranslate"><span class="pre">[x]</span></code> at the end of your <code class="docutils literal notranslate"><span class="pre">enrollments</span></code> variable, where <code class="docutils literal notranslate"><span class="pre">x</span></code> is the index of the enrollment (you printed them out above).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Select the enrollment to delete
-# Arbitrarily I&#39;m going to delete the first enrollment (i.e. use [0] to slice)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the enrollment to delete</span>
+<span class="c1"># Arbitrarily I&#39;m going to delete the first enrollment (i.e. use [0] to slice)</span>
 
-enrollment_to_delete = enrollments[0]
+<span class="n">enrollment_to_delete</span> <span class="o">=</span> <span class="n">enrollments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -802,9 +802,9 @@ enrollment_to_delete = enrollments[0]
 <p>Now, use the <code class="docutils literal notranslate"><span class="pre">.deactivate</span></code> function. Make sure you pass it a <code class="docutils literal notranslate"><span class="pre">task</span></code> variable with the value <code class="docutils literal notranslate"><span class="pre">&quot;delete&quot;</span></code> set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Select the enrollment you want to delete by using `[x]` at the end of your `enrollment
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the enrollment you want to delete by using `[x]` at the end of your `enrollment</span>
 
-enrollment_to_delete.deactivate(task=&quot;delete&quot;)
+<span class="n">enrollment_to_delete</span><span class="o">.</span><span class="n">deactivate</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="s2">&quot;delete&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -816,15 +816,15 @@ enrollment_to_delete.deactivate(task=&quot;delete&quot;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Remove ALL students from a course
-# Only do this if you&#39;re absolutely sure!
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove ALL students from a course</span>
+<span class="c1"># Only do this if you&#39;re absolutely sure!</span>
 
-for e in enrollments:
-    try:
-        e.deactivate(task=&quot;delete&quot;)
-        print(&quot;{} ({}) removed from course.&quot;.format(e.user[&quot;sortable_name&quot;], e.user[&quot;id&quot;]))
-    except:
-        print(&quot;No enrollment to delete!&quot;)
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">enrollments</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">deactivate</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="s2">&quot;delete&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">) removed from course.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">user</span><span class="p">[</span><span class="s2">&quot;sortable_name&quot;</span><span class="p">],</span> <span class="n">e</span><span class="o">.</span><span class="n">user</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]))</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No enrollment to delete!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -840,11 +840,11 @@ for e in enrollments:
 <p>In this, and the following sections I continue use my own personal test course in Canvas to showcase manipulating assignments with the Canvas API. Note that you will only be able to access courses via the API that you are enrolled on as a Teacher or for those that admin privelidges have been granted.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># first get the course
-course = canvas.get_course(53523) # 53523 is the id of my personal test course
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first get the course</span>
+<span class="n">course</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">get_course</span><span class="p">(</span><span class="mi">53523</span><span class="p">)</span> <span class="c1"># 53523 is the id of my personal test course</span>
 
-# then get the assignment
-assignment = course.get_assignment(224200) # 224200 is the assignment id. Get it from the assignment url. 
+<span class="c1"># then get the assignment</span>
+<span class="n">assignment</span> <span class="o">=</span> <span class="n">course</span><span class="o">.</span><span class="n">get_assignment</span><span class="p">(</span><span class="mi">224200</span><span class="p">)</span> <span class="c1"># 224200 is the assignment id. Get it from the assignment url. </span>
 </pre></div>
 </div>
 </div>
@@ -852,8 +852,8 @@ assignment = course.get_assignment(224200) # 224200 is the assignment id. Get it
 <p>The object that you now have stored in the <code class="docutils literal notranslate"><span class="pre">assignment</span></code> variable will tell you pretty much everything you ever needed to know about an assignment’s settings. Let’s take a look via the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#object.__dict__"><code class="docutils literal notranslate"><span class="pre">__dict__</span></code></a> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># inspect the assignment object
-assignment.__dict__
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># inspect the assignment object</span>
+<span class="n">assignment</span><span class="o">.</span><span class="vm">__dict__</span>
 </pre></div>
 </div>
 </div>
@@ -861,12 +861,12 @@ assignment.__dict__
 <p>Sometimes, you don’t know the exact id of the assignment that you want but can’t be bothered to navigate to a course’s assignments page. To get a list of <em>all</em> the assignment objects associated with a course you can use the following line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># get all course assignments
-assignments = [x for x in course.get_assignments()] # This particular syntax is known as a list comprehension in Python.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get all course assignments</span>
+<span class="n">assignments</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">course</span><span class="o">.</span><span class="n">get_assignments</span><span class="p">()]</span> <span class="c1"># This particular syntax is known as a list comprehension in Python.</span>
 
-# print out all the assignments and their clickable urls!
-for a in assignments:
-    print(a, a.html_url)
+<span class="c1"># print out all the assignments and their clickable urls!</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">assignments</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">html_url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -874,16 +874,16 @@ for a in assignments:
 <p>You can tweak the list comprehension above to filter assignments based on it’s properties. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># filter assignments based on a due date
-assignments = [x for x in course.get_assignments() if x.due_at == &quot;2023-01-09T16:00:00Z&quot;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># filter assignments based on a due date</span>
+<span class="n">assignments</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">course</span><span class="o">.</span><span class="n">get_assignments</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">due_at</span> <span class="o">==</span> <span class="s2">&quot;2023-01-09T16:00:00Z&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># or, here&#39;s another example where I search for a substring in an assignmet&#39;s name
-assignments = [x for x in course.get_assignments() if &quot;summative&quot; in x.name.lower()]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># or, here&#39;s another example where I search for a substring in an assignmet&#39;s name</span>
+<span class="n">assignments</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">course</span><span class="o">.</span><span class="n">get_assignments</span><span class="p">()</span> <span class="k">if</span> <span class="s2">&quot;summative&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
@@ -891,17 +891,17 @@ assignments = [x for x in course.get_assignments() if &quot;summative&quot; in x
 <p>Once you’ve got an assignment object you can edit it using the API as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = assignments[0] # slicing my assignments variable from above to get the assignment
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">assignments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># slicing my assignments variable from above to get the assignment</span>
 
-# create a dictionary of keys and values that you want to update
-assignment_update_info = {
-    &quot;description&quot;: &quot;Important information about this assignment&quot;,
-    &quot;due_at&quot;: &quot;2023-01-09T16:00:00Z&quot;, # important to get the format correct
-    &quot;name&quot;: &quot;Summative Test&quot;,
-    &quot;published&quot;: False # Students won&#39;t be able to see this assignment
-}
+<span class="c1"># create a dictionary of keys and values that you want to update</span>
+<span class="n">assignment_update_info</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Important information about this assignment&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;due_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-01-09T16:00:00Z&quot;</span><span class="p">,</span> <span class="c1"># important to get the format correct</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Summative Test&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;published&quot;</span><span class="p">:</span> <span class="kc">False</span> <span class="c1"># Students won&#39;t be able to see this assignment</span>
+<span class="p">}</span>
 
-a = a.edit(assignment=assignment_update_info) # This line makes the changes in Canvas
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">edit</span><span class="p">(</span><span class="n">assignment</span><span class="o">=</span><span class="n">assignment_update_info</span><span class="p">)</span> <span class="c1"># This line makes the changes in Canvas</span>
 </pre></div>
 </div>
 </div>
@@ -912,20 +912,20 @@ a = a.edit(assignment=assignment_update_info) # This line makes the changes in C
 <p>Creating new assignments with the the API is straightforward. Do it like this</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>new_assignment = course.create_assignment(assignment={
-        &quot;name&quot;: &quot;Assignment created with API&quot;,
-        &quot;open_at&quot;: &quot;2023-12-13T09:00:00Z&quot;,
-        &quot;due_at&quot;: &quot;2023-12-13T16:00:00Z&quot;,
-        &quot;submission_types&quot;: [&quot;online_upload&quot;],
-        &quot;anonymous_grading&quot;: True,
-        &quot;published&quot;: True
-    }
-)
-# Here&#39;s a neat trick ...
-# print the html_url value of the new assignment (or any assignment)
-# and you can click on the resultant link.
-# It&#39;ll take you straight to the new assignment on Canvas.
-print(new_assignment.html_url)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_assignment</span> <span class="o">=</span> <span class="n">course</span><span class="o">.</span><span class="n">create_assignment</span><span class="p">(</span><span class="n">assignment</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Assignment created with API&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;open_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-12-13T09:00:00Z&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;due_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-12-13T16:00:00Z&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;submission_types&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;online_upload&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;anonymous_grading&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;published&quot;</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="c1"># Here&#39;s a neat trick ...</span>
+<span class="c1"># print the html_url value of the new assignment (or any assignment)</span>
+<span class="c1"># and you can click on the resultant link.</span>
+<span class="c1"># It&#39;ll take you straight to the new assignment on Canvas.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_assignment</span><span class="o">.</span><span class="n">html_url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -941,52 +941,52 @@ print(new_assignment.html_url)
 <p>There is no <code class="docutils literal notranslate"><span class="pre">duplicate_assigment()</span></code> function in the <code class="docutils literal notranslate"><span class="pre">canvasapi</span></code> module sadly. We have to do it the old fashioned way be defining a new function that makes direct use of the API’s <a class="reference external" href="https://canvas.instructure.com/doc/api/assignments.html#method.assignments_api.duplicate">duplicate</a> url endpoint.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># run this cell to create your own duplicate_assignment function
-import requests
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run this cell to create your own duplicate_assignment function</span>
+<span class="kn">import</span> <span class="nn">requests</span>
 
-def duplicate_assignment(course_id, assignment_id):
-    &quot;&quot;&quot;
-    This function takes an assignment and makes an identical duplicate.
-    You will make sure your API_URL and API_KEY variables are set
-    before using this function. Also, import the requests module.
-    &quot;&quot;&quot;
+<span class="k">def</span> <span class="nf">duplicate_assignment</span><span class="p">(</span><span class="n">course_id</span><span class="p">,</span> <span class="n">assignment_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function takes an assignment and makes an identical duplicate.</span>
+<span class="sd">    You will make sure your API_URL and API_KEY variables are set</span>
+<span class="sd">    before using this function. Also, import the requests module.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     
-    # set the url endpoint
-    url = f&#39;{API_URL}/api/v1/courses/{course_id}/assignments/{assignment_id}/duplicate&#39;
+    <span class="c1"># set the url endpoint</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">API_URL</span><span class="si">}</span><span class="s1">/api/v1/courses/</span><span class="si">{</span><span class="n">course_id</span><span class="si">}</span><span class="s1">/assignments/</span><span class="si">{</span><span class="n">assignment_id</span><span class="si">}</span><span class="s1">/duplicate&#39;</span>
     
-    # set the request header for authentication
-    header = {&#39;Authorization&#39;: &#39;Bearer {}&#39;.format(API_KEY)}
+    <span class="c1"># set the request header for authentication</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">API_KEY</span><span class="p">)}</span>
     
-    # make the request
-    r = requests.post(url, headers=header)
+    <span class="c1"># make the request</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
     
-    # get the new assignment
-    assignment = canvas.get_course(course_id).get_assignment(r.json()[&quot;id&quot;])
+    <span class="c1"># get the new assignment</span>
+    <span class="n">assignment</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">get_course</span><span class="p">(</span><span class="n">course_id</span><span class="p">)</span><span class="o">.</span><span class="n">get_assignment</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
     
-    return assignment
+    <span class="k">return</span> <span class="n">assignment</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Running this cell will copy your assignment from above. Check this in Canvas
-new_assignment = duplicate_assignment(course.id, a.id)
-print(new_assignment.html_url)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Running this cell will copy your assignment from above. Check this in Canvas</span>
+<span class="n">new_assignment</span> <span class="o">=</span> <span class="n">duplicate_assignment</span><span class="p">(</span><span class="n">course</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_assignment</span><span class="o">.</span><span class="n">html_url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># now you can proceed to edit the duplicated assignment
-new_assignment = new_assignment.edit(
-    assignment={
-        &quot;name&quot;: &quot;Another Awesome Assignment&quot;,
-        &quot;published&quot;: True,
-        &quot;due_at&quot;: &quot;2023-01-10T12:00:00Z&quot;
-    }
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now you can proceed to edit the duplicated assignment</span>
+<span class="n">new_assignment</span> <span class="o">=</span> <span class="n">new_assignment</span><span class="o">.</span><span class="n">edit</span><span class="p">(</span>
+    <span class="n">assignment</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Another Awesome Assignment&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;published&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;due_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-01-10T12:00:00Z&quot;</span>
+    <span class="p">}</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -994,15 +994,15 @@ new_assignment = new_assignment.edit(
 <p>You can create as many duplicate assignments as you want in one go by using a loop. For example, let’s create 5 duplicates and name then accordingly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i in range(1,6):
-    new_assignment = duplicate_assignment(course.id, a.id)
-    new_assignment.edit(
-        assignment={
-            &quot;name&quot;: &quot;Assignment {}&quot;.format(str(i)),
-            &quot;published&quot;: True,
-            &quot;position&quot;: i+1 # This will make sure they appear in the correct order
-        }
-    )
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">new_assignment</span> <span class="o">=</span> <span class="n">duplicate_assignment</span><span class="p">(</span><span class="n">course</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="n">new_assignment</span><span class="o">.</span><span class="n">edit</span><span class="p">(</span>
+        <span class="n">assignment</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Assignment </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span>
+            <span class="s2">&quot;published&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="c1"># This will make sure they appear in the correct order</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1014,28 +1014,28 @@ new_assignment = new_assignment.edit(
 <p>The function below will take care of business.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def import_assignment(from_course_id, to_course_id, assignment_id):
-    settings = {
-        &quot;source_course_id&quot;: from_course_id,
-        &quot;selective_import&quot;: True,
-      }
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">import_assignment</span><span class="p">(</span><span class="n">from_course_id</span><span class="p">,</span> <span class="n">to_course_id</span><span class="p">,</span> <span class="n">assignment_id</span><span class="p">):</span>
+    <span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;source_course_id&quot;</span><span class="p">:</span> <span class="n">from_course_id</span><span class="p">,</span>
+        <span class="s2">&quot;selective_import&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+      <span class="p">}</span>
 
-    select = {
-        &quot;assignments&quot;: [assignment_id]
-    }
+    <span class="n">select</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;assignments&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">assignment_id</span><span class="p">]</span>
+    <span class="p">}</span>
 
-    canvas.get_course(to_course_id).create_content_migration(migration_type=&quot;course_copy_importer&quot;, settings=settings, select=select)
+    <span class="n">canvas</span><span class="o">.</span><span class="n">get_course</span><span class="p">(</span><span class="n">to_course_id</span><span class="p">)</span><span class="o">.</span><span class="n">create_content_migration</span><span class="p">(</span><span class="n">migration_type</span><span class="o">=</span><span class="s2">&quot;course_copy_importer&quot;</span><span class="p">,</span> <span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="n">select</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># importing from course - https://canvas.liverpool.ac.uk/courses/58338/assignments/201149
-# into test course
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing from course - https://canvas.liverpool.ac.uk/courses/58338/assignments/201149</span>
+<span class="c1"># into test course</span>
 
-# keep an eye on the test course&#39;s import page after running the following line.
-import_assignment(58338, course.id, 201149)
+<span class="c1"># keep an eye on the test course&#39;s import page after running the following line.</span>
+<span class="n">import_assignment</span><span class="p">(</span><span class="mi">58338</span><span class="p">,</span> <span class="n">course</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="mi">201149</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1049,39 +1049,39 @@ import_assignment(58338, course.id, 201149)
 <p>Wow! Yes! You can use the Canvas API to report on all submissions made by students to Canvas assignments. As an example, let’s take a look at submissions to a module that I teach on. Maybe I can gain some further insight into how my students are performing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># get the course object
-course = canvas.get_course(&quot;LIFE113-202122&quot;, use_sis_id=True)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the course object</span>
+<span class="n">course</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">get_course</span><span class="p">(</span><span class="s2">&quot;LIFE113-202122&quot;</span><span class="p">,</span> <span class="n">use_sis_id</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-# get the assignment object
-assignment = course.get_assignment(168483)
+<span class="c1"># get the assignment object</span>
+<span class="n">assignment</span> <span class="o">=</span> <span class="n">course</span><span class="o">.</span><span class="n">get_assignment</span><span class="p">(</span><span class="mi">168483</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Get the submissions for the assignment
-submissions = [x for x in assignment.get_submissions()]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the submissions for the assignment</span>
+<span class="n">submissions</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">assignment</span><span class="o">.</span><span class="n">get_submissions</span><span class="p">()]</span>
 
-# All submission objects are anonymised by default
-# If I want to include user information I can use the following line instead
+<span class="c1"># All submission objects are anonymised by default</span>
+<span class="c1"># If I want to include user information I can use the following line instead</span>
 
-#submissions = [x for x in assignment.get_submissions(include=[&quot;user&quot;])]
+<span class="c1">#submissions = [x for x in assignment.get_submissions(include=[&quot;user&quot;])]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>len(submissions) # Sanity check, I should have over 400 assignments
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">submissions</span><span class="p">)</span> <span class="c1"># Sanity check, I should have over 400 assignments</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Let&#39;s take a look at a single submission
-submissions[0].__dict__
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s take a look at a single submission</span>
+<span class="n">submissions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span>
 </pre></div>
 </div>
 </div>
@@ -1090,52 +1090,52 @@ submissions[0].__dict__
 <p>The following code will take my submission and store it in a Pandas Data Frame. Pandas is a superb Python module that is typically used to organise and analyse data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
-from datetime import datetime, date
-import pytz
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
 
-rows = []
-for sub in submissions:
-    if &quot;submitted_at_date&quot; in sub.__dict__.keys():
-        if sub.submitted_at_date &lt;= assignment.due_at_date: # 
-            rows.append(
-                {
-                    &quot;course_code&quot;: course.course_code,
-                    &quot;assignment&quot;: assignment.name,
-                    &quot;anonymous_id&quot;: sub.anonymous_id,
-                    &quot;score&quot;: sub.score,
-                    &quot;submitted_at&quot;: sub.submitted_at_date.replace(tzinfo=None),
-                    &quot;date&quot;: sub.submitted_at_date.date(),
-                    &quot;url&quot;: &quot;https://canvas.liverpool.ac.uk/courses/{0}/gradebook/speed_grader?assignment_id={1}&amp;anonymous_id={2}&quot;.format(course.id, assignment.id, sub.anonymous_id)
-                }
-            )
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">submissions</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s2">&quot;submitted_at_date&quot;</span> <span class="ow">in</span> <span class="n">sub</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">sub</span><span class="o">.</span><span class="n">submitted_at_date</span> <span class="o">&lt;=</span> <span class="n">assignment</span><span class="o">.</span><span class="n">due_at_date</span><span class="p">:</span> <span class="c1"># </span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;course_code&quot;</span><span class="p">:</span> <span class="n">course</span><span class="o">.</span><span class="n">course_code</span><span class="p">,</span>
+                    <span class="s2">&quot;assignment&quot;</span><span class="p">:</span> <span class="n">assignment</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="s2">&quot;anonymous_id&quot;</span><span class="p">:</span> <span class="n">sub</span><span class="o">.</span><span class="n">anonymous_id</span><span class="p">,</span>
+                    <span class="s2">&quot;score&quot;</span><span class="p">:</span> <span class="n">sub</span><span class="o">.</span><span class="n">score</span><span class="p">,</span>
+                    <span class="s2">&quot;submitted_at&quot;</span><span class="p">:</span> <span class="n">sub</span><span class="o">.</span><span class="n">submitted_at_date</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+                    <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="n">sub</span><span class="o">.</span><span class="n">submitted_at_date</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span>
+                    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://canvas.liverpool.ac.uk/courses/</span><span class="si">{0}</span><span class="s2">/gradebook/speed_grader?assignment_id=</span><span class="si">{1}</span><span class="s2">&amp;anonymous_id=</span><span class="si">{2}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">course</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">assignment</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">sub</span><span class="o">.</span><span class="n">anonymous_id</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
 
-data = pd.DataFrame(rows) # Convert your data to a dataframe
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="c1"># Convert your data to a dataframe</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data.head() # inspect the data
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># inspect the data</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># save the data
-data.to_excel(&quot;LIFE113_2022122_online_test_results.xlsx&quot;, index=False)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save the data</span>
+<span class="n">data</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s2">&quot;LIFE113_2022122_online_test_results.xlsx&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># generate some summary statistics
-summary = data[&quot;score&quot;].describe()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate some summary statistics</span>
+<span class="n">summary</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 
-summary
+<span class="n">summary</span>
 </pre></div>
 </div>
 </div>
@@ -1143,15 +1143,15 @@ summary
 <p>Once we’ve created a dataframe we can start to visualise our data using another workhorse of a Python package - matplotlib.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-# Plot a histogram of the scores
-fig, ax = plt.subplots()
-ax.hist(data[&quot;score&quot;], edgecolor=&#39;white&#39;)
-ax.vlines(summary[&quot;mean&quot;], ymin=0, ymax=90, color=&#39;red&#39;)
-ax.set_xlabel(&quot;Score&quot;)
-ax.set_ylabel(&quot;Frequency&quot;)
-ax.set_ylim(0, 90)
+<span class="c1"># Plot a histogram of the scores</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">summary</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">],</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Score&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1159,18 +1159,18 @@ ax.set_ylim(0, 90)
 <p>Nice! But what remember, I really want to know how the marks changed on a daily basis over the week. The following code will do the job.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Box plot and bar char in one plot. OMG!
-fig, ax = plt.subplots(figsize=(8, 4))
-ax2 = ax.twinx()
-df_gb = data.groupby(&#39;date&#39;).count()
-data.boxplot(column=&#39;score&#39;, by=&#39;date&#39;, ax=ax)
-ax2.bar(range(1, len(df_gb[&#39;score&#39;])+1), height=df_gb[&#39;score&#39;],align=&#39;center&#39;, alpha=0.3)
-fig.autofmt_xdate()
-ax.set_xlabel(&quot;Date&quot;)
-ax.set_ylabel(&quot;Score (%)&quot;)
-ax2.set_ylabel(&quot;Number of daily submissions&quot;)
-ax.set_title(&quot;&quot;)
-fig.suptitle(&quot;&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Box plot and bar char in one plot. OMG!</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">df_gb</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_gb</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">height</span><span class="o">=</span><span class="n">df_gb</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span><span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Date&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Score (%)&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of daily submissions&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
