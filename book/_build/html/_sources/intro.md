@@ -11,6 +11,9 @@ a bit of Python, to complete these tasks in a fraction of the time it usually ta
 This book is still in the process of being written. 
 Check back here regularly for updates.
 ```
+## Workshop Recording | 12 Dec 2022
+
+<iframe width="560px" height="320px" allowfullscreen="true" allow="autoplay *" title="Canvas for Admin Wizards" src="https://liverpool.instructuremedia.com/embed/716750a4-c605-422c-9fa7-d81a8719a432" frameborder="0"></iframe>
 
 ## About the Author
 Dr. Rob Treharne is Senior Lecturer in Technology Enhanced Learning (TEL), in the School of Life
