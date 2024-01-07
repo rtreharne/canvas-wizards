@@ -13,3 +13,4 @@ parts:
     - file: doing_stuff
     - file: sentiment_analysis
     - file: assignment_reporting
+    - file: assignment_with_rubric
