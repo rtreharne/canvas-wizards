@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Canvas Wizzards
-author: R. E. Treharne
+author: Robert E. Treharne
 logo: logo.png
 
 # Force re-execution of notebooks on each build.

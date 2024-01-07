@@ -12,3 +12,4 @@ parts:
     chapters:
     - file: doing_stuff
     - file: sentiment_analysis
+    - file: assignment_reporting
