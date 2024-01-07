@@ -1,2 +1,3 @@
-# Canvas LMS for Admin Wizards
+# Canvas Wizzards
+By Robert E. Treharne
 

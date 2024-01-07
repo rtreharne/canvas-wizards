@@ -1,4 +1,4 @@
-# Welcome to Canvas for Admin Wizards
+# Welcome to Canvas Wizzards
 
 This book is for anyone who needs to perform gritty, repetitive tasks in Canvas.
 You might need to enrol many students on a course from a long list, build spreadsheets
